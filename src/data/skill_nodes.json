@@ -1,0 +1,97 @@
+[
+  {
+    "id": "PA_04_blend_cvc",
+    "course": "K–2 Decoding",
+    "unit": "1. Foundations",
+    "module": "1.1. Phonemic Awareness",
+    "topic": "1.1.1. Blending CVC Phonemes",
+    "strand": "Phonemic Awareness",
+    "skill": "Blend 3 spoken phonemes into a CVC word",
+    "examples": ["/k/-/a/-/t/ → cat", "/f/-/i/-/sh/ → fish", "/h/-/o/-/p/ → hop"],
+    "prereqs": [],
+    "mastery": {
+      "read_accuracy": 0.9,
+      "read_latency_ms": 4000,
+      "rolling_window": 10
+    },
+    "assessment": "phoneme_blend",
+    "xpPerItem": 1,
+    "xpOnMastery": 20
+  },
+  {
+    "id": "CVC_short_a",
+    "course": "K–2 Decoding",
+    "unit": "2. Single-Syllable Phonics",
+    "module": "2.1. Short Vowels",
+    "topic": "2.1.1. CVC Words with Short A",
+    "strand": "CVC",
+    "skill": "Decode CVC words with short a",
+    "examples": ["map", "cat", "hat", "ran", "bag"],
+    "prereqs": ["PA_04_blend_cvc"],
+    "mastery": {
+      "read_accuracy": 0.9,
+      "read_latency_ms": 2500,
+      "rolling_window": 10
+    },
+    "assessment": "read_aloud",
+    "xpPerItem": 1,
+    "xpOnMastery": 20
+  },
+  {
+    "id": "CVC_short_i",
+    "course": "K–2 Decoding",
+    "unit": "2. Single-Syllable Phonics",
+    "module": "2.1. Short Vowels",
+    "topic": "2.1.2. CVC Words with Short I",
+    "strand": "CVC",
+    "skill": "Decode CVC words with short i",
+    "examples": ["sit", "pin", "lid", "fix", "hit"],
+    "prereqs": ["CVC_short_a"],
+    "mastery": {
+      "read_accuracy": 0.9,
+      "read_latency_ms": 2500,
+      "rolling_window": 10
+    },
+    "assessment": "read_aloud",
+    "xpPerItem": 1,
+    "xpOnMastery": 20
+  },
+  {
+    "id": "DG_sh",
+    "course": "K–2 Decoding",
+    "unit": "2. Single-Syllable Phonics",
+    "module": "2.2. Digraphs",
+    "topic": "2.2.1. The 'sh' Digraph",
+    "strand": "Digraph",
+    "skill": "Decode words with the digraph sh (initial and final)",
+    "examples": ["ship", "shop", "fish", "dish", "cash"],
+    "prereqs": ["CVC_short_i"],
+    "mastery": {
+      "read_accuracy": 0.9,
+      "read_latency_ms": 2500,
+      "rolling_window": 10
+    },
+    "assessment": "read_aloud",
+    "xpPerItem": 1,
+    "xpOnMastery": 20
+  },
+  {
+    "id": "FL_01_cvc_fluency",
+    "course": "K–2 Decoding",
+    "unit": "3. Fluency",
+    "module": "3.1. Cold-Read Drills",
+    "topic": "3.1.1. CVC + sh Fluency",
+    "strand": "Fluency",
+    "skill": "Read mastered short-vowel + sh words at target rate",
+    "examples": ["ship", "fish", "cat", "hop", "dish", "ran", "shop", "hat"],
+    "prereqs": ["DG_sh"],
+    "mastery": {
+      "read_accuracy": 0.9,
+      "read_latency_ms": 2500,
+      "rolling_window": 10
+    },
+    "assessment": "read_aloud",
+    "xpPerItem": 2,
+    "xpOnMastery": 30
+  }
+]

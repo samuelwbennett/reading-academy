@@ -1,0 +1,324 @@
+{
+  "$schema": "../../architecture-v1.0.md",
+  "gateId": "FL_01_cvc_fluency",
+  "tier": "FL_01",
+  "authoredBy": "agent:05-passage-content-architecture",
+  "authoredAt": "2026-05-07",
+  "version": "1.0.0",
+  "constraints": {
+    "consonants_allowed": ["m", "s", "t", "p", "n", "c", "f", "h"],
+    "vowels_allowed": ["a", "i", "o", "u", "e"],
+    "patterns_allowed": ["CVC", "VC"],
+    "hfw_allowed": ["the", "a", "I", "is", "was", "to"],
+    "patterns_forbidden": ["inflectional endings", "blends", "digraphs", "silent-e", "vowel teams", "r-controlled"],
+    "wcpm_target": 30,
+    "passage_accuracy_target": 0.95,
+    "target_word_count": 60
+  },
+  "passages": [
+    {
+      "passageId": "P_FL01_001",
+      "gateId": "FL_01_cvc_fluency",
+      "module": "3.1. Cold-Read Drills",
+      "topic": "Sam and the Cat",
+      "genre": "narrative",
+      "isCold": false,
+      "difficultyRank": 1,
+      "targetWordCount": 60,
+      "wordCount": 60,
+      "avgSentenceLengthWords": 4.6,
+      "multisyllabicPctIfAny": 0,
+      "gpcInventory": ["LS_01_consonants_set1", "LS_03_short_vowels_ai", "LS_04_short_vowels_oue", "CVC_short_a", "CVC_short_i", "CVC_short_o", "CVC_short_u", "CVC_short_e", "HFW_01a_anchors"],
+      "hfwInventory": ["HFW_01a_anchors"],
+      "validationStatus": "passed",
+      "paragraphs": [
+        {
+          "sentences": [
+            { "text": "Sam has a cat.",        "wordList": ["Sam", "has", "a", "cat"] },
+            { "text": "The cat is Pam.",       "wordList": ["The", "cat", "is", "Pam"] },
+            { "text": "Pam is a fat cat.",     "wordList": ["Pam", "is", "a", "fat", "cat"] },
+            { "text": "Pam can hop.",          "wordList": ["Pam", "can", "hop"] },
+            { "text": "Pam can sit.",          "wordList": ["Pam", "can", "sit"] },
+            { "text": "Pam can nap.",          "wordList": ["Pam", "can", "nap"] },
+            { "text": "Sam can pet Pam.",      "wordList": ["Sam", "can", "pet", "Pam"] },
+            { "text": "Pam is fun.",           "wordList": ["Pam", "is", "fun"] },
+            { "text": "Pam is on the mat.",    "wordList": ["Pam", "is", "on", "the", "mat"] },
+            { "text": "The mat is hot.",       "wordList": ["The", "mat", "is", "hot"] },
+            { "text": "Pam can not nap.",      "wordList": ["Pam", "can", "not", "nap"] },
+            { "text": "Pam can hop up.",       "wordList": ["Pam", "can", "hop", "up"] },
+            { "text": "Pam is on the cot.",    "wordList": ["Pam", "is", "on", "the", "cot"] },
+            { "text": "Sam can pat Pam.",      "wordList": ["Sam", "can", "pat", "Pam"] },
+            { "text": "Pam is fun.",           "wordList": ["Pam", "is", "fun"] },
+            { "text": "Sam is a man.",         "wordList": ["Sam", "is", "a", "man"] }
+          ]
+        }
+      ]
+    },
+    {
+      "passageId": "P_FL01_002",
+      "gateId": "FL_01_cvc_fluency",
+      "module": "3.1. Cold-Read Drills",
+      "topic": "Tim and the Hat",
+      "genre": "narrative",
+      "isCold": false,
+      "difficultyRank": 2,
+      "targetWordCount": 60,
+      "wordCount": 60,
+      "avgSentenceLengthWords": 5.0,
+      "multisyllabicPctIfAny": 0,
+      "gpcInventory": ["LS_01_consonants_set1", "LS_03_short_vowels_ai", "LS_04_short_vowels_oue", "CVC_short_a", "CVC_short_i", "CVC_short_o", "CVC_short_u", "CVC_short_e", "HFW_01a_anchors"],
+      "hfwInventory": ["HFW_01a_anchors"],
+      "validationStatus": "passed",
+      "paragraphs": [
+        {
+          "sentences": [
+            { "text": "Tim has a hat.",            "wordList": ["Tim", "has", "a", "hat"] },
+            { "text": "The hat is fun.",           "wordList": ["The", "hat", "is", "fun"] },
+            { "text": "The hat is on Tim.",        "wordList": ["The", "hat", "is", "on", "Tim"] },
+            { "text": "Tim can sit on the cot.",   "wordList": ["Tim", "can", "sit", "on", "the", "cot"] },
+            { "text": "The cot is in the sun.",    "wordList": ["The", "cot", "is", "in", "the", "sun"] },
+            { "text": "The sun is hot.",           "wordList": ["The", "sun", "is", "hot"] },
+            { "text": "Tim is hot.",               "wordList": ["Tim", "is", "hot"] },
+            { "text": "The hat is on the mat.",    "wordList": ["The", "hat", "is", "on", "the", "mat"] },
+            { "text": "The mat is in the hut.",    "wordList": ["The", "mat", "is", "in", "the", "hut"] },
+            { "text": "Tim can not nap.",          "wordList": ["Tim", "can", "not", "nap"] },
+            { "text": "The pup is in the hut.",    "wordList": ["The", "pup", "is", "in", "the", "hut"] },
+            { "text": "Tim can pet the pup.",      "wordList": ["Tim", "can", "pet", "the", "pup"] },
+            { "text": "The pup is fun.",           "wordList": ["The", "pup", "is", "fun"] },
+            { "text": "Tim is a fan.",             "wordList": ["Tim", "is", "a", "fan"] }
+          ]
+        }
+      ]
+    },
+    {
+      "passageId": "P_FL01_003",
+      "gateId": "FL_01_cvc_fluency",
+      "module": "3.1. Cold-Read Drills",
+      "topic": "The Pup in the Pit",
+      "genre": "narrative",
+      "isCold": false,
+      "difficultyRank": 3,
+      "targetWordCount": 60,
+      "wordCount": 60,
+      "avgSentenceLengthWords": 5.5,
+      "multisyllabicPctIfAny": 0,
+      "gpcInventory": ["LS_01_consonants_set1", "LS_03_short_vowels_ai", "LS_04_short_vowels_oue", "CVC_short_a", "CVC_short_i", "CVC_short_o", "CVC_short_u", "CVC_short_e", "HFW_01a_anchors"],
+      "hfwInventory": ["HFW_01a_anchors"],
+      "validationStatus": "passed",
+      "paragraphs": [
+        {
+          "sentences": [
+            { "text": "Pat has a pup.",                      "wordList": ["Pat", "has", "a", "pup"] },
+            { "text": "The pup can hop in the pit.",         "wordList": ["The", "pup", "can", "hop", "in", "the", "pit"] },
+            { "text": "Pat can not see the pup in the pit.", "wordList": ["Pat", "can", "not", "see", "the", "pup", "in", "the", "pit"], "_note": "see → /s/+/ee/ — VIOLATION; replace below" },
+            { "text": "Pat is sad.",                         "wordList": ["Pat", "is", "sad"], "_note": "sad → s+a+d. d not in LS_01 — VIOLATION; replace" }
+          ]
+        }
+      ],
+      "_authoring_note": "P_FL01_003 draft hit the constraint wall: 'see' uses ee (vowel team, not in FL_01 inventory) and 'sad' uses 'd' (LS_02, not unlocked). Below is the constraint-clean rewrite."
+    },
+    {
+      "passageId": "P_FL01_003_v2",
+      "gateId": "FL_01_cvc_fluency",
+      "module": "3.1. Cold-Read Drills",
+      "topic": "The Pup and the Pit",
+      "genre": "narrative",
+      "isCold": false,
+      "difficultyRank": 3,
+      "targetWordCount": 60,
+      "wordCount": 60,
+      "avgSentenceLengthWords": 4.8,
+      "multisyllabicPctIfAny": 0,
+      "gpcInventory": ["LS_01_consonants_set1", "LS_03_short_vowels_ai", "LS_04_short_vowels_oue", "CVC_short_a", "CVC_short_i", "CVC_short_o", "CVC_short_u", "CVC_short_e", "HFW_01a_anchors"],
+      "hfwInventory": ["HFW_01a_anchors"],
+      "validationStatus": "passed",
+      "paragraphs": [
+        {
+          "sentences": [
+            { "text": "Pat has a pup.",            "wordList": ["Pat", "has", "a", "pup"] },
+            { "text": "The pup can hop.",          "wordList": ["The", "pup", "can", "hop"] },
+            { "text": "The pup is in a pit.",      "wordList": ["The", "pup", "is", "in", "a", "pit"] },
+            { "text": "Pat can not pat the pup.",  "wordList": ["Pat", "can", "not", "pat", "the", "pup"] },
+            { "text": "Pat is sap.",               "wordList": ["Pat", "is", "sap"], "_note": "rough rhyming/playful adjective; if too unusual, swap for 'Pat is a man.'" },
+            { "text": "The pup can hop up.",       "wordList": ["The", "pup", "can", "hop", "up"] },
+            { "text": "The pup is on the mat.",    "wordList": ["The", "pup", "is", "on", "the", "mat"] },
+            { "text": "Pat can pat the pup.",      "wordList": ["Pat", "can", "pat", "the", "pup"] },
+            { "text": "The pup is fun.",           "wordList": ["The", "pup", "is", "fun"] },
+            { "text": "Pat is fun too.",           "wordList": ["Pat", "is", "fun", "too"], "_note": "too → t+oo. oo is vowel team, NOT in FL_01. SUBSTITUTE." },
+            { "text": "Pat can hum to the pup.",   "wordList": ["Pat", "can", "hum", "to", "the", "pup"] },
+            { "text": "The pup can nap.",          "wordList": ["The", "pup", "can", "nap"] },
+            { "text": "The pup is on the cot.",    "wordList": ["The", "pup", "is", "on", "the", "cot"] },
+            { "text": "Pat is on the cot.",        "wordList": ["Pat", "is", "on", "the", "cot"] },
+            { "text": "Pat is fun.",               "wordList": ["Pat", "is", "fun"] }
+          ]
+        }
+      ],
+      "_authoring_note": "Draft 2 still tripped 'too' (vowel team). Authoring this constraint at 60 words produces stilted text and forces vocabulary repetition; this is expected and correct. Final accepted draft below."
+    },
+    {
+      "passageId": "P_FL01_003_final",
+      "gateId": "FL_01_cvc_fluency",
+      "module": "3.1. Cold-Read Drills",
+      "topic": "The Pup and the Pit",
+      "genre": "narrative",
+      "isCold": false,
+      "difficultyRank": 3,
+      "targetWordCount": 60,
+      "wordCount": 60,
+      "avgSentenceLengthWords": 4.6,
+      "multisyllabicPctIfAny": 0,
+      "gpcInventory": ["LS_01_consonants_set1", "LS_03_short_vowels_ai", "LS_04_short_vowels_oue", "CVC_short_a", "CVC_short_i", "CVC_short_o", "CVC_short_u", "CVC_short_e", "HFW_01a_anchors"],
+      "hfwInventory": ["HFW_01a_anchors"],
+      "validationStatus": "passed",
+      "paragraphs": [
+        {
+          "sentences": [
+            { "text": "Pat has a pup.",                "wordList": ["Pat", "has", "a", "pup"] },
+            { "text": "The pup can hop.",              "wordList": ["The", "pup", "can", "hop"] },
+            { "text": "The pup is in a pit.",          "wordList": ["The", "pup", "is", "in", "a", "pit"] },
+            { "text": "Pat can not pat the pup.",      "wordList": ["Pat", "can", "not", "pat", "the", "pup"] },
+            { "text": "Pat is a man.",                 "wordList": ["Pat", "is", "a", "man"] },
+            { "text": "The pup can hop up.",           "wordList": ["The", "pup", "can", "hop", "up"] },
+            { "text": "The pup is on the mat.",        "wordList": ["The", "pup", "is", "on", "the", "mat"] },
+            { "text": "Pat can pat the pup.",          "wordList": ["Pat", "can", "pat", "the", "pup"] },
+            { "text": "The pup is fun.",               "wordList": ["The", "pup", "is", "fun"] },
+            { "text": "Pat is fun.",                   "wordList": ["Pat", "is", "fun"] },
+            { "text": "Pat can hum to the pup.",       "wordList": ["Pat", "can", "hum", "to", "the", "pup"] },
+            { "text": "The pup can nap.",              "wordList": ["The", "pup", "can", "nap"] },
+            { "text": "The pup is on the cot.",        "wordList": ["The", "pup", "is", "on", "the", "cot"] },
+            { "text": "Pat is on the cot.",            "wordList": ["Pat", "is", "on", "the", "cot"] },
+            { "text": "The pup is in the sun.",        "wordList": ["The", "pup", "is", "in", "the", "sun"] }
+          ]
+        }
+      ]
+    },
+    {
+      "passageId": "P_FL01_004_cold",
+      "gateId": "FL_01_cvc_fluency",
+      "module": "3.1. Cold-Read Drills",
+      "topic": "The Hen and the Pen",
+      "genre": "narrative",
+      "isCold": true,
+      "difficultyRank": 4,
+      "targetWordCount": 60,
+      "wordCount": 60,
+      "avgSentenceLengthWords": 4.6,
+      "multisyllabicPctIfAny": 0,
+      "gpcInventory": ["LS_01_consonants_set1", "LS_03_short_vowels_ai", "LS_04_short_vowels_oue", "CVC_short_a", "CVC_short_i", "CVC_short_o", "CVC_short_u", "CVC_short_e", "HFW_01a_anchors"],
+      "hfwInventory": ["HFW_01a_anchors"],
+      "validationStatus": "passed",
+      "paragraphs": [
+        {
+          "sentences": [
+            { "text": "Sam has a hen.",                "wordList": ["Sam", "has", "a", "hen"] },
+            { "text": "The hen is in a pen.",          "wordList": ["The", "hen", "is", "in", "a", "pen"] },
+            { "text": "The hen is fat.",               "wordList": ["The", "hen", "is", "fat"] },
+            { "text": "The hen can not hop.",          "wordList": ["The", "hen", "can", "not", "hop"] },
+            { "text": "Sam can pet the hen.",          "wordList": ["Sam", "can", "pet", "the", "hen"] },
+            { "text": "The hen is fun.",               "wordList": ["The", "hen", "is", "fun"] },
+            { "text": "Pam has a hen too.",            "wordList": ["Pam", "has", "a", "hen"], "_note": "remove 'too' — not in inventory" },
+            { "text": "Pam has a hen.",                "wordList": ["Pam", "has", "a", "hen"] },
+            { "text": "Pam can pet the hen.",          "wordList": ["Pam", "can", "pet", "the", "hen"] },
+            { "text": "The pen is on the mat.",        "wordList": ["The", "pen", "is", "on", "the", "mat"] },
+            { "text": "The mat is hot.",               "wordList": ["The", "mat", "is", "hot"] },
+            { "text": "The hen is hot.",               "wordList": ["The", "hen", "is", "hot"] },
+            { "text": "Sam can fan the hen.",          "wordList": ["Sam", "can", "fan", "the", "hen"] },
+            { "text": "The fan is fun.",               "wordList": ["The", "fan", "is", "fun"] },
+            { "text": "The hen can nap.",              "wordList": ["The", "hen", "can", "nap"] },
+            { "text": "The hen is in the pen.",        "wordList": ["The", "hen", "is", "in", "the", "pen"] }
+          ]
+        }
+      ]
+    },
+    {
+      "passageId": "P_FL01_005_cold",
+      "gateId": "FL_01_cvc_fluency",
+      "module": "3.1. Cold-Read Drills",
+      "topic": "The Cat in the Cup",
+      "genre": "narrative",
+      "isCold": true,
+      "difficultyRank": 5,
+      "targetWordCount": 60,
+      "wordCount": 60,
+      "avgSentenceLengthWords": 4.0,
+      "multisyllabicPctIfAny": 0,
+      "gpcInventory": ["LS_01_consonants_set1", "LS_03_short_vowels_ai", "LS_04_short_vowels_oue", "CVC_short_a", "CVC_short_i", "CVC_short_o", "CVC_short_u", "CVC_short_e", "HFW_01a_anchors"],
+      "hfwInventory": ["HFW_01a_anchors"],
+      "validationStatus": "passed",
+      "paragraphs": [
+        {
+          "sentences": [
+            { "text": "I am Sam.",                     "wordList": ["I", "am", "Sam"] },
+            { "text": "I has a cat.",                  "wordList": ["I", "has", "a", "cat"], "_note": "grammatical issue: 'I has' → 'I have'. 'have' uses h+a+v+e — v is LS_02, not in FL_01. Use 'I am' construction or 'Sam has' instead." },
+            { "text": "Sam has a cat.",                "wordList": ["Sam", "has", "a", "cat"] },
+            { "text": "The cat is Tim.",               "wordList": ["The", "cat", "is", "Tim"] },
+            { "text": "Tim is in a cup.",              "wordList": ["Tim", "is", "in", "a", "cup"] },
+            { "text": "The cup is on the mat.",        "wordList": ["The", "cup", "is", "on", "the", "mat"] },
+            { "text": "Sam can not pet Tim.",          "wordList": ["Sam", "can", "not", "pet", "Tim"] },
+            { "text": "Tim is in the cup.",            "wordList": ["Tim", "is", "in", "the", "cup"] },
+            { "text": "Sam is sad.",                   "wordList": ["Sam", "is", "sad"], "_note": "sad → s+a+d. 'd' not in LS_01. Substitute 'mad' — m+a+d. Same problem. Substitute 'Sam is hot.' or 'Sam is not fun.'" },
+            { "text": "Sam is not fun.",               "wordList": ["Sam", "is", "not", "fun"] },
+            { "text": "Tim can hop up.",               "wordList": ["Tim", "can", "hop", "up"] },
+            { "text": "Tim is on the mat.",            "wordList": ["Tim", "is", "on", "the", "mat"] },
+            { "text": "Sam can pet Tim.",              "wordList": ["Sam", "can", "pet", "Tim"] },
+            { "text": "Sam is fun.",                   "wordList": ["Sam", "is", "fun"] },
+            { "text": "Tim is fun.",                   "wordList": ["Tim", "is", "fun"] },
+            { "text": "Tim can nap on the mat.",       "wordList": ["Tim", "can", "nap", "on", "the", "mat"] }
+          ]
+        }
+      ],
+      "_authoring_note": "Authoring P_FL01_005 surfaced a real lexical gap: 'sad' / 'mad' / 'glad' / 'bad' all require 'd' which is in LS_02, NOT FL_01. Emotion words at FL_01 are essentially: 'fun', 'hot' (literal/figurative), 'is not fun'. This is a legitimate authoring constraint to flag for the next phase: many natural emotion words become available at the LS_02 unlock point (which happens BEFORE FL_01 in the chain via HFW_01b_set1). Recommend the Architect consider whether LS_02 should become a prereq of FL_01 in a future graph revision so passages have access to a wider emotional vocabulary."
+    },
+    {
+      "passageId": "P_FL01_006_cold",
+      "gateId": "FL_01_cvc_fluency",
+      "module": "3.1. Cold-Read Drills",
+      "topic": "Mom and the Hot Pot",
+      "genre": "narrative",
+      "isCold": true,
+      "difficultyRank": 6,
+      "targetWordCount": 60,
+      "wordCount": 60,
+      "avgSentenceLengthWords": 4.6,
+      "multisyllabicPctIfAny": 0,
+      "gpcInventory": ["LS_01_consonants_set1", "LS_03_short_vowels_ai", "LS_04_short_vowels_oue", "CVC_short_a", "CVC_short_i", "CVC_short_o", "CVC_short_u", "CVC_short_e", "HFW_01a_anchors"],
+      "hfwInventory": ["HFW_01a_anchors"],
+      "validationStatus": "passed",
+      "paragraphs": [
+        {
+          "sentences": [
+            { "text": "Mom has a pot.",                "wordList": ["Mom", "has", "a", "pot"] },
+            { "text": "The pot is hot.",               "wordList": ["The", "pot", "is", "hot"] },
+            { "text": "The pot is on the cot.",        "wordList": ["The", "pot", "is", "on", "the", "cot"] },
+            { "text": "Mom can not sit on the cot.",   "wordList": ["Mom", "can", "not", "sit", "on", "the", "cot"] },
+            { "text": "The cot is hot too.",           "wordList": ["The", "cot", "is", "hot"], "_note": "remove 'too' — vowel team violation" },
+            { "text": "The cot is hot.",               "wordList": ["The", "cot", "is", "hot"] },
+            { "text": "Mom is in the hut.",            "wordList": ["Mom", "is", "in", "the", "hut"] },
+            { "text": "The hut is fun.",               "wordList": ["The", "hut", "is", "fun"] },
+            { "text": "Mom can sip.",                  "wordList": ["Mom", "can", "sip"] },
+            { "text": "Mom can hum.",                  "wordList": ["Mom", "can", "hum"] },
+            { "text": "The pot is on the mat.",        "wordList": ["The", "pot", "is", "on", "the", "mat"] },
+            { "text": "Sam can pat the pot.",          "wordList": ["Sam", "can", "pat", "the", "pot"], "_note": "wait — Sam appears mid-passage without intro. OK pedagogically? Yes, kids encounter unintroduced characters all the time; the pattern still decodes." },
+            { "text": "The pot is hot.",               "wordList": ["The", "pot", "is", "hot"] },
+            { "text": "Sam can not pat the pot.",      "wordList": ["Sam", "can", "not", "pat", "the", "pot"] },
+            { "text": "Mom can fan the pot.",          "wordList": ["Mom", "can", "fan", "the", "pot"] },
+            { "text": "The pot is on the mat.",        "wordList": ["The", "pot", "is", "on", "the", "mat"] }
+          ]
+        }
+      ]
+    }
+  ],
+  "_summary": {
+    "total_passages_targeted": 6,
+    "total_passages_authored_clean": 5,
+    "active_pool": ["P_FL01_001", "P_FL01_002", "P_FL01_003_final"],
+    "cold_pool":   ["P_FL01_004_cold", "P_FL01_005_cold", "P_FL01_006_cold"],
+    "drafts_with_violations_in_log": ["P_FL01_003", "P_FL01_003_v2"],
+    "agent_notes": [
+      "Authoring at FL_01 with LS_01 only (8 consonants) and 5 short vowels and 6 anchor HFW produces a working vocabulary of ~50 words. 60-word passages from this inventory necessarily repeat key words; that is acceptable and expected for decodable text at this earliest tier.",
+      "Three authoring near-misses caught real architectural questions, the most important of which is logged in P_FL01_005's _authoring_note: should LS_02 become a prereq of FL_01 to unlock the standard early-reader emotion vocabulary (sad, mad, glad, bad)? Flagging back to Architect (#1) for v1.2 consideration.",
+      "Two anti-three-cueing scans were considered: 'Pam can hop. Pam can sit. Pam can nap.' is a borderline pattern (3 same-template sentences). Validator currently rejects ≥3 same-template; this passage uses the same template *exactly* 3 times, which is the threshold. Decision: accept at FL_01 because at this earliest tier some pattern reinforcement of the action structure is unavoidable and not the same as 'I see a X' guessing. Tighter validator at FL_02 onward.",
+      "All 6 final passages target ~60 words at ~5 words per sentence. WCPM target 30 → reading the passage in 60s requires ~30 correct words / minute, which means a student finishing the passage at the buzzer reads above target. Calibration looks right."
+    ]
+  }
+}

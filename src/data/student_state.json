@@ -4,10 +4,225 @@
   "createdAt": "2026-05-04",
   "diagnosticComplete": false,
   "nodes": {
-    "PA_04_blend_cvc":   { "status": "unlocked", "attempts": [] },
-    "CVC_short_a":       { "status": "locked",   "attempts": [] },
-    "CVC_short_i":       { "status": "locked",   "attempts": [] },
-    "DG_sh":             { "status": "locked",   "attempts": [] },
-    "FL_01_cvc_fluency": { "status": "locked",   "attempts": [] }
+    "PA_01_initial_isolation": {
+      "status": "locked",
+      "attempts": []
+    },
+    "PA_02_final_isolation": {
+      "status": "locked",
+      "attempts": []
+    },
+    "PA_03_medial_isolation": {
+      "status": "locked",
+      "attempts": []
+    },
+    "PA_04_blend_2_3": {
+      "status": "locked",
+      "attempts": []
+    },
+    "PA_05_blend_4_5": {
+      "status": "locked",
+      "attempts": []
+    },
+    "PA_06_segment_cvc": {
+      "status": "locked",
+      "attempts": []
+    },
+    "PA_07_segment_4_5": {
+      "status": "locked",
+      "attempts": []
+    },
+    "PA_08_deletion_initial": {
+      "status": "locked",
+      "attempts": []
+    },
+    "PA_09_deletion_final": {
+      "status": "locked",
+      "attempts": []
+    },
+    "PA_10_substitution": {
+      "status": "locked",
+      "attempts": []
+    },
+    "LS_01_consonants_set1": {
+      "status": "locked",
+      "attempts": []
+    },
+    "LS_02_consonants_set2": {
+      "status": "locked",
+      "attempts": []
+    },
+    "LS_03_short_vowels_ai": {
+      "status": "locked",
+      "attempts": []
+    },
+    "LS_04_short_vowels_oue": {
+      "status": "locked",
+      "attempts": []
+    },
+    "CVC_short_a": {
+      "status": "locked",
+      "attempts": []
+    },
+    "CVC_short_i": {
+      "status": "locked",
+      "attempts": []
+    },
+    "CVC_short_o": {
+      "status": "locked",
+      "attempts": []
+    },
+    "CVC_short_u": {
+      "status": "locked",
+      "attempts": []
+    },
+    "CVC_short_e": {
+      "status": "locked",
+      "attempts": []
+    },
+    "HFW_01a_anchors": {
+      "status": "locked",
+      "attempts": []
+    },
+    "HFW_01b_set1": {
+      "status": "locked",
+      "attempts": []
+    },
+    "FL_01_cvc_fluency": {
+      "status": "locked",
+      "attempts": []
+    },
+    "BL_INIT_s": {
+      "status": "locked",
+      "attempts": []
+    },
+    "BL_INIT_l": {
+      "status": "locked",
+      "attempts": []
+    },
+    "BL_INIT_r": {
+      "status": "locked",
+      "attempts": []
+    },
+    "BL_FIN": {
+      "status": "locked",
+      "attempts": []
+    },
+    "DG_sh": {
+      "status": "locked",
+      "attempts": []
+    },
+    "DG_ch": {
+      "status": "locked",
+      "attempts": []
+    },
+    "DG_th": {
+      "status": "locked",
+      "attempts": []
+    },
+    "DG_ck": {
+      "status": "locked",
+      "attempts": []
+    },
+    "DG_ng_nk": {
+      "status": "locked",
+      "attempts": []
+    },
+    "TG_tch_dge": {
+      "status": "locked",
+      "attempts": []
+    },
+    "HFW_02_set2": {
+      "status": "locked",
+      "attempts": []
+    },
+    "IE_s_es": {
+      "status": "locked",
+      "attempts": []
+    },
+    "FL_02_blend_digraph_fluency": {
+      "status": "locked",
+      "attempts": []
+    },
+    "SE_a_e": {
+      "status": "locked",
+      "attempts": []
+    },
+    "SE_i_e": {
+      "status": "locked",
+      "attempts": []
+    },
+    "SE_o_e": {
+      "status": "locked",
+      "attempts": []
+    },
+    "SE_u_e": {
+      "status": "locked",
+      "attempts": []
+    },
+    "IE_ed_ing": {
+      "status": "locked",
+      "attempts": []
+    },
+    "FL_03_silent_e_fluency": {
+      "status": "locked",
+      "attempts": []
+    },
+    "VT_ai_ay": {
+      "status": "locked",
+      "attempts": []
+    },
+    "VT_ee_ea": {
+      "status": "locked",
+      "attempts": []
+    },
+    "VT_oa_ow_long": {
+      "status": "locked",
+      "attempts": []
+    },
+    "VT_igh_ie": {
+      "status": "locked",
+      "attempts": []
+    },
+    "VT_oo_both": {
+      "status": "locked",
+      "attempts": []
+    },
+    "VT_ou_ow_diph": {
+      "status": "locked",
+      "attempts": []
+    },
+    "VT_oi_oy": {
+      "status": "locked",
+      "attempts": []
+    },
+    "RC_ar": {
+      "status": "locked",
+      "attempts": []
+    },
+    "RC_or": {
+      "status": "locked",
+      "attempts": []
+    },
+    "RC_er_ir_ur": {
+      "status": "locked",
+      "attempts": []
+    },
+    "SCG_soft": {
+      "status": "locked",
+      "attempts": []
+    },
+    "SY_compound": {
+      "status": "locked",
+      "attempts": []
+    },
+    "SY_closed_2syl": {
+      "status": "locked",
+      "attempts": []
+    },
+    "FL_04_grade2_fluency": {
+      "status": "locked",
+      "attempts": []
+    }
   }
 }

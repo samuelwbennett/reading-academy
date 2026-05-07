@@ -6,11 +6,15 @@
 
 ## P1 — soon
 
-- [ ] Expand 5-node chain to full 54-node K–2 graph (design already in session JSON).
-- [ ] Author 20+ items per node.
+- [x] **Knowledge Graph Architect**: K-2 decoding graph designed (54 nodes, DAG-verified). See `docs/curriculum/k2-decoding-graph.json`.
+- [ ] Port 54-node graph from `docs/curriculum/` into `src/data/skill_nodes.json` (currently only 5 nodes ship in the running app).
+- [ ] **Activate Agent #2 — Science of Reading Research**: validate the graph's prereq edges and mastery thresholds.
+- [ ] **Activate Agent #3 — Assessment & Mastery**: lock per-node thresholds, item counts, scoring rules.
+- [ ] **Activate Agent #4 — Reading Fluency**: design the Reading Facts engine (latency, automaticity, spacing).
+- [ ] Author 20+ items per node (Assessment & Mastery output).
 - [ ] Daily session orchestrator: lesson + 2 reviews + passage + fluency drill, fixed ~17 min block.
 - [ ] FIRe-lite scheduler: SM-2 base + trickle-down credit on prereqs.
-- [ ] Decodable passage library with GPC inventory tagging.
+- [ ] Decodable passage library with GPC inventory tagging (Passage & Content Architecture agent output).
 
 ## P2 — later
 

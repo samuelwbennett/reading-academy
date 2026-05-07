@@ -1,0 +1,113 @@
+/* Reading Academy — local styles.
+   All classes prefixed `ra-` to prevent collision with the launcher's `sa-*`
+   namespace. The full Reading Academy stylesheet rebuilds in M1. */
+
+.ra-stub {
+  min-height: 100vh;
+  background: #F5F5F7;
+  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", "Helvetica Neue", system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  color: #1d1d1f;
+}
+.ra-stub-inner {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 56px 28px 96px;
+}
+.ra-stub-back {
+  display: inline-block;
+  font-size: 13px;
+  color: #86868b;
+  text-decoration: none;
+  font-weight: 500;
+  margin-bottom: 28px;
+}
+.ra-stub-back:hover { color: #1d1d1f; }
+.ra-stub-title {
+  font-size: 38px;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  margin: 0 0 6px;
+}
+.ra-stub-sub {
+  font-size: 15px;
+  color: #6e6e73;
+  margin: 0 0 32px;
+  line-height: 1.45;
+}
+.ra-stub-card {
+  background: #fff;
+  border-radius: 22px;
+  padding: 22px 24px;
+  margin-bottom: 16px;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.04), 0 12px 32px -16px rgba(0,0,0,0.10);
+}
+.ra-stub-eyebrow {
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #86868b;
+  margin-bottom: 12px;
+}
+.ra-stub-stats {
+  display: flex;
+  gap: 24px;
+  font-size: 16px;
+  color: #1d1d1f;
+  margin-bottom: 16px;
+  flex-wrap: wrap;
+}
+.ra-stub-stats > div { line-height: 1.2; }
+.ra-stub-stats strong {
+  font-weight: 600;
+  font-size: 22px;
+  letter-spacing: -0.01em;
+  margin-right: 6px;
+}
+.ra-stub-strands {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 14px;
+}
+.ra-stub-strand {
+  font-size: 12px;
+  color: #6e6e73;
+  background: #f5f5f7;
+  padding: 4px 10px;
+  border-radius: 999px;
+}
+.ra-stub-strand strong {
+  color: #1d1d1f;
+  font-weight: 600;
+  margin-right: 4px;
+}
+.ra-stub-validity {
+  font-size: 13px;
+  font-weight: 500;
+  color: #34c759;
+}
+.ra-stub-validity.bad { color: #ff3b30; }
+.ra-stub-next {
+  font-size: 14px;
+  color: #424245;
+  line-height: 1.55;
+  margin: 0;
+}
+.ra-stub-next code {
+  background: #f5f5f7;
+  padding: 1px 6px;
+  border-radius: 4px;
+  font-family: "SF Mono", ui-monospace, monospace;
+  font-size: 13px;
+}
+.ra-stub-roots {
+  font-family: "SF Mono", ui-monospace, monospace;
+  font-size: 12px;
+  color: #6e6e73;
+  background: #f5f5f7;
+  padding: 8px 12px;
+  border-radius: 8px;
+  margin-top: 8px;
+}

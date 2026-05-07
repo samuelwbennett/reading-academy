@@ -1,113 +1,307 @@
 /* Reading Academy — local styles.
    All classes prefixed `ra-` to prevent collision with the launcher's `sa-*`
-   namespace. The full Reading Academy stylesheet rebuilds in M1. */
+   namespace. */
 
-.ra-stub {
+.ra-app {
   min-height: 100vh;
   background: #F5F5F7;
   font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", "Helvetica Neue", system-ui, sans-serif;
   -webkit-font-smoothing: antialiased;
   color: #1d1d1f;
 }
-.ra-stub-inner {
-  max-width: 720px;
+.ra-app-inner {
+  max-width: 760px;
   margin: 0 auto;
   padding: 56px 28px 96px;
 }
-.ra-stub-back {
+@media (max-width: 600px) {
+  .ra-app-inner { padding: 36px 20px 60px; }
+}
+
+/* ---- Header ----------------------------------------------------------- */
+.ra-header { margin-bottom: 28px; }
+.ra-header-back {
   display: inline-block;
   font-size: 13px;
   color: #86868b;
   text-decoration: none;
   font-weight: 500;
-  margin-bottom: 28px;
+  margin-bottom: 24px;
+  transition: color 0.15s ease;
 }
-.ra-stub-back:hover { color: #1d1d1f; }
-.ra-stub-title {
+.ra-header-back:hover { color: #1d1d1f; }
+.ra-header-title {
   font-size: 38px;
   font-weight: 600;
   letter-spacing: -0.02em;
-  margin: 0 0 6px;
+  margin: 0 0 8px;
 }
-.ra-stub-sub {
-  font-size: 15px;
+.ra-header-status {
+  font-size: 13px;
   color: #6e6e73;
-  margin: 0 0 32px;
-  line-height: 1.45;
+  margin: 0;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
 }
-.ra-stub-card {
+.ra-header-dot {
+  display: inline-block;
+  width: 7px; height: 7px;
+  border-radius: 50%;
+  background: #34c759;
+}
+.ra-header-dot.bad { background: #ff3b30; }
+
+/* ---- Card (shared shell) --------------------------------------------- */
+.ra-card {
   background: #fff;
   border-radius: 22px;
   padding: 22px 24px;
   margin-bottom: 16px;
   box-shadow: 0 1px 2px rgba(0,0,0,0.04), 0 12px 32px -16px rgba(0,0,0,0.10);
 }
-.ra-stub-eyebrow {
+.ra-eyebrow {
   font-size: 11px;
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.08em;
   color: #86868b;
-  margin-bottom: 12px;
+  margin: 0 0 12px;
 }
-.ra-stub-stats {
-  display: flex;
-  gap: 24px;
-  font-size: 16px;
-  color: #1d1d1f;
-  margin-bottom: 16px;
-  flex-wrap: wrap;
-}
-.ra-stub-stats > div { line-height: 1.2; }
-.ra-stub-stats strong {
-  font-weight: 600;
+.ra-card-title {
   font-size: 22px;
-  letter-spacing: -0.01em;
-  margin-right: 6px;
-}
-.ra-stub-strands {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-  margin-bottom: 14px;
-}
-.ra-stub-strand {
-  font-size: 12px;
-  color: #6e6e73;
-  background: #f5f5f7;
-  padding: 4px 10px;
-  border-radius: 999px;
-}
-.ra-stub-strand strong {
-  color: #1d1d1f;
   font-weight: 600;
-  margin-right: 4px;
+  letter-spacing: -0.01em;
+  margin: 0 0 4px;
 }
-.ra-stub-validity {
-  font-size: 13px;
-  font-weight: 500;
-  color: #34c759;
-}
-.ra-stub-validity.bad { color: #ff3b30; }
-.ra-stub-next {
+.ra-card-sub {
   font-size: 14px;
-  color: #424245;
-  line-height: 1.55;
-  margin: 0;
+  color: #6e6e73;
+  margin: 0 0 18px;
 }
-.ra-stub-next code {
+.ra-id {
+  font-family: "SF Mono", ui-monospace, monospace;
+  font-size: 12px;
   background: #f5f5f7;
   padding: 1px 6px;
   border-radius: 4px;
-  font-family: "SF Mono", ui-monospace, monospace;
-  font-size: 13px;
+  color: #6e6e73;
 }
-.ra-stub-roots {
-  font-family: "SF Mono", ui-monospace, monospace;
+
+/* ---- Today Session meta row ------------------------------------------ */
+.ra-meta-row {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  margin: 0 0 18px;
+}
+@media (max-width: 540px) {
+  .ra-meta-row { grid-template-columns: 1fr; }
+}
+.ra-meta {
+  background: #f5f5f7;
+  border-radius: 12px;
+  padding: 10px 14px;
+}
+.ra-meta-label {
+  font-size: 10px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: #86868b;
+  margin-bottom: 4px;
+}
+.ra-meta-value {
+  font-size: 14px;
+  font-weight: 500;
+  color: #1d1d1f;
+  letter-spacing: -0.005em;
+}
+
+/* ---- Action buttons -------------------------------------------------- */
+.ra-actions {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+}
+.ra-btn {
+  appearance: none;
+  font-family: inherit;
+  font-size: 14px;
+  font-weight: 600;
+  padding: 14px 16px;
+  border-radius: 14px;
+  border: 1px solid #d2d2d7;
+  background: #fff;
+  color: #1d1d1f;
+  cursor: pointer;
+  transition: background 0.15s ease, border-color 0.15s ease;
+}
+.ra-btn:hover:not(:disabled) {
+  background: #f5f5f7;
+  border-color: #c7c7cc;
+}
+.ra-btn:disabled {
+  cursor: not-allowed;
+  color: #aeaeb2;
+  background: #fafafc;
+  border-color: #e5e5ea;
+}
+.ra-actions-note {
   font-size: 12px;
+  color: #86868b;
+  margin: 12px 0 0;
+  text-align: center;
+}
+
+/* ---- Progress summary ------------------------------------------------ */
+.ra-progress-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+  margin-bottom: 16px;
+}
+@media (max-width: 540px) {
+  .ra-progress-grid { grid-template-columns: repeat(2, 1fr); }
+}
+.ra-progress-cell {
+  background: #f5f5f7;
+  border-radius: 12px;
+  padding: 12px 10px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.ra-progress-cell strong {
+  font-size: 24px;
+  font-weight: 600;
+  letter-spacing: -0.015em;
+  color: #1d1d1f;
+  line-height: 1.1;
+}
+.ra-progress-cell span {
+  font-size: 11px;
+  color: #86868b;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  font-weight: 500;
+  margin-top: 4px;
+}
+.ra-progress-bar {
+  height: 6px;
+  background: #e5e5ea;
+  border-radius: 999px;
+  overflow: hidden;
+}
+.ra-progress-bar-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #34c759, #5ddb7a);
+  transition: width 0.6s ease-out;
+}
+.ra-progress-pct {
+  font-size: 13px;
+  color: #6e6e73;
+  margin: 10px 0 0;
+}
+
+/* ---- Course tree ----------------------------------------------------- */
+.ra-tree { display: flex; flex-direction: column; gap: 4px; }
+.ra-strand {}
+.ra-strand-head {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  width: 100%;
+  appearance: none;
+  border: none;
+  background: transparent;
+  font-family: inherit;
+  font-size: 14px;
+  font-weight: 600;
+  text-align: left;
+  padding: 8px 4px;
+  cursor: pointer;
+  color: #1d1d1f;
+  border-radius: 8px;
+}
+.ra-strand-head:hover { background: #f5f5f7; }
+.ra-strand-caret {
+  font-size: 10px;
+  width: 12px;
+  color: #86868b;
+}
+.ra-strand-name { flex: 1; letter-spacing: -0.005em; }
+.ra-strand-count {
+  font-size: 12px;
+  font-weight: 500;
   color: #6e6e73;
   background: #f5f5f7;
-  padding: 8px 12px;
-  border-radius: 8px;
-  margin-top: 8px;
+  padding: 2px 8px;
+  border-radius: 999px;
+  font-variant-numeric: tabular-nums;
 }
+.ra-node-list {
+  list-style: none;
+  margin: 2px 0 8px 16px;
+  padding: 0;
+  border-left: 1px solid #e5e5ea;
+}
+.ra-node {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 8px 12px;
+  margin: 1px 0;
+  border-radius: 8px;
+  transition: background 0.15s ease;
+}
+.ra-node:hover { background: #fafafc; }
+.ra-node.current {
+  background: #f0f9ff;
+  outline: 2px solid #0a84ff;
+  outline-offset: -2px;
+}
+.ra-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  flex-shrink: 0;
+  margin-top: 6px;
+  background: #d2d2d7;
+}
+.ra-dot-mastered   { background: #34c759; }
+.ra-dot-active,
+.ra-dot-practicing { background: #ff9f0a; }
+.ra-dot-unlocked   { background: #0a84ff; }
+.ra-dot-locked     { background: #d2d2d7; }
+.ra-node-text {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+}
+.ra-node-name {
+  font-size: 13.5px;
+  color: #1d1d1f;
+  font-weight: 500;
+}
+.ra-node.locked .ra-node-name { color: #8e8e93; }
+.ra-node-meta {
+  font-size: 11.5px;
+  color: #86868b;
+  display: inline-flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  align-items: center;
+}
+
+/* ---- Stub state (kept from earlier; may still be reached if page loads
+        before state is ready) ------------------------------------------- */
+.ra-stub { min-height: 100vh; background: #F5F5F7; font-family: inherit; }
+.ra-stub-inner { max-width: 720px; margin: 0 auto; padding: 56px 28px 96px; }
+.ra-stub-back { display: inline-block; font-size: 13px; color: #86868b; text-decoration: none; }
+.ra-stub-title { font-size: 38px; font-weight: 600; margin: 0 0 6px; }
+.ra-stub-sub { font-size: 15px; color: #6e6e73; margin: 0 0 32px; }
+.ra-stub-card { background: #fff; border-radius: 22px; padding: 22px 24px; margin-bottom: 16px; }
+.ra-stub-eyebrow { font-size: 11px; font-weight: 600; text-transform: uppercase; color: #86868b; }

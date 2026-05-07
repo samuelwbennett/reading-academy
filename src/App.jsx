@@ -1,1173 +1,430 @@
-import React, { useCallback, useEffect, useMemo, useRef, useState } from "react";
-import skillNodesData from "./data/skill_nodes.json";
-import assessmentItemsData from "./data/assessment_items.json";
-import initialStudentState from "./data/student_state.json";
-import {
-  recordAttempt,
-  evaluateMastery,
-  rollingAccuracy,
-  rollingMedianLatency,
-  selectActiveNode,
-  progressSummary,
-  cascadeUnlock,
-  applyDiagnostic,
-  getDailyXp,
-  getRecentAttempts,
-  getRecentMasteries,
-  getTodayTasks,
-  buildCourseTree,
-} from "./lib/masteryEngine.js";
+import React, { useEffect, useId, useMemo, useState } from "react";
+import { createClient } from "@supabase/supabase-js";
 
-import { useAuth } from "./hooks/useAuth.js";
-import { signOut } from "./services/auth.js";
-import {
-  readLocal,
-  writeLocal,
-  loadFromSupabase,
-  saveToSupabase,
-} from "./services/storage.js";
-import Login from "./components/Login.jsx";
-import AccountUnlinked from "./components/AccountUnlinked.jsx";
+// --- Supabase ----------------------------------------------------------------
+const SUPABASE_URL = import.meta.env?.VITE_SUPABASE_URL || "";
+const SUPABASE_ANON_KEY = import.meta.env?.VITE_SUPABASE_ANON_KEY || "";
+const supabase =
+  SUPABASE_URL && SUPABASE_ANON_KEY
+    ? createClient(SUPABASE_URL, SUPABASE_ANON_KEY)
+    : null;
 
-// expose nodes to engine helpers
-globalThis.__skillNodes = skillNodesData;
+// --- Config ------------------------------------------------------------------
+const STUDENT_NAME = "Samuel"; // Greeting target
+const DAILY_XP_GOAL = 30;
 
-// Migrate older localStorage shapes (PA_06_segment_cvc → PA_04_blend_cvc).
-function migrateState(s) {
-  if (!s) return s;
-  if (s?.nodes?.PA_06_segment_cvc && !s.nodes.PA_04_blend_cvc) {
-    s.nodes.PA_04_blend_cvc = s.nodes.PA_06_segment_cvc;
-    delete s.nodes.PA_06_segment_cvc;
-  }
-  return s;
-}
+// The apps that show up as rings. Each ring is tappable → launches the app.
+const APPS = [
+  {
+    key: "math",
+    label: "Math Academy",
+    sub: "4th Grade Math",
+    url: "https://www.mathacademy.com/",
+    color: { from: "#FF2D55", to: "#FF6482", track: "rgba(255, 45, 85, 0.12)" },
+  },
+  {
+    key: "reading",
+    label: "Reading",
+    sub: "Lexia Core5",
+    url: "https://www.lexialearning.com/",
+    color: { from: "#34C759", to: "#5DDB7A", track: "rgba(52, 199, 89, 0.14)" },
+  },
+  {
+    key: "writing",
+    label: "Writing",
+    sub: "Quill",
+    url: "https://www.quill.org/",
+    color: { from: "#0A84FF", to: "#5AC8FA", track: "rgba(10, 132, 255, 0.14)" },
+  },
+];
 
-function freshState() {
-  return structuredClone(initialStudentState);
-}
+// --- Helpers -----------------------------------------------------------------
+const fmtNum = (n) =>
+  n === null || n === undefined || Number.isNaN(Number(n))
+    ? "—"
+    : Number(n).toLocaleString();
 
-// ---------- XP Ring ----------
-function XpRing({ xp, target, size = 60, stroke = 6 }) {
+const greeting = () => {
+  const h = new Date().getHours();
+  if (h < 5) return "Hi";
+  if (h < 12) return "Good morning";
+  if (h < 18) return "Good afternoon";
+  return "Good evening";
+};
+
+// --- Ring (tappable app launcher) -------------------------------------------
+function AppRing({ app, value, goal = 100, size = 132, stroke = 12, onClick }) {
+  const id = useId();
   const r = (size - stroke) / 2;
-  const cx = size / 2;
-  const cy = size / 2;
-  const circumference = 2 * Math.PI * r;
-  const pct = Math.min(1, target > 0 ? xp / target : 0);
-  const offset = circumference * (1 - pct);
-  const reached = pct >= 1;
+  const c = 2 * Math.PI * r;
+  const v = Number(value) || 0;
+  const pct = Math.max(0, Math.min(1, v / goal));
+  const offset = c * (1 - pct);
 
   return (
-    <div className={`xp-ring ${reached ? "reached" : ""}`} role="img" aria-label={`${xp} of ${target} XP today`}>
-      <svg width={size} height={size} viewBox={`0 0 ${size} ${size}`}>
-        <defs>
-          <linearGradient id="xp-grad" x1="0%" y1="0%" x2="100%" y2="100%">
-            <stop offset="0%"   stopColor="#ffd76a" />
-            <stop offset="50%"  stopColor="#f5b800" />
-            <stop offset="100%" stopColor="#c98a00" />
-          </linearGradient>
-        </defs>
-        <circle
-          cx={cx} cy={cy} r={r}
-          fill="none"
-          stroke="var(--xp-track)"
-          strokeWidth={stroke}
-        />
-        <circle
-          cx={cx} cy={cy} r={r}
-          fill="none"
-          stroke="url(#xp-grad)"
-          strokeWidth={stroke}
-          strokeLinecap="round"
-          strokeDasharray={circumference}
-          strokeDashoffset={offset}
-          transform={`rotate(-90 ${cx} ${cy})`}
-          style={{ transition: "stroke-dashoffset 0.5s ease" }}
-        />
-      </svg>
-      <div className="xp-ring-text">
-        <div className="xp-ring-num">{xp}</div>
-        <div className="xp-ring-target">XP</div>
-      </div>
-    </div>
-  );
-}
-
-function NodeBadge({ status }) {
-  const label =
-    status === "mastered" ? "Mastered" :
-    status === "active" || status === "practicing" ? "In progress" :
-    status === "unlocked" ? "Unlocked" :
-    "Locked";
-  return <span className={`badge ${status}`}>{label}</span>;
-}
-
-// ---------- Today's Tasks (Math Academy-style task menu) ----------
-function TodayTasks({ state, nodes, onStart }) {
-  const tasks = useMemo(() => getTodayTasks(state, nodes, 4), [state, nodes]);
-
-  if (!tasks.length) {
-    return (
-      <div className="card">
-        <div className="section-label">Today's tasks</div>
-        <h2 style={{ fontSize: 22, margin: "8px 0 4px" }}>You're all caught up</h2>
-        <p style={{ color: "var(--muted)", margin: 0 }}>
-          Every available skill is mastered. New material unlocks as the graph grows.
-        </p>
-      </div>
-    );
-  }
-
-  return (
-    <div className="card">
-      <div className="section-label">Today's tasks</div>
-      <ul className="task-list">
-        {tasks.map((t) => (
-          <li key={t.id} className="task-card">
-            <div className="task-meta">
-              <span className={`task-pill ${t.type.toLowerCase()}`}>{t.type}</span>
-              <span className="task-xp">+{t.xp} XP</span>
-            </div>
-            <div className="task-title">{t.title}</div>
-            <div className="task-sub">{t.subtitle}</div>
-            <div className="task-foot">
-              <span className="task-stats">{t.items} items · ~{t.estMinutes} min</span>
-              <button className="btn task-start" onClick={() => onStart(t.nodeId)}>
-                Start →
-              </button>
-            </div>
-          </li>
-        ))}
-      </ul>
-    </div>
-  );
-}
-
-// ---------- Recent Work ----------
-function RecentWork({ state, nodes }) {
-  const masteries = useMemo(() => getRecentMasteries(state, nodes, 3), [state, nodes]);
-  const attempts  = useMemo(() => getRecentAttempts(state, nodes, 8), [state, nodes]);
-
-  if (!masteries.length && !attempts.length) {
-    return null;
-  }
-
-  const fmtAgo = (ts) => {
-    if (!ts) return "";
-    const ms = Date.now() - ts;
-    if (ms < 60_000) return `${Math.max(1, Math.floor(ms / 1000))}s ago`;
-    if (ms < 3_600_000) return `${Math.floor(ms / 60_000)}m ago`;
-    if (ms < 86_400_000) return `${Math.floor(ms / 3_600_000)}h ago`;
-    return `${Math.floor(ms / 86_400_000)}d ago`;
-  };
-
-  return (
-    <div className="card">
-      <div className="section-label">Recent work</div>
-      {masteries.length > 0 && (
-        <ul className="recent-list">
-          {masteries.map(({ node, masteredAt }) => (
-            <li key={node.id} className="recent-row mastery">
-              <span className="recent-icon">✓</span>
-              <div className="recent-text">
-                <div className="recent-title">Mastered · {node.topic || node.skill}</div>
-                <div className="recent-sub">{node.module} · {fmtAgo(masteredAt)}</div>
-              </div>
-            </li>
-          ))}
-        </ul>
-      )}
-      {attempts.length > 0 && (
-        <>
-          <div className="section-label" style={{ marginTop: 14 }}>Recent attempts</div>
-          <ul className="recent-list">
-            {attempts.map((a, i) => (
-              <li key={i} className={`recent-row ${a.correct ? "good" : "bad"}`}>
-                <span className="recent-icon">{a.correct ? "●" : "○"}</span>
-                <div className="recent-text">
-                  <div className="recent-title">
-                    {a.prompt} · {a.correct ? "correct" : "incorrect"}
-                    {a.heard && <span className="recent-heard"> · heard "{a.heard}"</span>}
-                  </div>
-                  <div className="recent-sub">
-                    {a.node.topic || a.node.skill} · {(a.latencyMs / 1000).toFixed(2)}s · {fmtAgo(a.ts)}
-                  </div>
-                </div>
-              </li>
-            ))}
-          </ul>
-        </>
-      )}
-    </div>
-  );
-}
-
-// ---------- Course Tree (left rail) ----------
-function CourseTree({ state, nodes, activeNodeId, onPickTopic, mode = "compact" }) {
-  const tree = useMemo(() => buildCourseTree(nodes, state), [nodes, state]);
-  const [expanded, setExpanded] = useState(() => new Set(tree.flatMap((c) =>
-    c.units.flatMap((u) => u.modules.map((m) => `${c.name}>${u.name}>${m.name}`))
-  )));
-  const toggle = (key) => {
-    setExpanded((prev) => {
-      const next = new Set(prev);
-      if (next.has(key)) next.delete(key);
-      else next.add(key);
-      return next;
-    });
-  };
-
-  return (
-    <nav className={`course-tree ${mode}`}>
-      {tree.map((course) => (
-        <div key={course.name} className="ct-course">
-          <div className="ct-course-name">{course.name}</div>
-          {course.units.map((unit) => (
-            <div key={unit.name} className="ct-unit">
-              <div className="ct-unit-name">{unit.name}</div>
-              {unit.modules.map((mod) => {
-                const key = `${course.name}>${unit.name}>${mod.name}`;
-                const open = expanded.has(key);
-                return (
-                  <div key={mod.name} className="ct-module">
-                    <button
-                      className="ct-module-name"
-                      onClick={() => toggle(key)}
-                    >
-                      <span className="ct-caret">{open ? "▾" : "▸"}</span>
-                      <span className="ct-module-text">{mod.name}</span>
-                      <span className="ct-module-count">{mod.masteredCount}/{mod.total}</span>
-                    </button>
-                    {open && (
-                      <ul className="ct-topics">
-                        {mod.topics.map(({ def, state: ns }) => {
-                          const isActive = def.id === activeNodeId;
-                          const status = ns.status;
-                          return (
-                            <li
-                              key={def.id}
-                              className={`ct-topic ${status} ${isActive ? "current" : ""}`}
-                              title={`${course.name} > ${unit.name} > ${mod.name} > ${def.topic}`}
-                            >
-                              <button
-                                className="ct-topic-btn"
-                                onClick={() => onPickTopic?.(def.id)}
-                                disabled={status === "locked"}
-                              >
-                                <span className="ct-status-dot" data-status={status} />
-                                <span className="ct-topic-text">{def.topic}</span>
-                              </button>
-                            </li>
-                          );
-                        })}
-                      </ul>
-                    )}
-                  </div>
-                );
-              })}
-            </div>
-          ))}
-        </div>
-      ))}
-    </nav>
-  );
-}
-
-function Dashboard({ state, nodes, onStart, activeNodeId }) {
-  return (
-    <>
-      <TodayTasks state={state} nodes={nodes} onStart={(nodeId) => onStart(nodeId)} />
-      <RecentWork state={state} nodes={nodes} />
-    </>
-  );
-}
-
-// ---------- Speech recognition ----------
-
-function getRecognitionCtor() {
-  if (typeof window === "undefined") return null;
-  return window.SpeechRecognition || window.webkitSpeechRecognition || null;
-}
-
-// Accept the expected word as exact-match against any returned alternative,
-// allowing leading/trailing fluff like "the cat" or "cat!".
-function matchWord(expected, alternatives) {
-  const norm = (s) => (s || "").toLowerCase().replace(/[^a-z]+/g, " ").trim();
-  const exp = norm(expected);
-  if (!exp) return false;
-  for (const alt of alternatives) {
-    const altN = norm(alt);
-    if (!altN) continue;
-    if (altN === exp) return true;
-    const tokens = altN.split(/\s+/);
-    if (tokens.includes(exp)) return true;
-  }
-  return false;
-}
-
-function useSpeechRecognition() {
-  const supported = !!getRecognitionCtor();
-  const [listening, setListening] = useState(false);
-  const [heard, setHeard] = useState(null);
-  const [error, setError] = useState(null);
-  const ref = useRef(null);
-
-  const stop = useCallback(() => {
-    try { ref.current?.stop(); } catch {}
-    setListening(false);
-  }, []);
-
-  useEffect(() => () => stop(), [stop]);
-
-  const listen = useCallback((expected, onComplete) => {
-    if (!supported) {
-      onComplete?.({ matched: false, heard: null, error: "unsupported", latencyMs: 0 });
-      return;
-    }
-    const Ctor = getRecognitionCtor();
-    const r = new Ctor();
-    r.lang = "en-US";
-    r.continuous = false;
-    r.interimResults = false;
-    r.maxAlternatives = 5;
-
-    const startedAt = Date.now();
-    let resolved = false;
-
-    const finish = (payload) => {
-      if (resolved) return;
-      resolved = true;
-      setListening(false);
-      setHeard(payload.heard || null);
-      setError(payload.error || null);
-      onComplete?.({ ...payload, latencyMs: Date.now() - startedAt });
-    };
-
-    r.onresult = (e) => {
-      const alts = [];
-      for (let i = 0; i < e.results[0].length; i++) {
-        alts.push(e.results[0][i].transcript);
-      }
-      const matched = matchWord(expected, alts);
-      finish({ matched, heard: alts[0] || null, alts, error: null });
-    };
-    r.onerror = (e) => finish({ matched: false, heard: null, error: e.error || "error" });
-    r.onend = () => finish({ matched: false, heard: null, error: "no-speech" });
-
-    setHeard(null);
-    setError(null);
-    setListening(true);
-    try { r.start(); } catch (e) { finish({ matched: false, heard: null, error: "start-failed" }); }
-    ref.current = r;
-  }, [supported]);
-
-  return { supported, listening, heard, error, listen, stop };
-}
-
-function MicButton({ expected, onResult, label = "Tap to speak", disabled = false }) {
-  const { supported, listening, heard, error, listen } = useSpeechRecognition();
-
-  if (!supported) {
-    return (
-      <div className="mic-fallback">
-        Mic recognition needs Chrome, Edge, or Safari.<br/>
-        Use the Correct / Incorrect buttons below.
-      </div>
-    );
-  }
-
-  const handleClick = () => {
-    if (listening || disabled) return;
-    listen(expected, (result) => onResult?.(result));
-  };
-
-  return (
-    <div className="mic-block">
-      <button
-        type="button"
-        className={`mic-btn ${listening ? "listening" : ""}`}
-        onClick={handleClick}
-        disabled={disabled || listening}
-        aria-label={listening ? "Listening" : label}
-      >
-        <span className="mic-icon">🎤</span>
-        <span className="mic-label">
-          {listening ? "Listening…" : label}
-        </span>
-      </button>
-      <div className="mic-status">
-        {error === "not-allowed" && "Mic blocked — allow microphone in the address bar."}
-        {error === "no-speech" && "Didn't hear anything. Tap to try again."}
-        {error && error !== "not-allowed" && error !== "no-speech" && `Mic error: ${error}.`}
-        {!error && heard && <>Heard: <strong>"{heard}"</strong></>}
-      </div>
-    </div>
-  );
-}
-
-// ---------- Blend task ----------
-// App plays phonemes one at a time, lighting a bubble per phoneme.
-// Then mic listens for the spoken whole word. ASR scores it.
-function BlendTask({ item, onResult, onAdultScore }) {
-  const phonemes = item.phonemes || [];
-  const labels = item.phonemeLabels || phonemes.map((p) => `/${p}/`);
-  const [activeIdx, setActiveIdx] = useState(-1);   // -1 before first plays
-  const [played, setPlayed] = useState(false);
-  const [revealed, setRevealed] = useState(false);
-  const playedKeyRef = useRef(null);
-  const supported = !!getRecognitionCtor();
-
-  // Auto-play sequence on first mount per item
-  useEffect(() => {
-    const key = item.prompt;
-    if (playedKeyRef.current === key) return;
-    playedKeyRef.current = key;
-    setActiveIdx(-1);
-    setPlayed(false);
-    setRevealed(false);
-
-    let cancelled = false;
-    const playSeq = async () => {
-      for (let i = 0; i < phonemes.length; i++) {
-        if (cancelled) return;
-        setActiveIdx(i);
-        // Speak the phoneme. Browser TTS approximates — for /sh/ we say "sh".
-        speak(phonemes[i], { rate: 0.7 });
-        await new Promise((r) => setTimeout(r, 850));
-      }
-      if (!cancelled) setPlayed(true);
-    };
-    const start = setTimeout(playSeq, 250);
-    return () => { cancelled = true; clearTimeout(start); };
-  }, [item.prompt]);
-
-  const replay = () => {
-    playedKeyRef.current = null;   // force the auto-play effect to re-run
-    setActiveIdx(-1);
-    setPlayed(false);
-    // trigger by mutating a ref-ish dep — easiest: schedule the same logic inline
-    let cancelled = false;
-    (async () => {
-      for (let i = 0; i < phonemes.length; i++) {
-        if (cancelled) return;
-        setActiveIdx(i);
-        speak(phonemes[i], { rate: 0.7 });
-        await new Promise((r) => setTimeout(r, 850));
-      }
-      if (!cancelled) setPlayed(true);
-      playedKeyRef.current = item.prompt;
-    })();
-    return () => { cancelled = true; };
-  };
-
-  return (
-    <>
-      <div className="bubble-row">
-        {labels.map((p, i) => (
-          <div
-            key={i}
-            className={`bubble ${activeIdx >= i ? "filled" : ""} ${activeIdx === i ? "pulse" : ""}`}
-            aria-label={`phoneme ${i + 1}`}
-          >
-            {activeIdx >= i ? p : i + 1}
-          </div>
-        ))}
-      </div>
-      <div className="bubble-instructions">
-        {played
-          ? "Now blend the sounds and say the whole word."
-          : "Listen…"}
-      </div>
-
-      <div className="row" style={{ justifyContent: "center", gap: 10, marginBottom: 10 }}>
-        <button className="btn ghost" onClick={replay}>▶︎ Play again</button>
-        <button className="btn ghost" onClick={() => speak(item.answer, { rate: 0.85 })}>
-          ▶︎ Hear blended
-        </button>
-        <button className="btn ghost" onClick={() => setRevealed((v) => !v)}>
-          {revealed ? "Hide word" : "Reveal word"}
-        </button>
-      </div>
-      {revealed && (
-        <div className="timer">word: <strong>{item.answer}</strong></div>
-      )}
-
-      <MicButton
-        expected={item.answer}
-        label={`Say "${"●".repeat(item.answer.length)}"`}
-        disabled={!played}
-        onResult={(result) => {
-          onResult({
-            correct: result.matched,
-            latencyMs: result.latencyMs,
-            heard: result.heard,
-            error: result.error,
-          });
-        }}
-      />
-
-      {!supported && (
-        <div className="scoring-row" style={{ marginTop: 14 }}>
-          <button className="btn danger" onClick={() => onAdultScore(false)}>Incorrect</button>
-          <button className="btn success" onClick={() => onAdultScore(true)}>Correct</button>
-        </div>
-      )}
-    </>
-  );
-}
-
-// ---------- TTS ----------
-function speak(text, { rate = 0.85, pitch = 1.05 } = {}) {
-  if (typeof window === "undefined" || !window.speechSynthesis) return;
-  try {
-    window.speechSynthesis.cancel();
-    const utter = new SpeechSynthesisUtterance(text);
-    utter.rate = rate;
-    utter.pitch = pitch;
-    utter.lang = "en-US";
-    // prefer a clear English voice if available
-    const voices = window.speechSynthesis.getVoices();
-    const preferred = voices.find((v) =>
-      /Samantha|Karen|Aria|Jenny|Google US English|en-US/i.test(`${v.name} ${v.lang}`),
-    );
-    if (preferred) utter.voice = preferred;
-    window.speechSynthesis.speak(utter);
-  } catch (e) {
-    console.warn("TTS failed", e);
-  }
-}
-
-// ---------- Read-aloud task ----------
-function ReadAloudTask({ item, elapsedMs, onResult, onAdultScore }) {
-  const supported = !!getRecognitionCtor();
-  return (
-    <>
-      <div className="word">{item.prompt}</div>
-      <div className="timer">
-        {(elapsedMs / 1000).toFixed(1)}s · read this word out loud
-      </div>
-      <div className="row" style={{ justifyContent: "center", marginBottom: 14 }}>
-        <button className="btn ghost" onClick={() => speak(item.prompt)}>
-          ▶︎ Hear word
-        </button>
-      </div>
-      <MicButton
-        expected={item.answer}
-        label="Tap and read the word"
-        onResult={(result) => {
-          onResult({
-            correct: result.matched,
-            latencyMs: result.latencyMs,
-            heard: result.heard,
-            error: result.error,
-          });
-        }}
-      />
-      {!supported && (
-        <div className="scoring-row" style={{ marginTop: 14 }}>
-          <button className="btn danger" onClick={() => onAdultScore(false)}>Incorrect</button>
-          <button className="btn success" onClick={() => onAdultScore(true)}>Correct</button>
-        </div>
-      )}
-    </>
-  );
-}
-
-function Drill({ activeNode, state, items, onScore, onExit }) {
-  const [idx, setIdx] = useState(0);
-  const [startedAt, setStartedAt] = useState(() => Date.now());
-  const [tick, setTick] = useState(0);
-  const [lastResult, setLastResult] = useState(null);
-  const [revealed, setRevealed] = useState(false);
-  const tickRef = useRef();
-  const lastSpokenRef = useRef(null);
-
-  useEffect(() => {
-    tickRef.current = setInterval(() => setTick((t) => t + 1), 100);
-    return () => clearInterval(tickRef.current);
-  }, []);
-
-  useEffect(() => {
-    setStartedAt(Date.now());
-    setLastResult(null);
-    setRevealed(false);
-  }, [idx, activeNode?.id]);
-
-  // Warm up voices list (Chrome/Safari load asynchronously)
-  useEffect(() => {
-    if (typeof window !== "undefined" && window.speechSynthesis) {
-      window.speechSynthesis.getVoices();
-      window.speechSynthesis.onvoiceschanged = () => {
-        window.speechSynthesis.getVoices();
-      };
-    }
-  }, []);
-
-  // Compute item info up front so all hooks run unconditionally
-  const itemList = (activeNode && items[activeNode.id]) || [];
-  const item = itemList.length ? itemList[idx % itemList.length] : null;
-  const isAudioFirst = activeNode?.assessment === "phoneme_blend";
-
-  // (No auto-speak here: BlendTask handles its own phoneme sequence,
-  // and ReadAloudTask shows the word — no audio prompt needed.)
-
-  if (!activeNode) {
-    return (
-      <div className="card empty">
-        Nothing to practice. Master a node to unlock more.
-      </div>
-    );
-  }
-  if (!itemList.length || !item) {
-    return (
-      <div className="card empty">
-        No items defined for {activeNode.id}.
-      </div>
-    );
-  }
-
-  const elapsedMs = Date.now() - startedAt;
-  const ns = state.nodes[activeNode.id];
-  const result = evaluateMastery(ns, activeNode.mastery);
-
-  const handleScore = (correct) => {
-    const latencyMs = Date.now() - startedAt;
-    setLastResult({ correct, latencyMs });
-    onScore(activeNode.id, { correct, latencyMs, prompt: item.prompt });
-    setTimeout(() => setIdx((i) => i + 1), 350);
-  };
-
-  return (
-    <>
-      <div className="card">
-        <div className="section-label">
-          {activeNode.strand} · {activeNode.skill}
-        </div>
-
-        {isAudioFirst ? (
-          <>
-            <div className="section-label" style={{ textAlign: "center" }}>
-              {(elapsedMs / 1000).toFixed(1)}s
-            </div>
-            <BlendTask
-              key={`${activeNode.id}-${idx}`}
-              item={item}
-              onResult={({ correct, latencyMs, heard, error }) => {
-                setLastResult({ correct, latencyMs, heard, error });
-                onScore(activeNode.id, { correct, latencyMs, prompt: item.prompt, heard, error });
-                setTimeout(() => setIdx((i) => i + 1), 600);
-              }}
-              onAdultScore={(correct) => handleScore(correct)}
-            />
-          </>
-        ) : (
-          <ReadAloudTask
-            key={`${activeNode.id}-${idx}`}
-            item={item}
-            elapsedMs={elapsedMs}
-            onResult={({ correct, latencyMs, heard, error }) => {
-              setLastResult({ correct, latencyMs, heard, error });
-              onScore(activeNode.id, { correct, latencyMs, prompt: item.prompt, heard, error });
-              setTimeout(() => setIdx((i) => i + 1), 600);
-            }}
-            onAdultScore={(correct) => handleScore(correct)}
+    <button className="sa-app" onClick={onClick} aria-label={`Open ${app.label}`}>
+      <div className="sa-app-ring" style={{ width: size, height: size }}>
+        <svg width={size} height={size} style={{ transform: "rotate(-90deg)", display: "block" }}>
+          <defs>
+            <linearGradient id={id} x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stopColor={app.color.from} />
+              <stop offset="100%" stopColor={app.color.to} />
+            </linearGradient>
+          </defs>
+          <circle cx={size / 2} cy={size / 2} r={r} fill="none" stroke={app.color.track} strokeWidth={stroke} />
+          <circle
+            cx={size / 2} cy={size / 2} r={r}
+            fill="none" stroke={`url(#${id})`} strokeWidth={stroke} strokeLinecap="round"
+            strokeDasharray={c} strokeDashoffset={offset}
+            style={{ transition: "stroke-dashoffset 700ms ease-out" }}
           />
-        )}
-        {lastResult && (
-          <div className="toast" style={{ background: lastResult.correct ? "#e7f8ec" : "#fde7e6", color: lastResult.correct ? "#0a7a30" : "#a10a07" }}>
-            {lastResult.correct ? "Correct" : "Incorrect"} · {(lastResult.latencyMs / 1000).toFixed(2)}s
-            {lastResult.heard && <> · heard "{lastResult.heard}"</>}
-          </div>
-        )}
-      </div>
-
-      <div className="card">
-        <div className="section-label">Live mastery</div>
-        <div className="metric-grid">
-          <div className="metric">
-            <div className="v">{(result.accuracy * 100).toFixed(0)}%</div>
-            <div className="l">Accuracy</div>
-          </div>
-          <div className="metric">
-            <div className="v">{result.medianLatencyMs ? result.medianLatencyMs.toFixed(0) : 0}ms</div>
-            <div className="l">Median latency</div>
-          </div>
-          <div className="metric">
-            <div className="v">{(ns.attempts || []).length}</div>
-            <div className="l">Attempts</div>
-          </div>
-        </div>
-        <div style={{ marginTop: 16 }}>
-          <div className="row" style={{ justifyContent: "space-between" }}>
-            <span style={{ color: "var(--muted)", fontSize: 13 }}>
-              Need ≥{(activeNode.mastery.read_accuracy * 100).toFixed(0)}% acc, ≤{activeNode.mastery.read_latency_ms}ms median, last {activeNode.mastery.rolling_window} attempts
-            </span>
-          </div>
-          <div className="progress-bar" style={{ marginTop: 10 }}>
-            <span style={{ width: `${Math.min(100, (Math.min((ns.attempts || []).length, activeNode.mastery.rolling_window) / activeNode.mastery.rolling_window) * 100)}%` }} />
-          </div>
-          {result.mastered && (
-            <div className="toast" style={{ marginTop: 14 }}>Node mastered. Next node unlocked.</div>
-          )}
-        </div>
-        <div className="row" style={{ marginTop: 18 }}>
-          <button className="btn ghost" onClick={onExit}>Back to dashboard</button>
+        </svg>
+        <div className="sa-app-ring-label">
+          <span className="sa-app-ring-pct">{Math.round(pct * 100)}%</span>
         </div>
       </div>
-    </>
+      <div className="sa-app-meta">
+        <div className="sa-app-name">{app.label}</div>
+        <div className="sa-app-sub">{app.sub}</div>
+      </div>
+    </button>
   );
 }
 
-// ---------- Diagnostic ----------
-const DIAG_ITEMS_PER_NODE = 3;
-
-function Diagnostic({ nodes, items, onComplete, onSkip }) {
-  // Walk forward through the chain. 3 items per node.
-  // Node passes when correctCount === DIAG_ITEMS_PER_NODE → mark mastered, advance.
-  // Otherwise → mark active, stop. (Anything past stays locked.)
-  const [nodeIdx, setNodeIdx] = useState(0);
-  const [itemIdx, setItemIdx] = useState(0);
-  const [nodeCorrect, setNodeCorrect] = useState(0);
-  const [results, setResults] = useState([]); // { nodeId, correctCount, total }
-  const [revealed, setRevealed] = useState(false);
-  const [intro, setIntro] = useState(true);
-  const lastSpokenRef = useRef(null);
-
-  const node = nodes[nodeIdx];
-  const itemList = (node && items[node.id]) || [];
-  const item = itemList[itemIdx % itemList.length];
-  const isAudioFirst = node?.assessment === "phoneme_blend";
-
-  // Reset reveal state when item changes
-  useEffect(() => { setRevealed(false); }, [nodeIdx, itemIdx]);
-
-  if (intro) {
-    return (
-      <div className="card">
-        <div className="section-label">Placement</div>
-        <h2 style={{ fontSize: 24, margin: "8px 0 6px", letterSpacing: "-0.01em" }}>
-          Quick check before we start
-        </h2>
-        <p style={{ color: "var(--muted)", margin: "0 0 18px" }}>
-          We'll show you a few short tasks across the skill chain to figure out where to start.
-          About 3 minutes. {nodes.length} skills × {DIAG_ITEMS_PER_NODE} items max.
-        </p>
-        <div className="row">
-          <button className="btn large" onClick={() => setIntro(false)}>
-            Start placement
-          </button>
-          <button className="btn ghost" onClick={onSkip}>
-            Skip — start at the beginning
-          </button>
-        </div>
-      </div>
-    );
-  }
-
-  const recordAndAdvance = (correct) => {
-    const nextCorrect = nodeCorrect + (correct ? 1 : 0);
-    const nextItemIdx = itemIdx + 1;
-    const itemsAnswered = itemIdx + 1;
-
-    if (itemsAnswered < DIAG_ITEMS_PER_NODE) {
-      setNodeCorrect(nextCorrect);
-      setItemIdx(nextItemIdx);
-      return;
-    }
-
-    // Node complete
-    const nodeResult = {
-      nodeId: node.id,
-      correctCount: nextCorrect,
-      total: DIAG_ITEMS_PER_NODE,
-    };
-    const nextResults = [...results, nodeResult];
-    const passed = nextCorrect >= DIAG_ITEMS_PER_NODE;
-
-    if (passed && nodeIdx + 1 < nodes.length) {
-      // Advance to next node
-      setResults(nextResults);
-      setNodeIdx(nodeIdx + 1);
-      setItemIdx(0);
-      setNodeCorrect(0);
-    } else {
-      // Either failed (stop here) or passed last node (all mastered)
-      onComplete(nextResults);
-    }
-  };
-
-  if (!node || !item) {
-    return <div className="card empty">Loading…</div>;
-  }
-
-  return (
-    <>
-      <div className="card">
-        <div className="section-label">
-          Placement · skill {nodeIdx + 1} of {nodes.length} · item {itemIdx + 1}/{DIAG_ITEMS_PER_NODE}
-        </div>
-        <div className="progress-bar" style={{ marginTop: 8 }}>
-          <span style={{ width: `${((nodeIdx + (itemIdx + 1) / DIAG_ITEMS_PER_NODE) / nodes.length) * 100}%` }} />
-        </div>
-        <h2 style={{ fontSize: 18, margin: "16px 0 4px", letterSpacing: "-0.01em" }}>
-          {node.skill}
-        </h2>
-        <div className="id" style={{ marginBottom: 8 }}>{node.id}</div>
-
-        {isAudioFirst ? (
-          <BlendTask
-            key={`diag-${node.id}-${itemIdx}`}
-            item={item}
-            onResult={({ correct }) => recordAndAdvance(correct)}
-            onAdultScore={(correct) => recordAndAdvance(correct)}
-          />
-        ) : (
-          <ReadAloudTask
-            key={`diag-${node.id}-${itemIdx}`}
-            item={item}
-            elapsedMs={0}
-            onResult={({ correct }) => recordAndAdvance(correct)}
-            onAdultScore={(correct) => recordAndAdvance(correct)}
-          />
-        )}
-      </div>
-
-      <div className="card">
-        <div className="section-label">Placement so far</div>
-        <ul className="node-list">
-          {nodes.map((n, i) => {
-            const r = results.find((x) => x.nodeId === n.id);
-            const isCurrent = i === nodeIdx && !r;
-            const status =
-              r && r.correctCount >= r.total ? "mastered" :
-              r ? "unlocked" :
-              isCurrent ? "active" :
-              "locked";
-            return (
-              <li key={n.id} className="node-row">
-                <div>
-                  <div className="name">{n.skill}</div>
-                  <div className="id">
-                    {n.id}
-                    {r && <> · {r.correctCount}/{r.total} correct</>}
-                  </div>
-                </div>
-                <NodeBadge status={status} />
-              </li>
-            );
-          })}
-        </ul>
-      </div>
-    </>
-  );
+// --- Styles ------------------------------------------------------------------
+const STYLES = `
+.sa-app-root {
+  min-height: 100vh;
+  background: #F5F5F7;
+  color: #1d1d1f;
+  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", "Helvetica Neue", "Segoe UI", system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
+.sa-container { max-width: 760px; margin: 0 auto; padding: 64px 28px 96px; }
+@media (max-width: 600px) { .sa-container { padding: 36px 20px 60px; } }
 
-function ProgressView({ state, nodes }) {
-  const tree = useMemo(() => buildCourseTree(nodes, state), [nodes, state]);
-  const summary = progressSummary(state, nodes);
+/* Header greeting */
+.sa-greeting { font-size: 14px; color: #86868b; font-weight: 500; margin: 0; }
+.sa-name { font-size: 44px; font-weight: 600; letter-spacing: -0.022em; line-height: 1.05; color: #1d1d1f; margin: 6px 0 6px; }
+@media (max-width: 600px) { .sa-name { font-size: 34px; } }
+.sa-updated { font-size: 13px; color: #86868b; margin: 0; }
 
-  return (
-    <>
-      <div className="card">
-        <div className="section-label">Course progress</div>
-        <div className="row" style={{ marginTop: 4 }}>
-          <strong style={{ fontSize: 24, letterSpacing: "-0.01em" }}>
-            {summary.mastered} / {summary.total} topics mastered
-          </strong>
-          <div className="spacer" />
-          <span style={{ color: "var(--muted)", fontSize: 14 }}>
-            {summary.unlockedOrActive} in progress · {summary.locked} locked
-          </span>
-        </div>
-        <div className="progress-bar" style={{ marginTop: 12 }}>
-          <span style={{ width: `${(summary.mastered / summary.total) * 100}%` }} />
-        </div>
-      </div>
-
-      {tree.map((course) => (
-        <div className="card" key={course.name}>
-          <div className="section-label">{course.name}</div>
-          {course.units.map((unit) => (
-            <div key={unit.name} className="pv-unit">
-              <div className="pv-unit-name">{unit.name}</div>
-              {unit.modules.map((mod) => (
-                <div key={mod.name} className="pv-module">
-                  <div className="pv-module-head">
-                    <span className="pv-module-name">{mod.name}</span>
-                    <span className="pv-module-count">{mod.masteredCount}/{mod.total}</span>
-                  </div>
-                  <ul className="pv-topic-list">
-                    {mod.topics.map(({ def, state: ns }) => {
-                      const result = evaluateMastery(ns, def.mastery);
-                      const attempts = (ns.attempts || []).length;
-                      return (
-                        <li key={def.id} className="pv-topic">
-                          <div className="pv-topic-head">
-                            <div>
-                              <div className="pv-topic-name">{def.topic}</div>
-                              <div className="id">{def.id} · {def.skill}</div>
-                            </div>
-                            <NodeBadge status={ns.status} />
-                          </div>
-                          {attempts > 0 && (
-                            <>
-                              <div className="pv-stats">
-                                <div className="pv-stat">
-                                  <div className="pv-stat-v">{(result.accuracy * 100).toFixed(0)}%</div>
-                                  <div className="pv-stat-l">accuracy</div>
-                                </div>
-                                <div className="pv-stat">
-                                  <div className="pv-stat-v">{result.medianLatencyMs ? result.medianLatencyMs.toFixed(0) : 0}ms</div>
-                                  <div className="pv-stat-l">median latency</div>
-                                </div>
-                                <div className="pv-stat">
-                                  <div className="pv-stat-v">{attempts}</div>
-                                  <div className="pv-stat-l">attempts</div>
-                                </div>
-                              </div>
-                              <div className="progress-bar" style={{ marginTop: 10 }}>
-                                <span style={{
-                                  width: `${Math.min(100, (Math.min(attempts, def.mastery.rolling_window) / def.mastery.rolling_window) * 100)}%`
-                                }} />
-                              </div>
-                            </>
-                          )}
-                        </li>
-                      );
-                    })}
-                  </ul>
-                </div>
-              ))}
-            </div>
-          ))}
-        </div>
-      ))}
-    </>
-  );
+/* Section eyebrow */
+.sa-eyebrow {
+  font-size: 11px; font-weight: 600; text-transform: uppercase;
+  letter-spacing: 0.08em; color: #86868b; margin: 0;
 }
+.sa-section { margin-top: 36px; }
 
+/* Needs attention banner */
+.sa-attention {
+  display: flex; align-items: center; gap: 14px;
+  background: #fff; border-radius: 18px; padding: 16px 20px;
+  margin-top: 24px;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.04), 0 8px 24px -16px rgba(0,0,0,0.08);
+}
+.sa-attention-dot {
+  width: 10px; height: 10px; border-radius: 50%;
+  background: #FF9F0A; flex-shrink: 0;
+  box-shadow: 0 0 0 4px rgba(255, 159, 10, 0.16);
+}
+.sa-attention-title { font-size: 14px; font-weight: 600; color: #1d1d1f; margin: 0; line-height: 1.3; }
+.sa-attention-sub { font-size: 13px; color: #6e6e73; margin: 2px 0 0; line-height: 1.35; }
+
+/* Start here card — primary CTA */
+.sa-start {
+  display: block; width: 100%; text-align: left;
+  background: #1d1d1f; color: #fff; border: none; cursor: pointer;
+  border-radius: 28px; padding: 28px; margin-top: 14px;
+  font-family: inherit;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.06), 0 24px 48px -24px rgba(0,0,0,0.30);
+  transition: transform 0.2s, box-shadow 0.2s;
+  overflow: hidden; position: relative;
+}
+.sa-start:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 1px 2px rgba(0,0,0,0.06), 0 30px 56px -24px rgba(0,0,0,0.40);
+}
+.sa-start-eyebrow {
+  font-size: 11px; font-weight: 600; text-transform: uppercase;
+  letter-spacing: 0.08em; color: rgba(255,255,255,0.55); margin: 0;
+}
+.sa-start-title { font-size: 26px; font-weight: 600; letter-spacing: -0.015em; line-height: 1.15; margin: 8px 0 4px; }
+.sa-start-sub { font-size: 15px; color: rgba(255,255,255,0.65); margin: 0; }
+.sa-start-bar { height: 6px; background: rgba(255,255,255,0.12); border-radius: 999px; overflow: hidden; margin-top: 22px; }
+.sa-start-bar-fill {
+  height: 100%; border-radius: 999px;
+  background: linear-gradient(90deg, #FF2D55, #FF6482);
+  transition: width 0.6s ease-out;
+}
+.sa-start-row { display: flex; justify-content: space-between; align-items: baseline; margin-top: 10px; }
+.sa-start-pct { font-size: 14px; font-weight: 600; color: rgba(255,255,255,0.85); }
+.sa-start-cta { font-size: 14px; font-weight: 500; color: rgba(255,255,255,0.85); }
+
+/* Apps row — clickable rings */
+.sa-apps {
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-top: 14px;
+}
+@media (max-width: 600px) { .sa-apps { grid-template-columns: repeat(3, 1fr); gap: 8px; } }
+
+.sa-app {
+  display: flex; flex-direction: column; align-items: center; gap: 14px;
+  padding: 22px 12px;
+  background: #fff; border: none; border-radius: 24px; cursor: pointer;
+  font-family: inherit; text-align: center;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.04), 0 12px 32px -16px rgba(0,0,0,0.10);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+.sa-app:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 2px 4px rgba(0,0,0,0.05), 0 20px 48px -20px rgba(0,0,0,0.18);
+}
+.sa-app-ring { position: relative; }
+.sa-app-ring-label { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; pointer-events: none; }
+.sa-app-ring-pct { font-size: 22px; font-weight: 600; letter-spacing: -0.015em; color: #1d1d1f; }
+.sa-app-meta { display: flex; flex-direction: column; gap: 2px; }
+.sa-app-name { font-size: 14px; font-weight: 600; color: #1d1d1f; letter-spacing: -0.005em; }
+.sa-app-sub { font-size: 12px; color: #86868b; font-weight: 500; }
+
+/* Card (insights, earning) */
+.sa-card {
+  background: #fff; border-radius: 24px; padding: 24px;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.04), 0 12px 32px -16px rgba(0,0,0,0.10);
+  margin-top: 14px;
+}
+.sa-card-title { font-size: 17px; font-weight: 600; color: #1d1d1f; margin: 0 0 10px; letter-spacing: -0.01em; }
+
+/* Insight item */
+.sa-insight { display: flex; gap: 14px; align-items: flex-start; }
+.sa-insight-icon {
+  width: 32px; height: 32px; flex-shrink: 0; border-radius: 50%;
+  background: #F0F4FF; color: #0A84FF; display: inline-flex; align-items: center; justify-content: center;
+}
+.sa-insight-text { font-size: 15px; line-height: 1.5; color: #1d1d1f; margin: 6px 0 0; }
+.sa-insight-text strong { font-weight: 600; }
+.sa-insight + .sa-insight { margin-top: 16px; padding-top: 16px; border-top: 1px solid #F5F5F7; }
+
+/* Earning */
+.sa-earn-row { display: flex; align-items: center; gap: 22px; }
+.sa-earn-ring { flex-shrink: 0; position: relative; width: 96px; height: 96px; }
+.sa-earn-label { position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; }
+.sa-earn-num { font-size: 22px; font-weight: 600; letter-spacing: -0.015em; color: #1d1d1f; line-height: 1; }
+.sa-earn-of { font-size: 10px; font-weight: 500; color: #86868b; margin-top: 4px; }
+.sa-earn-stats { flex: 1; display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px 18px; }
+.sa-earn-label-text { font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.06em; color: #86868b; }
+.sa-earn-value { font-size: 20px; font-weight: 600; color: #1d1d1f; margin-top: 2px; letter-spacing: -0.01em; }
+`;
+
+// --- Main App ----------------------------------------------------------------
 export default function App() {
-  const { session, student, status, refresh: refreshAuth, continueAsGuest } = useAuth();
-
-  if (status === "loading") {
-    return <FullScreenMessage>Loading…</FullScreenMessage>;
-  }
-  if (status === "anonymous") {
-    return <Login onGuest={continueAsGuest} />;
-  }
-  if (status === "unlinked") {
-    return (
-      <AccountUnlinked
-        email={session?.user?.email}
-        onRefresh={refreshAuth}
-        onGuest={continueAsGuest}
-      />
-    );
-  }
-
-  // Either "ready" (authed + linked student) or "guest" (no auth).
-  // Pass studentId=null to the inner component for guest mode so it
-  // skips Supabase reads/writes.
-  const studentId = status === "ready" ? student?.id : null;
-  const studentName = status === "ready" ? student?.display_name : null;
-  const isAuthed = status === "ready";
-
-  return (
-    <ReadingAcademyApp
-      studentId={studentId}
-      studentName={studentName}
-      isAuthed={isAuthed}
-    />
-  );
-}
-
-function FullScreenMessage({ children }) {
-  return (
-    <div className="login-shell">
-      <div className="login-card" style={{ textAlign: "center" }}>
-        <div className="brand-mark">VPA · Reading Academy</div>
-        <p className="login-sub">{children}</p>
-      </div>
-    </div>
-  );
-}
-
-function ReadingAcademyApp({ studentId, studentName, isAuthed }) {
-  // First paint comes from localStorage (warm cache + offline-safe).
-  // If a Supabase student is signed in, we hydrate from the cloud
-  // afterwards.
-  const [state, setState] = useState(() => {
-    const local = migrateState(readLocal());
-    const initial = local || freshState();
-    if (studentName && initial.name !== studentName) {
-      initial.name = studentName;
-    }
-    return cascadeUnlock(initial);
+  // Today's data — wire to supabase later.
+  // These reflect Samuel's current status pulled from Math Academy.
+  const [data, setData] = useState({
+    courseLabel: "Math Academy",
+    courseSub: "4th Grade Math",
+    coursePct: 6,
+    appProgress: { math: 6, reading: 22, writing: 14 },
+    needsAttention: {
+      title: "Math Academy is waiting",
+      sub: "You haven't started today — let's keep the streak going.",
+    },
+    todayXp: 0,
+    weekXp: 142,
+    streakDays: 4,
+    insights: [
+      { text: "You've mastered 27 new skills since starting — keep it up." },
+      { text: "Your strongest area right now is Operations & Algebraic Thinking." },
+    ],
+    loading: true,
   });
-  const initialView = state.diagnosticComplete ? "dashboard" : "diagnostic";
-  const [view, setView] = useState(initialView);
-  const [drillNodeId, setDrillNodeId] = useState(null);
 
-  const nodes = skillNodesData;
-  const items = assessmentItemsData;
-  const activeNodeId = useMemo(() => selectActiveNode(state, nodes), [state, nodes]);
-  const drillNode = nodes.find((n) => n.id === (drillNodeId || activeNodeId));
-  const xp = useMemo(() => getDailyXp(state, nodes), [state, nodes]);
-
-  // Hydrate from Supabase once on sign-in. If there's nothing there,
-  // upload the local state we already have so the cloud has a copy.
-  const hydratedRef = useRef(false);
+  // Optional: pull a live snapshot for Samuel from supabase.
   useEffect(() => {
-    if (!studentId || hydratedRef.current) return;
     let cancelled = false;
-    (async () => {
-      const cloudState = await loadFromSupabase(studentId);
-      if (cancelled) return;
-      if (cloudState) {
-        const next = cascadeUnlock(migrateState(cloudState));
-        setState(next);
-        if (next.diagnosticComplete) setView("dashboard");
-      } else {
-        // First-time signed-in student — push the current local state
-        // up so the row exists.
-        await saveToSupabase(studentId, state);
+    async function load() {
+      if (!supabase) {
+        setData((d) => ({ ...d, loading: false }));
+        return;
       }
-      hydratedRef.current = true;
-    })();
-    return () => { cancelled = true; };
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [studentId]);
-
-  // Persist on every state change. Local always; Supabase only when
-  // we have a linked student.
-  useEffect(() => {
-    writeLocal(state);
-    if (studentId && hydratedRef.current) {
-      saveToSupabase(studentId, state);
+      try {
+        const { data: rows, error } = await supabase
+          .from("ai_insights")
+          .select("*")
+          .eq("audience", "student")
+          .ilike("name", `%${STUDENT_NAME}%`)
+          .order("run_date", { ascending: false })
+          .limit(1);
+        if (cancelled) return;
+        if (!error && rows && rows.length) {
+          const row = rows[0];
+          const summary = row.summary || "";
+          const xp = Number((summary.match(/(\d+)\s+XP/i) || [])[1]) || 0;
+          const masteryPct = Number((summary.match(/([\d.]+)%\s+observed/i) || [])[1]);
+          setData((d) => ({
+            ...d,
+            coursePct: Number.isNaN(masteryPct) ? d.coursePct : Math.round(masteryPct),
+            appProgress: { ...d.appProgress, math: Number.isNaN(masteryPct) ? d.appProgress.math : Math.round(masteryPct) },
+            todayXp: xp,
+            needsAttention:
+              xp < DAILY_XP_GOAL
+                ? {
+                    title: "Math Academy is waiting",
+                    sub: `You're ${DAILY_XP_GOAL - xp} XP from today's goal.`,
+                  }
+                : null,
+            loading: false,
+          }));
+        } else {
+          setData((d) => ({ ...d, loading: false }));
+        }
+      } catch {
+        setData((d) => ({ ...d, loading: false }));
+      }
     }
-  }, [state, studentId]);
+    load();
+    return () => { cancelled = true; };
+  }, []);
 
-  const handleScore = (nodeId, attempt) => {
-    setState((prev) => {
-      const node = nodes.find((n) => n.id === nodeId);
-      return recordAttempt(prev, nodeId, attempt, node?.mastery);
-    });
+  const launch = (url) => {
+    if (!url) return;
+    window.open(url, "_blank", "noopener,noreferrer");
   };
 
-  const handleDiagnosticComplete = (results) => {
-    setState((prev) => applyDiagnostic(prev, results, nodes));
-    setView("dashboard");
-  };
-
-  const handleDiagnosticSkip = () => {
-    setState((prev) => {
-      const next = structuredClone(prev);
-      next.diagnosticComplete = true;
-      return cascadeUnlock(next);
-    });
-    setView("dashboard");
-  };
-
-  const handleReset = () => {
-    if (!confirm("Reset all progress and re-take placement?")) return;
-    const fresh = cascadeUnlock(freshState());
-    if (studentName) fresh.name = studentName;
-    setState(fresh);
-    setView("diagnostic");
-  };
-
-  const startDrill = (nodeId) => {
-    setDrillNodeId(nodeId || null);
-    setView("drill");
-  };
-
-  const showTabs = view !== "diagnostic";
-  const showRail = view !== "diagnostic";
+  const xpRing = useMemo(() => {
+    const pct = Math.max(0, Math.min(1, (data.todayXp || 0) / DAILY_XP_GOAL));
+    return { pct, offset: 2 * Math.PI * 42 * (1 - pct) };
+  }, [data.todayXp]);
 
   return (
-    <div className={`app ${showRail ? "with-rail" : ""}`}>
-      <div className="header">
-        <h1>Reading Academy</h1>
-        <div className="header-right">
-          <div className="xp-block" title={`${xp.xp} of ${xp.target} XP today`}>
-            <XpRing xp={xp.xp} target={xp.target} />
-            <div className="xp-meta">
-              <div className="xp-meta-top">Daily goal</div>
-              <div className="xp-meta-mid">{xp.xp} <span>/ {xp.target}</span></div>
-              <div className="xp-meta-bot">{state.name}</div>
-            </div>
-          </div>
-          {isAuthed && (
-            <button
-              type="button"
-              className="btn ghost"
-              onClick={signOut}
-              title="Sign out"
-              style={{ marginLeft: 12 }}
-            >
-              Sign out
-            </button>
-          )}
-        </div>
-      </div>
+    <div className="sa-app-root">
+      <style>{STYLES}</style>
+      <div className="sa-container">
+        {/* Greeting */}
+        <header>
+          <p className="sa-greeting">{greeting()}</p>
+          <h1 className="sa-name">{greeting()}, {STUDENT_NAME}.</h1>
+          <p className="sa-updated">Updated just now</p>
+        </header>
 
-      <div className="shell">
-        {showRail && (
-          <aside className="rail">
-            <CourseTree
-              state={state}
-              nodes={nodes}
-              activeNodeId={activeNodeId}
-              onPickTopic={(nodeId) => {
-                const ns = state.nodes[nodeId];
-                if (!ns || ns.status === "locked") return;
-                startDrill(nodeId);
-              }}
-            />
-          </aside>
+        {/* Needs attention */}
+        {data.needsAttention && (
+          <section className="sa-section" style={{ marginTop: 28 }}>
+            <p className="sa-eyebrow">Needs attention</p>
+            <div className="sa-attention">
+              <span className="sa-attention-dot" />
+              <div>
+                <p className="sa-attention-title">{data.needsAttention.title}</p>
+                <p className="sa-attention-sub">{data.needsAttention.sub}</p>
+              </div>
+            </div>
+          </section>
         )}
 
-        <main className="main">
-          {showTabs && (
-            <div className="tabs">
-              <button className={view === "dashboard" ? "active" : ""} onClick={() => setView("dashboard")}>Today</button>
-              <button className={view === "drill" ? "active" : ""} onClick={() => setView("drill")}>Practice</button>
-              <button className={view === "progress" ? "active" : ""} onClick={() => setView("progress")}>Progress</button>
+        {/* Start here */}
+        <section className="sa-section">
+          <p className="sa-eyebrow">Start here</p>
+          <button
+            className="sa-start"
+            onClick={() => launch(APPS[0].url)}
+            aria-label={`Continue ${data.courseLabel}`}
+          >
+            <p className="sa-start-eyebrow">{data.courseLabel}</p>
+            <h2 className="sa-start-title">{data.courseSub}</h2>
+            <p className="sa-start-sub">{data.coursePct}% complete</p>
+            <div className="sa-start-bar">
+              <div className="sa-start-bar-fill" style={{ width: `${data.coursePct}%` }} />
             </div>
-          )}
+            <div className="sa-start-row">
+              <span className="sa-start-pct">{data.coursePct}%</span>
+              <span className="sa-start-cta">Continue →</span>
+            </div>
+          </button>
+        </section>
 
-          {view === "diagnostic" && (
-            <Diagnostic
-              nodes={nodes}
-              items={items}
-              onComplete={handleDiagnosticComplete}
-              onSkip={handleDiagnosticSkip}
-            />
-          )}
-          {view === "dashboard" && (
-            <Dashboard
-              state={state}
-              nodes={nodes}
-              activeNodeId={activeNodeId}
-              onStart={(nodeId) => startDrill(nodeId)}
-            />
-          )}
-          {view === "drill" && (
-            <Drill
-              activeNode={drillNode}
-              state={state}
-              items={items}
-              onScore={handleScore}
-              onExit={() => { setDrillNodeId(null); setView("dashboard"); }}
-            />
-          )}
-          {view === "progress" && (
-            <ProgressView state={state} nodes={nodes} />
-          )}
-
-          <div style={{ textAlign: "center", marginTop: 32 }}>
-            <button className="btn ghost" onClick={handleReset}>Reset progress</button>
+        {/* Apps */}
+        <section className="sa-section">
+          <p className="sa-eyebrow">Your apps</p>
+          <div className="sa-apps">
+            {APPS.map((app) => (
+              <AppRing
+                key={app.key}
+                app={app}
+                value={data.appProgress[app.key] ?? 0}
+                goal={100}
+                size={120}
+                stroke={11}
+                onClick={() => launch(app.url)}
+              />
+            ))}
           </div>
-        </main>
+        </section>
+
+        {/* Insights */}
+        <section className="sa-section">
+          <p className="sa-eyebrow">Insights</p>
+          <div className="sa-card">
+            {data.insights.map((ins, i) => (
+              <div key={i} className="sa-insight">
+                <span className="sa-insight-icon">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                    <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41" />
+                    <circle cx="12" cy="12" r="4" />
+                  </svg>
+                </span>
+                <p className="sa-insight-text">{ins.text}</p>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        {/* Earning */}
+        <section className="sa-section">
+          <p className="sa-eyebrow">Earning</p>
+          <div className="sa-card">
+            <div className="sa-earn-row">
+              <div className="sa-earn-ring">
+                <svg width={96} height={96} style={{ transform: "rotate(-90deg)", display: "block" }}>
+                  <defs>
+                    <linearGradient id="sa-earn-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+                      <stop offset="0%" stopColor="#FF2D55" />
+                      <stop offset="100%" stopColor="#FF6482" />
+                    </linearGradient>
+                  </defs>
+                  <circle cx={48} cy={48} r={42} fill="none" stroke="rgba(255, 45, 85, 0.12)" strokeWidth={9} />
+                  <circle
+                    cx={48} cy={48} r={42}
+                    fill="none" stroke="url(#sa-earn-grad)" strokeWidth={9} strokeLinecap="round"
+                    strokeDasharray={2 * Math.PI * 42} strokeDashoffset={xpRing.offset}
+                    style={{ transition: "stroke-dashoffset 700ms ease-out" }}
+                  />
+                </svg>
+                <div className="sa-earn-label">
+                  <span className="sa-earn-num">{fmtNum(data.todayXp)}</span>
+                  <span className="sa-earn-of">of {DAILY_XP_GOAL} XP</span>
+                </div>
+              </div>
+              <div className="sa-earn-stats">
+                <div>
+                  <div className="sa-earn-label-text">Today</div>
+                  <div className="sa-earn-value">{fmtNum(data.todayXp)} XP</div>
+                </div>
+                <div>
+                  <div className="sa-earn-label-text">This week</div>
+                  <div className="sa-earn-value">{fmtNum(data.weekXp)} XP</div>
+                </div>
+                <div>
+                  <div className="sa-earn-label-text">Streak</div>
+                  <div className="sa-earn-value">{data.streakDays} days</div>
+                </div>
+                <div>
+                  <div className="sa-earn-label-text">Goal</div>
+                  <div className="sa-earn-value">{Math.round(xpRing.pct * 100)}%</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
       </div>
     </div>
   );

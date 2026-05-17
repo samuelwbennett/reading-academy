@@ -20,6 +20,7 @@
 // =====================================================
 
 import { supabase } from "./supabase.js";
+import { syncDailyProgress } from "./dailyProgress.js";
 
 const LS_KEY = "reading-academy:student-state:v1";
 const APP_SLUG = "reading_academy";
@@ -106,4 +107,12 @@ export async function saveToSupabase(studentId, state) {
   if (error) {
     console.warn("[storage] student_app_accounts write failed:", error.message);
   }
+
+  // Also sync today's RA XP into daily_progress so the orchestration
+  // layer's attendance economy + cross-app XP rollup see it. SET
+  // pattern — idempotent, safe to call after every state save.
+  // Fire-and-forget: the main state write already succeeded.
+  syncDailyProgress({ studentId, state }).catch((e) =>
+    console.warn("[storage] syncDailyProgress failed:", e),
+  );
 }

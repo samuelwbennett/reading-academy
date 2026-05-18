@@ -104,24 +104,22 @@ export default async function handler(req, res) {
       return res.status(403).json({ error: "admin role required" });
     }
 
-    // 2. Org-scope check: the target student must be in the admin's org
-    //    (if both have an org set).
+    // 2. Verify the student exists. We DON'T org-scope-check at the
+    //    students table because `public.students` has no
+    //    organization_id column (org membership flows through
+    //    `teacher_classes.organization_id` via `class_memberships`).
+    //    For the single-org pilot this is fine. A future multi-org
+    //    deployment should join through teacher_classes to confirm
+    //    the student belongs to at least one class in the admin's org.
     const { data: student, error: sErr } = await supabase
       .from("students")
-      .select("id, organization_id, display_name")
+      .select("id, display_name")
       .eq("id", studentId)
       .maybeSingle();
     if (sErr) {
       return res.status(500).json({ error: "student lookup failed", details: sErr.message });
     }
     if (!student) return res.status(404).json({ error: "student not found" });
-    if (
-      callerProfile.organization_id &&
-      student.organization_id &&
-      student.organization_id !== callerProfile.organization_id
-    ) {
-      return res.status(403).json({ error: "student is in a different organization" });
-    }
 
     // 3. Resolve the learning_apps row for the slug.
     const { data: app, error: appErr } = await supabase

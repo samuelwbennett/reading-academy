@@ -19,6 +19,11 @@ export const ROUTES = {
   MATH_FACTS: "/math-facts",
   READING_FACTS: "/reading-facts",
   DASHBOARD: "/dashboard",
+  // M16-L4: passwordless student login (class code + avatar + PIN).
+  // Dedicated top-level URL so a school can hand out one short link
+  // ("vpa.app/student") that doesn't require the student to navigate
+  // through the launcher.
+  STUDENT_LOGIN: "/student",
 };
 
 // Set of routes that are rendered inside this SPA.

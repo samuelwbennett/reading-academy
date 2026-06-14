@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 400" role="img" aria-label="A quiet night sky with stars and a soft moon">
+  <defs>
+    <linearGradient id="n-sky" x1="0" x2="0" y1="0" y2="1">
+      <stop offset="0%" stop-color="#2b3f6f"/>
+      <stop offset="60%" stop-color="#4a608f"/>
+      <stop offset="100%" stop-color="#6b7fa6"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="400" fill="url(#n-sky)"/>
+  <!-- moon -->
+  <circle cx="640" cy="120" r="46" fill="#fef0c7"/>
+  <circle cx="654" cy="112" r="36" fill="#fff8e6"/>
+  <!-- stars -->
+  <g fill="#fff5c8">
+    <circle cx="80" cy="60" r="2"/>
+    <circle cx="160" cy="100" r="1.5"/>
+    <circle cx="240" cy="50" r="2"/>
+    <circle cx="320" cy="120" r="1.5"/>
+    <circle cx="400" cy="60" r="2"/>
+    <circle cx="480" cy="80" r="1.5"/>
+    <circle cx="540" cy="40" r="2"/>
+    <circle cx="120" cy="160" r="1.5"/>
+    <circle cx="280" cy="180" r="2"/>
+    <circle cx="440" cy="160" r="1.5"/>
+    <circle cx="720" cy="60" r="2"/>
+    <circle cx="760" cy="160" r="1.5"/>
+  </g>
+  <!-- distant hills -->
+  <path d="M0 320 Q200 280 400 310 T800 290 L800 400 L0 400 Z" fill="#1f2a4a" opacity="0.85"/>
+  <path d="M0 360 Q220 330 460 350 T800 340 L800 400 L0 400 Z" fill="#15203a"/>
+</svg>

@@ -1,82 +1,92 @@
-import React, { useEffect, useMemo, useState } from "react";
-import skillNodesData from "../../data/skill_nodes.json";
-import { validateGraph, logValidation } from "../../lib/graphValidator.js";
-import {
-  loadState,
-  saveState,
-  getActiveNodeId,
-  getProgressCounts,
-  getPrereqProgress,
-} from "./lib/readingState.js";
-import ReadingHeader from "./components/ReadingHeader.jsx";
-import TodaySession from "./components/TodaySession.jsx";
-import ProgressSummary from "./components/ProgressSummary.jsx";
-import CourseTree from "./components/CourseTree.jsx";
+import React, { Suspense, lazy } from "react";
+import { Routes, Route } from "react-router-dom";
+import AuthProvider from "../../lib/auth/AuthProvider.jsx";
+import RequireRole from "../../lib/auth/RequireRole.jsx";
+import Today from "./routes/Today.jsx";
+import Diagnostic from "./routes/Diagnostic.jsx";
+import Drill from "./routes/Drill.jsx";
+import Fluency from "./routes/Fluency.jsx";
+import Passage from "./routes/Passage.jsx";
 import "./styles.css";
 
-// Reading Academy — runtime shell.
+// Lazy-loaded — these routes carry heavier dependencies (charts, CSV
+// helpers, magic-link UI, full-page SVG graph) and aren't on the
+// daily hot path.
+const Debug = lazy(() => import("./routes/Debug.jsx"));
+const SignIn = lazy(() => import("./routes/SignIn.jsx"));
+const Roster = lazy(() => import("./routes/Roster.jsx"));
+const Graph = lazy(() => import("./routes/Graph.jsx"));
+const CourseTreePage = lazy(() => import("./routes/CourseTreePage.jsx"));
+const Actions = lazy(() => import("./routes/Actions.jsx"));
+const StudentDetail = lazy(() => import("./routes/StudentDetail.jsx"));
+
+// Reading Academy — internal router.
 //
-// M1-A: load the graph, load student state with backfill + cascadeUnlock,
-// pick the active node, render the four shell sections (header, today,
-// progress, course tree). Action buttons in TodaySession are placeholders;
-// real Diagnostic / Drill / Reading Facts / Passage components mount in
-// M1-B through M1-E.
-//
-// State persistence: any state mutation triggers saveState() to localStorage
-// under reading-academy:student-state:v1. Mutations don't happen in this
-// shell yet — just the initial load + cascadeUnlock — but the wiring is in
-// place so future milestones plug in cleanly.
+// Mounted by App.jsx at /reading/*. AuthProvider wraps the routes so
+// every screen has access to the session, the linked student row,
+// and starts the telemetry flush worker on mount.
 
-export default function Reading() {
-  // Validate graph on mount (logs to console under [reading] tag).
-  const validation = useMemo(() => validateGraph(skillNodesData), []);
-
-  useEffect(() => {
-    logValidation(validation, { tag: "[reading]" });
-  }, [validation]);
-
-  // Load state once on mount; lazy initializer prevents re-running on every render.
-  const [state, setState] = useState(() => loadState());
-
-  // Persist on every change.
-  useEffect(() => {
-    saveState(state);
-  }, [state]);
-
-  // Active node + supporting data.
-  const activeNodeId = useMemo(() => getActiveNodeId(state), [state]);
-  const activeNode = useMemo(
-    () => (activeNodeId ? skillNodesData.find((n) => n.id === activeNodeId) : null),
-    [activeNodeId],
-  );
-  const activeNodeStatus = activeNodeId
-    ? state.nodes?.[activeNodeId]?.status || null
-    : null;
-  const prereqProgress = useMemo(
-    () => getPrereqProgress(state, activeNode),
-    [state, activeNode],
-  );
-  const counts = useMemo(() => getProgressCounts(state), [state]);
-
+function Loading() {
   return (
     <div className="ra-app">
-      <div className="ra-app-inner">
-        <ReadingHeader
-          nodeCount={validation.stats.nodeCount}
-          valid={validation.valid}
-        />
-        <TodaySession
-          activeNode={activeNode}
-          activeNodeStatus={activeNodeStatus}
-          prereqProgress={prereqProgress}
-        />
-        <ProgressSummary counts={counts} />
-        <CourseTree
-          nodes={skillNodesData}
-          state={state}
-          activeNodeId={activeNodeId}
-        />
+      <div className="ra-app-inner" style={{ padding: 32, color: "#666" }}>
+        Loading…
       </div>
     </div>
+  );
+}
+
+export default function Reading() {
+  return (
+    <AuthProvider>
+      <Suspense fallback={<Loading />}>
+        <Routes>
+          <Route index element={<Today />} />
+          <Route path="diagnostic" element={<Diagnostic />} />
+          <Route path="drill" element={<Drill />} />
+          <Route path="fluency" element={<Fluency />} />
+          <Route path="passage" element={<Passage />} />
+          {/* M19-3: teacher/admin-gated routes — RLS is still the
+              authoritative boundary, this is the UX gate. Student
+              sessions in this browser get redirected to /reading. */}
+          <Route
+            path="debug"
+            element={
+              <RequireRole allow="teacher">
+                <Debug />
+              </RequireRole>
+            }
+          />
+          <Route path="signin" element={<SignIn />} />
+          <Route
+            path="roster"
+            element={
+              <RequireRole allow="teacher">
+                <Roster />
+              </RequireRole>
+            }
+          />
+          <Route path="graph" element={<Graph />} />
+          <Route path="course-tree" element={<CourseTreePage />} />
+          <Route
+            path="actions"
+            element={
+              <RequireRole allow="teacher">
+                <Actions />
+              </RequireRole>
+            }
+          />
+          <Route
+            path="student/:studentId"
+            element={
+              <RequireRole allow="teacher">
+                <StudentDetail />
+              </RequireRole>
+            }
+          />
+          <Route path="*" element={<Today />} />
+        </Routes>
+      </Suspense>
+    </AuthProvider>
   );
 }

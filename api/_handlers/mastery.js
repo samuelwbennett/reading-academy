@@ -20,7 +20,7 @@
 // ============================================================
 
 import { createClient } from "@supabase/supabase-js";
-import skillNodes from "../src/data/skill_nodes.json" with { type: "json" };
+import skillNodes from "../../src/data/skill_nodes.json" with { type: "json" };
 
 const APP_SLUG = "reading_academy";
 
@@ -35,8 +35,26 @@ const STRAND_SYMBOL = {
   "Vocabulary":         "📖",
 };
 
+// M10-D bridge: legacy `state.nodes` + M3 `state.modelV2.nodes`,
+// preferring the M3 entry on overlap.
+function mergedNodes(state) {
+  const legacy = state?.nodes || {};
+  const m3 = state?.modelV2?.nodes || {};
+  const out = { ...legacy };
+  for (const k of Object.keys(m3)) out[k] = m3[k];
+  return out;
+}
+
+const MASTERED_STATES = new Set([
+  "mastered",
+  "mastered_for_acquisition",
+  "in_automaticity_zone",
+  "automatic",
+]);
+
 function bucketByStrand(state) {
   const buckets = new Map();
+  const all = mergedNodes(state);
   for (const def of skillNodes) {
     const strand = def.strand || "Other";
     if (!buckets.has(strand)) {
@@ -45,11 +63,16 @@ function bucketByStrand(state) {
     const b = buckets.get(strand);
     b.total += 1;
 
-    const ns = state?.nodes?.[def.id];
+    const ns = all[def.id];
     const status = ns?.status || "locked";
-    const attempts = (ns?.attempts || []).length;
+    const attempts =
+      (Array.isArray(ns?.attempts)
+        ? ns.attempts.length
+        : Array.isArray(ns?.history)
+        ? ns.history.length
+        : 0);
 
-    if (status === "mastered") b.mastered += 1;
+    if (MASTERED_STATES.has(status)) b.mastered += 1;
     if (attempts > 0 || status === "active" || status === "practicing") {
       b.attempted += 1;
     }

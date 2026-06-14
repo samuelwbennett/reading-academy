@@ -1,0 +1,1589 @@
+{
+  "$schema": "../../architecture-v1.0.md",
+  "gateId": "FL_07_grade5_fluency",
+  "tier": "FL_07",
+  "authoredBy": "claude:phase-b4-fluency-passages",
+  "authoredAt": "2026-05-19",
+  "version": "1.0.0",
+  "constraints": {
+    "grade_band": "G5",
+    "prereq_phonics": "FL_06_grade4_fluency",
+    "wcpm_target": 140,
+    "passage_accuracy_target": 0.97,
+    "target_word_count": 200,
+    "lexile_band_approx": "850L-1010L",
+    "morpheme_inventory_eligible": [
+      "MORPH_P_un",
+      "MORPH_P_re",
+      "MORPH_P_pre",
+      "MORPH_P_dis",
+      "MORPH_P_sub",
+      "MORPH_P_super",
+      "MORPH_P_inter",
+      "MORPH_P_trans",
+      "MORPH_P_tele",
+      "MORPH_P_anti",
+      "MORPH_P_over",
+      "MORPH_P_under",
+      "MORPH_P_ex",
+      "MORPH_S_er_agent",
+      "MORPH_S_ly",
+      "MORPH_S_ful",
+      "MORPH_S_less",
+      "MORPH_S_able",
+      "MORPH_S_ness",
+      "MORPH_S_ment",
+      "MORPH_S_tion",
+      "MORPH_S_ous",
+      "MORPH_S_ive",
+      "MORPH_R_port",
+      "MORPH_R_struct",
+      "MORPH_R_dict",
+      "MORPH_R_ject",
+      "MORPH_R_scrib",
+      "MORPH_R_vis",
+      "MORPH_R_aud",
+      "MORPH_R_graph",
+      "MORPH_R_phon",
+      "MORPH_R_geo",
+      "MORPH_R_bio",
+      "MORPH_R_hydro",
+      "MORPH_R_therm",
+      "MORPH_R_meter",
+      "MORPH_R_astro",
+      "MORPH_R_act"
+    ]
+  },
+  "passages": [
+    {
+      "passageId": "P_FL07_001",
+      "gateId": "FL_07_grade5_fluency",
+      "module": "7.3. Grade 5 Cold Read",
+      "topic": "Why Forests Need Fire",
+      "genre": "informational",
+      "isCold": true,
+      "difficultyRank": 1,
+      "targetWordCount": 200,
+      "morphemeInventory": [
+        "MORPH_S_tion",
+        "MORPH_S_able",
+        "MORPH_P_re",
+        "MORPH_R_bio"
+      ],
+      "paragraphs": [
+        {
+          "sentences": [
+            {
+              "text": "For most of human history, people have viewed forest fires as nothing but disasters.",
+              "wordList": [
+                "For",
+                "most",
+                "of",
+                "human",
+                "history",
+                "people",
+                "have",
+                "viewed",
+                "forest",
+                "fires",
+                "as",
+                "nothing",
+                "but",
+                "disasters"
+              ]
+            },
+            {
+              "text": "Fires destroy homes, kill animals, and fill the air with thick choking smoke.",
+              "wordList": [
+                "Fires",
+                "destroy",
+                "homes",
+                "kill",
+                "animals",
+                "and",
+                "fill",
+                "the",
+                "air",
+                "with",
+                "thick",
+                "choking",
+                "smoke"
+              ]
+            },
+            {
+              "text": "However, modern scientists have learned that many healthy forests actually need fire to survive over the long term.",
+              "wordList": [
+                "However",
+                "modern",
+                "scientists",
+                "have",
+                "learned",
+                "that",
+                "many",
+                "healthy",
+                "forests",
+                "actually",
+                "need",
+                "fire",
+                "to",
+                "survive",
+                "over",
+                "the",
+                "long",
+                "term"
+              ]
+            }
+          ]
+        },
+        {
+          "sentences": [
+            {
+              "text": "Small natural fires clear away dead leaves, fallen branches, and dry undergrowth that pile up over many years.",
+              "wordList": [
+                "Small",
+                "natural",
+                "fires",
+                "clear",
+                "away",
+                "dead",
+                "leaves",
+                "fallen",
+                "branches",
+                "and",
+                "dry",
+                "undergrowth",
+                "that",
+                "pile",
+                "up",
+                "over",
+                "many",
+                "years"
+              ]
+            },
+            {
+              "text": "Without these occasional fires, that buildup grows thicker and drier each season.",
+              "wordList": [
+                "Without",
+                "these",
+                "occasional",
+                "fires",
+                "that",
+                "buildup",
+                "grows",
+                "thicker",
+                "and",
+                "drier",
+                "each",
+                "season"
+              ]
+            },
+            {
+              "text": "Once it finally catches a spark, the resulting blaze burns much hotter and spreads far faster than a smaller, regular fire ever would.",
+              "wordList": [
+                "Once",
+                "it",
+                "finally",
+                "catches",
+                "a",
+                "spark",
+                "the",
+                "resulting",
+                "blaze",
+                "burns",
+                "much",
+                "hotter",
+                "and",
+                "spreads",
+                "far",
+                "faster",
+                "than",
+                "a",
+                "smaller",
+                "regular",
+                "fire",
+                "ever",
+                "would"
+              ]
+            }
+          ]
+        },
+        {
+          "sentences": [
+            {
+              "text": "Certain trees actually depend on fire to reproduce.",
+              "wordList": [
+                "Certain",
+                "trees",
+                "actually",
+                "depend",
+                "on",
+                "fire",
+                "to",
+                "reproduce"
+              ]
+            },
+            {
+              "text": "The cones of some pine species, including the lodgepole pine, are sealed tightly with a sticky natural resin.",
+              "wordList": [
+                "The",
+                "cones",
+                "of",
+                "some",
+                "pine",
+                "species",
+                "including",
+                "the",
+                "lodgepole",
+                "pine",
+                "are",
+                "sealed",
+                "tightly",
+                "with",
+                "a",
+                "sticky",
+                "natural",
+                "resin"
+              ]
+            },
+            {
+              "text": "Only the intense heat of a fire can melt that resin and release the seeds onto fresh, sunlit soil where they can sprout.",
+              "wordList": [
+                "Only",
+                "the",
+                "intense",
+                "heat",
+                "of",
+                "a",
+                "fire",
+                "can",
+                "melt",
+                "that",
+                "resin",
+                "and",
+                "release",
+                "the",
+                "seeds",
+                "onto",
+                "fresh",
+                "sunlit",
+                "soil",
+                "where",
+                "they",
+                "can",
+                "sprout"
+              ]
+            }
+          ]
+        },
+        {
+          "sentences": [
+            {
+              "text": "Today, careful forest managers sometimes set planned, controlled burns to imitate this natural cycle.",
+              "wordList": [
+                "Today",
+                "careful",
+                "forest",
+                "managers",
+                "sometimes",
+                "set",
+                "planned",
+                "controlled",
+                "burns",
+                "to",
+                "imitate",
+                "this",
+                "natural",
+                "cycle"
+              ]
+            },
+            {
+              "text": "These small managed fires reduce the dangerous fuel buildup, recycle nutrients back into the soil, and open clearings where new young plants can take root.",
+              "wordList": [
+                "These",
+                "small",
+                "managed",
+                "fires",
+                "reduce",
+                "the",
+                "dangerous",
+                "fuel",
+                "buildup",
+                "recycle",
+                "nutrients",
+                "back",
+                "into",
+                "the",
+                "soil",
+                "and",
+                "open",
+                "clearings",
+                "where",
+                "new",
+                "young",
+                "plants",
+                "can",
+                "take",
+                "root"
+              ]
+            },
+            {
+              "text": "What once looked like pure destruction is, in many forests, a powerful part of renewal.",
+              "wordList": [
+                "What",
+                "once",
+                "looked",
+                "like",
+                "pure",
+                "destruction",
+                "is",
+                "in",
+                "many",
+                "forests",
+                "a",
+                "powerful",
+                "part",
+                "of",
+                "renewal"
+              ]
+            }
+          ]
+        }
+      ],
+      "wordCount": 201,
+      "avgSentenceLengthWords": 16.8,
+      "gpcInventory": [
+        "FL_04_grade2_fluency"
+      ],
+      "hfwInventory": [
+        "HFW_01a_anchors",
+        "HFW_02_set2"
+      ],
+      "multisyllabicPctIfAny": null,
+      "validationStatus": "auto-tokenized"
+    },
+    {
+      "passageId": "P_FL07_002",
+      "gateId": "FL_07_grade5_fluency",
+      "module": "7.3. Grade 5 Cold Read",
+      "topic": "The Coding Club's First Project",
+      "genre": "narrative",
+      "isCold": true,
+      "difficultyRank": 2,
+      "targetWordCount": 200,
+      "morphemeInventory": [
+        "MORPH_P_re",
+        "MORPH_S_er_agent",
+        "MORPH_S_ment",
+        "MORPH_R_struct"
+      ],
+      "paragraphs": [
+        {
+          "sentences": [
+            {
+              "text": "When the coding club first met in the school's small library, only six students showed up.",
+              "wordList": [
+                "When",
+                "the",
+                "coding",
+                "club",
+                "first",
+                "met",
+                "in",
+                "the",
+                "school's",
+                "small",
+                "library",
+                "only",
+                "six",
+                "students",
+                "showed",
+                "up"
+              ]
+            },
+            {
+              "text": "Mrs. Vega, the supervising teacher, smiled brightly anyway and announced that they would build a real working project together by the end of the semester.",
+              "wordList": [
+                "Mrs",
+                "Vega",
+                "the",
+                "supervising",
+                "teacher",
+                "smiled",
+                "brightly",
+                "anyway",
+                "and",
+                "announced",
+                "that",
+                "they",
+                "would",
+                "build",
+                "a",
+                "real",
+                "working",
+                "project",
+                "together",
+                "by",
+                "the",
+                "end",
+                "of",
+                "the",
+                "semester"
+              ]
+            },
+            {
+              "text": "The students glanced at one another a little nervously.",
+              "wordList": [
+                "The",
+                "students",
+                "glanced",
+                "at",
+                "one",
+                "another",
+                "a",
+                "little",
+                "nervously"
+              ]
+            }
+          ]
+        },
+        {
+          "sentences": [
+            {
+              "text": "After two weeks of arguments and brainstorming, the group finally settled on an idea.",
+              "wordList": [
+                "After",
+                "two",
+                "weeks",
+                "of",
+                "arguments",
+                "and",
+                "brainstorming",
+                "the",
+                "group",
+                "finally",
+                "settled",
+                "on",
+                "an",
+                "idea"
+              ]
+            },
+            {
+              "text": "They would create a simple website that listed every after-school club at their school, complete with meeting times, contact teachers, and brief descriptions.",
+              "wordList": [
+                "They",
+                "would",
+                "create",
+                "a",
+                "simple",
+                "website",
+                "that",
+                "listed",
+                "every",
+                "after-school",
+                "club",
+                "at",
+                "their",
+                "school",
+                "complete",
+                "with",
+                "meeting",
+                "times",
+                "contact",
+                "teachers",
+                "and",
+                "brief",
+                "descriptions"
+              ]
+            },
+            {
+              "text": "It sounded straightforward, but each member soon realized how many small decisions a website actually requires.",
+              "wordList": [
+                "It",
+                "sounded",
+                "straightforward",
+                "but",
+                "each",
+                "member",
+                "soon",
+                "realized",
+                "how",
+                "many",
+                "small",
+                "decisions",
+                "a",
+                "website",
+                "actually",
+                "requires"
+              ]
+            }
+          ]
+        },
+        {
+          "sentences": [
+            {
+              "text": "They divided the work into pieces.",
+              "wordList": [
+                "They",
+                "divided",
+                "the",
+                "work",
+                "into",
+                "pieces"
+              ]
+            },
+            {
+              "text": "Two students wrote the layout code, two others gathered the information from every teacher, and the last two designed the colors and the school logo.",
+              "wordList": [
+                "Two",
+                "students",
+                "wrote",
+                "the",
+                "layout",
+                "code",
+                "two",
+                "others",
+                "gathered",
+                "the",
+                "information",
+                "from",
+                "every",
+                "teacher",
+                "and",
+                "the",
+                "last",
+                "two",
+                "designed",
+                "the",
+                "colors",
+                "and",
+                "the",
+                "school",
+                "logo"
+              ]
+            },
+            {
+              "text": "Mrs. Vega checked in once a week, offering tips and small corrections.",
+              "wordList": [
+                "Mrs",
+                "Vega",
+                "checked",
+                "in",
+                "once",
+                "a",
+                "week",
+                "offering",
+                "tips",
+                "and",
+                "small",
+                "corrections"
+              ]
+            }
+          ]
+        },
+        {
+          "sentences": [
+            {
+              "text": "On the morning of the final presentation, the team uploaded the site and watched the home page load on the big projector.",
+              "wordList": [
+                "On",
+                "the",
+                "morning",
+                "of",
+                "the",
+                "final",
+                "presentation",
+                "the",
+                "team",
+                "uploaded",
+                "the",
+                "site",
+                "and",
+                "watched",
+                "the",
+                "home",
+                "page",
+                "load",
+                "on",
+                "the",
+                "big",
+                "projector"
+              ]
+            },
+            {
+              "text": "The principal walked in, scrolled through the listings, and smiled with quiet approval.",
+              "wordList": [
+                "The",
+                "principal",
+                "walked",
+                "in",
+                "scrolled",
+                "through",
+                "the",
+                "listings",
+                "and",
+                "smiled",
+                "with",
+                "quiet",
+                "approval"
+              ]
+            },
+            {
+              "text": "The students felt a wave of pride that they had constructed something real that the whole school would use.",
+              "wordList": [
+                "The",
+                "students",
+                "felt",
+                "a",
+                "wave",
+                "of",
+                "pride",
+                "that",
+                "they",
+                "had",
+                "constructed",
+                "something",
+                "real",
+                "that",
+                "the",
+                "whole",
+                "school",
+                "would",
+                "use"
+              ]
+            }
+          ]
+        }
+      ],
+      "wordCount": 200,
+      "avgSentenceLengthWords": 16.7,
+      "gpcInventory": [
+        "FL_04_grade2_fluency"
+      ],
+      "hfwInventory": [
+        "HFW_01a_anchors",
+        "HFW_02_set2"
+      ],
+      "multisyllabicPctIfAny": null,
+      "validationStatus": "auto-tokenized"
+    },
+    {
+      "passageId": "P_FL07_003",
+      "gateId": "FL_07_grade5_fluency",
+      "module": "7.3. Grade 5 Cold Read",
+      "topic": "Inside a Cell",
+      "genre": "informational",
+      "isCold": true,
+      "difficultyRank": 2,
+      "targetWordCount": 200,
+      "morphemeInventory": [
+        "MORPH_R_bio",
+        "MORPH_S_tion",
+        "MORPH_S_ous"
+      ],
+      "paragraphs": [
+        {
+          "sentences": [
+            {
+              "text": "Every living thing on Earth, from the largest blue whale to the tiniest blade of grass, is built from cells.",
+              "wordList": [
+                "Every",
+                "living",
+                "thing",
+                "on",
+                "Earth",
+                "from",
+                "the",
+                "largest",
+                "blue",
+                "whale",
+                "to",
+                "the",
+                "tiniest",
+                "blade",
+                "of",
+                "grass",
+                "is",
+                "built",
+                "from",
+                "cells"
+              ]
+            },
+            {
+              "text": "Cells are far too small to see with the naked eye, but inside each one, a complex world of tiny moving parts is always at work.",
+              "wordList": [
+                "Cells",
+                "are",
+                "far",
+                "too",
+                "small",
+                "to",
+                "see",
+                "with",
+                "the",
+                "naked",
+                "eye",
+                "but",
+                "inside",
+                "each",
+                "one",
+                "a",
+                "complex",
+                "world",
+                "of",
+                "tiny",
+                "moving",
+                "parts",
+                "is",
+                "always",
+                "at",
+                "work"
+              ]
+            },
+            {
+              "text": "Each part has a specific job in keeping the cell alive.",
+              "wordList": [
+                "Each",
+                "part",
+                "has",
+                "a",
+                "specific",
+                "job",
+                "in",
+                "keeping",
+                "the",
+                "cell",
+                "alive"
+              ]
+            }
+          ]
+        },
+        {
+          "sentences": [
+            {
+              "text": "At the center sits the nucleus, the cell's control room.",
+              "wordList": [
+                "At",
+                "the",
+                "center",
+                "sits",
+                "the",
+                "nucleus",
+                "the",
+                "cell's",
+                "control",
+                "room"
+              ]
+            },
+            {
+              "text": "It stores the cell's DNA, the instructions that tell the cell how to grow, when to divide, and what jobs to perform.",
+              "wordList": [
+                "It",
+                "stores",
+                "the",
+                "cell's",
+                "DNA",
+                "the",
+                "instructions",
+                "that",
+                "tell",
+                "the",
+                "cell",
+                "how",
+                "to",
+                "grow",
+                "when",
+                "to",
+                "divide",
+                "and",
+                "what",
+                "jobs",
+                "to",
+                "perform"
+              ]
+            },
+            {
+              "text": "Without these instructions, no cell could function.",
+              "wordList": [
+                "Without",
+                "these",
+                "instructions",
+                "no",
+                "cell",
+                "could",
+                "function"
+              ]
+            }
+          ]
+        },
+        {
+          "sentences": [
+            {
+              "text": "Floating around the nucleus are tiny structures called organelles, each with its own special role.",
+              "wordList": [
+                "Floating",
+                "around",
+                "the",
+                "nucleus",
+                "are",
+                "tiny",
+                "structures",
+                "called",
+                "organelles",
+                "each",
+                "with",
+                "its",
+                "own",
+                "special",
+                "role"
+              ]
+            },
+            {
+              "text": "The mitochondria turn food into energy that the rest of the cell can use.",
+              "wordList": [
+                "The",
+                "mitochondria",
+                "turn",
+                "food",
+                "into",
+                "energy",
+                "that",
+                "the",
+                "rest",
+                "of",
+                "the",
+                "cell",
+                "can",
+                "use"
+              ]
+            },
+            {
+              "text": "The ribosomes build proteins that help the body grow and repair itself.",
+              "wordList": [
+                "The",
+                "ribosomes",
+                "build",
+                "proteins",
+                "that",
+                "help",
+                "the",
+                "body",
+                "grow",
+                "and",
+                "repair",
+                "itself"
+              ]
+            },
+            {
+              "text": "A jelly-like fluid called cytoplasm fills the space between all these busy parts.",
+              "wordList": [
+                "A",
+                "jelly-like",
+                "fluid",
+                "called",
+                "cytoplasm",
+                "fills",
+                "the",
+                "space",
+                "between",
+                "all",
+                "these",
+                "busy",
+                "parts"
+              ]
+            }
+          ]
+        },
+        {
+          "sentences": [
+            {
+              "text": "A flexible outer wall called the membrane surrounds the cell.",
+              "wordList": [
+                "A",
+                "flexible",
+                "outer",
+                "wall",
+                "called",
+                "the",
+                "membrane",
+                "surrounds",
+                "the",
+                "cell"
+              ]
+            },
+            {
+              "text": "It controls what enters and what leaves, allowing nutrients in and pushing waste out.",
+              "wordList": [
+                "It",
+                "controls",
+                "what",
+                "enters",
+                "and",
+                "what",
+                "leaves",
+                "allowing",
+                "nutrients",
+                "in",
+                "and",
+                "pushing",
+                "waste",
+                "out"
+              ]
+            },
+            {
+              "text": "When you remember that a single human body holds trillions of these tiny working units, it becomes easier to appreciate just how complicated life really is.",
+              "wordList": [
+                "When",
+                "you",
+                "remember",
+                "that",
+                "a",
+                "single",
+                "human",
+                "body",
+                "holds",
+                "trillions",
+                "of",
+                "these",
+                "tiny",
+                "working",
+                "units",
+                "it",
+                "becomes",
+                "easier",
+                "to",
+                "appreciate",
+                "just",
+                "how",
+                "complicated",
+                "life",
+                "really",
+                "is"
+              ]
+            }
+          ]
+        }
+      ],
+      "wordCount": 200,
+      "avgSentenceLengthWords": 15.4,
+      "gpcInventory": [
+        "FL_04_grade2_fluency"
+      ],
+      "hfwInventory": [
+        "HFW_01a_anchors",
+        "HFW_02_set2"
+      ],
+      "multisyllabicPctIfAny": null,
+      "validationStatus": "auto-tokenized"
+    },
+    {
+      "passageId": "P_FL07_004",
+      "gateId": "FL_07_grade5_fluency",
+      "module": "7.3. Grade 5 Cold Read",
+      "topic": "Ana's Speech",
+      "genre": "narrative",
+      "isCold": true,
+      "difficultyRank": 3,
+      "targetWordCount": 200,
+      "morphemeInventory": [
+        "MORPH_P_un",
+        "MORPH_S_ly",
+        "MORPH_S_ness",
+        "MORPH_S_ment"
+      ],
+      "paragraphs": [
+        {
+          "sentences": [
+            {
+              "text": "Ana had decided to run for fifth-grade class president, and now she had to give her campaign speech in front of the entire grade.",
+              "wordList": [
+                "Ana",
+                "had",
+                "decided",
+                "to",
+                "run",
+                "for",
+                "fifth-grade",
+                "class",
+                "president",
+                "and",
+                "now",
+                "she",
+                "had",
+                "to",
+                "give",
+                "her",
+                "campaign",
+                "speech",
+                "in",
+                "front",
+                "of",
+                "the",
+                "entire",
+                "grade"
+              ]
+            },
+            {
+              "text": "She stood backstage, gripping her note cards so tightly that the edges began to curl.",
+              "wordList": [
+                "She",
+                "stood",
+                "backstage",
+                "gripping",
+                "her",
+                "note",
+                "cards",
+                "so",
+                "tightly",
+                "that",
+                "the",
+                "edges",
+                "began",
+                "to",
+                "curl"
+              ]
+            },
+            {
+              "text": "Three other candidates would speak before her, and Ana could already hear the audience laughing at the first one's clever jokes.",
+              "wordList": [
+                "Three",
+                "other",
+                "candidates",
+                "would",
+                "speak",
+                "before",
+                "her",
+                "and",
+                "Ana",
+                "could",
+                "already",
+                "hear",
+                "the",
+                "audience",
+                "laughing",
+                "at",
+                "the",
+                "first",
+                "one's",
+                "clever",
+                "jokes"
+              ]
+            }
+          ]
+        },
+        {
+          "sentences": [
+            {
+              "text": "Ana glanced down at her own speech, which she had written and rewritten over the last week.",
+              "wordList": [
+                "Ana",
+                "glanced",
+                "down",
+                "at",
+                "her",
+                "own",
+                "speech",
+                "which",
+                "she",
+                "had",
+                "written",
+                "and",
+                "rewritten",
+                "over",
+                "the",
+                "last",
+                "week"
+              ]
+            },
+            {
+              "text": "It was honest and serious, full of real plans for the school: a recycling program, a new game shelf in the cafeteria, and a buddy system for new students.",
+              "wordList": [
+                "It",
+                "was",
+                "honest",
+                "and",
+                "serious",
+                "full",
+                "of",
+                "real",
+                "plans",
+                "for",
+                "the",
+                "school",
+                "a",
+                "recycling",
+                "program",
+                "a",
+                "new",
+                "game",
+                "shelf",
+                "in",
+                "the",
+                "cafeteria",
+                "and",
+                "a",
+                "buddy",
+                "system",
+                "for",
+                "new",
+                "students"
+              ]
+            },
+            {
+              "text": "Suddenly her words seemed plain compared to the laughter coming from the gym.",
+              "wordList": [
+                "Suddenly",
+                "her",
+                "words",
+                "seemed",
+                "plain",
+                "compared",
+                "to",
+                "the",
+                "laughter",
+                "coming",
+                "from",
+                "the",
+                "gym"
+              ]
+            }
+          ]
+        },
+        {
+          "sentences": [
+            {
+              "text": "When her name was finally called, Ana walked slowly across the stage.",
+              "wordList": [
+                "When",
+                "her",
+                "name",
+                "was",
+                "finally",
+                "called",
+                "Ana",
+                "walked",
+                "slowly",
+                "across",
+                "the",
+                "stage"
+              ]
+            },
+            {
+              "text": "She took a long breath, set her note cards down, and looked out at the rows of fifth graders.",
+              "wordList": [
+                "She",
+                "took",
+                "a",
+                "long",
+                "breath",
+                "set",
+                "her",
+                "note",
+                "cards",
+                "down",
+                "and",
+                "looked",
+                "out",
+                "at",
+                "the",
+                "rows",
+                "of",
+                "fifth",
+                "graders"
+              ]
+            },
+            {
+              "text": "She tried something new.",
+              "wordList": [
+                "She",
+                "tried",
+                "something",
+                "new"
+              ]
+            },
+            {
+              "text": "She set the cards aside and spoke from her heart.",
+              "wordList": [
+                "She",
+                "set",
+                "the",
+                "cards",
+                "aside",
+                "and",
+                "spoke",
+                "from",
+                "her",
+                "heart"
+              ]
+            }
+          ]
+        },
+        {
+          "sentences": [
+            {
+              "text": "She talked about why each of her ideas would actually help her classmates.",
+              "wordList": [
+                "She",
+                "talked",
+                "about",
+                "why",
+                "each",
+                "of",
+                "her",
+                "ideas",
+                "would",
+                "actually",
+                "help",
+                "her",
+                "classmates"
+              ]
+            },
+            {
+              "text": "The room grew quiet, then attentive, and then filled with steady applause.",
+              "wordList": [
+                "The",
+                "room",
+                "grew",
+                "quiet",
+                "then",
+                "attentive",
+                "and",
+                "then",
+                "filled",
+                "with",
+                "steady",
+                "applause"
+              ]
+            },
+            {
+              "text": "Ana stepped down lighter, certain she had said what she meant.",
+              "wordList": [
+                "Ana",
+                "stepped",
+                "down",
+                "lighter",
+                "certain",
+                "she",
+                "had",
+                "said",
+                "what",
+                "she",
+                "meant"
+              ]
+            }
+          ]
+        }
+      ],
+      "wordCount": 200,
+      "avgSentenceLengthWords": 15.4,
+      "gpcInventory": [
+        "FL_04_grade2_fluency"
+      ],
+      "hfwInventory": [
+        "HFW_01a_anchors",
+        "HFW_02_set2"
+      ],
+      "multisyllabicPctIfAny": null,
+      "validationStatus": "auto-tokenized"
+    },
+    {
+      "passageId": "P_FL07_005",
+      "gateId": "FL_07_grade5_fluency",
+      "module": "7.3. Grade 5 Cold Read",
+      "topic": "The Origins of the Internet",
+      "genre": "informational",
+      "isCold": true,
+      "difficultyRank": 3,
+      "targetWordCount": 200,
+      "morphemeInventory": [
+        "MORPH_P_inter",
+        "MORPH_P_trans",
+        "MORPH_S_tion",
+        "MORPH_R_port"
+      ],
+      "paragraphs": [
+        {
+          "sentences": [
+            {
+              "text": "The internet feels like a modern invention, but its earliest roots reach back over fifty years to a group of American government researchers.",
+              "wordList": [
+                "The",
+                "internet",
+                "feels",
+                "like",
+                "a",
+                "modern",
+                "invention",
+                "but",
+                "its",
+                "earliest",
+                "roots",
+                "reach",
+                "back",
+                "over",
+                "fifty",
+                "years",
+                "to",
+                "a",
+                "group",
+                "of",
+                "American",
+                "government",
+                "researchers"
+              ]
+            },
+            {
+              "text": "In the late 1960s, the United States Defense Department wanted a way for its scientists at distant universities to share information quickly and reliably, even if part of the network were damaged.",
+              "wordList": [
+                "In",
+                "the",
+                "late",
+                "1960s",
+                "the",
+                "United",
+                "States",
+                "Defense",
+                "Department",
+                "wanted",
+                "a",
+                "way",
+                "for",
+                "its",
+                "scientists",
+                "at",
+                "distant",
+                "universities",
+                "to",
+                "share",
+                "information",
+                "quickly",
+                "and",
+                "reliably",
+                "even",
+                "if",
+                "part",
+                "of",
+                "the",
+                "network",
+                "were",
+                "damaged"
+              ]
+            }
+          ]
+        },
+        {
+          "sentences": [
+            {
+              "text": "Their solution was a system called ARPANET, which connected just four computers in 1969.",
+              "wordList": [
+                "Their",
+                "solution",
+                "was",
+                "a",
+                "system",
+                "called",
+                "ARPANET",
+                "which",
+                "connected",
+                "just",
+                "four",
+                "computers",
+                "in",
+                "1969"
+              ]
+            },
+            {
+              "text": "Those first four machines sat at universities in California and Utah.",
+              "wordList": [
+                "Those",
+                "first",
+                "four",
+                "machines",
+                "sat",
+                "at",
+                "universities",
+                "in",
+                "California",
+                "and",
+                "Utah"
+              ]
+            },
+            {
+              "text": "Sending a short message between them was a small miracle that sometimes took several tries to hold.",
+              "wordList": [
+                "Sending",
+                "a",
+                "short",
+                "message",
+                "between",
+                "them",
+                "was",
+                "a",
+                "small",
+                "miracle",
+                "that",
+                "sometimes",
+                "took",
+                "several",
+                "tries",
+                "to",
+                "hold"
+              ]
+            }
+          ]
+        },
+        {
+          "sentences": [
+            {
+              "text": "Through the 1970s, more universities and research labs joined the network.",
+              "wordList": [
+                "Through",
+                "the",
+                "1970s",
+                "more",
+                "universities",
+                "and",
+                "research",
+                "labs",
+                "joined",
+                "the",
+                "network"
+              ]
+            },
+            {
+              "text": "Engineers wrote new rules, called protocols, that allowed different kinds of computers to talk to each other.",
+              "wordList": [
+                "Engineers",
+                "wrote",
+                "new",
+                "rules",
+                "called",
+                "protocols",
+                "that",
+                "allowed",
+                "different",
+                "kinds",
+                "of",
+                "computers",
+                "to",
+                "talk",
+                "to",
+                "each",
+                "other"
+              ]
+            },
+            {
+              "text": "Email, which we now take for granted, was one of the very first popular uses of this growing system.",
+              "wordList": [
+                "Email",
+                "which",
+                "we",
+                "now",
+                "take",
+                "for",
+                "granted",
+                "was",
+                "one",
+                "of",
+                "the",
+                "very",
+                "first",
+                "popular",
+                "uses",
+                "of",
+                "this",
+                "growing",
+                "system"
+              ]
+            }
+          ]
+        },
+        {
+          "sentences": [
+            {
+              "text": "In 1989, a British scientist named Tim Berners-Lee invented the World Wide Web.",
+              "wordList": [
+                "In",
+                "1989",
+                "a",
+                "British",
+                "scientist",
+                "named",
+                "Tim",
+                "Berners-Lee",
+                "invented",
+                "the",
+                "World",
+                "Wide",
+                "Web"
+              ]
+            },
+            {
+              "text": "His system allowed people to share linked pages of text, images, and later video, which most users today think of when they hear the word internet.",
+              "wordList": [
+                "His",
+                "system",
+                "allowed",
+                "people",
+                "to",
+                "share",
+                "linked",
+                "pages",
+                "of",
+                "text",
+                "images",
+                "and",
+                "later",
+                "video",
+                "which",
+                "most",
+                "users",
+                "today",
+                "think",
+                "of",
+                "when",
+                "they",
+                "hear",
+                "the",
+                "word",
+                "internet"
+              ]
+            },
+            {
+              "text": "From four computers to billions of devices, the internet has transformed nearly every part of daily life.",
+              "wordList": [
+                "From",
+                "four",
+                "computers",
+                "to",
+                "billions",
+                "of",
+                "devices",
+                "the",
+                "internet",
+                "has",
+                "transformed",
+                "nearly",
+                "every",
+                "part",
+                "of",
+                "daily",
+                "life"
+              ]
+            }
+          ]
+        }
+      ],
+      "wordCount": 200,
+      "avgSentenceLengthWords": 18.2,
+      "gpcInventory": [
+        "FL_04_grade2_fluency"
+      ],
+      "hfwInventory": [
+        "HFW_01a_anchors",
+        "HFW_02_set2"
+      ],
+      "multisyllabicPctIfAny": null,
+      "validationStatus": "auto-tokenized"
+    }
+  ]
+}

@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 400" role="img" aria-label="A simple playground in a field on a sunny afternoon">
+  <defs>
+    <linearGradient id="pl-sky" x1="0" x2="0" y1="0" y2="1">
+      <stop offset="0%" stop-color="#dbeefb"/>
+      <stop offset="100%" stop-color="#bde0f7"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="280" fill="url(#pl-sky)"/>
+  <circle cx="120" cy="100" r="44" fill="#fff5c8"/>
+  <!-- ground -->
+  <rect y="280" width="800" height="120" fill="#9bc88a"/>
+  <rect y="320" width="800" height="80" fill="#7eb073"/>
+  <!-- swing set: posts + bar + two swings -->
+  <line x1="290" y1="280" x2="320" y2="180" stroke="#5a4a3a" stroke-width="6"/>
+  <line x1="510" y1="280" x2="480" y2="180" stroke="#5a4a3a" stroke-width="6"/>
+  <line x1="320" y1="180" x2="480" y2="180" stroke="#5a4a3a" stroke-width="6"/>
+  <g stroke="#5a4a3a" stroke-width="2" fill="none">
+    <line x1="365" y1="180" x2="365" y2="240"/>
+    <line x1="395" y1="180" x2="395" y2="240"/>
+  </g>
+  <rect x="358" y="240" width="44" height="6" fill="#a47148" rx="2"/>
+  <g stroke="#5a4a3a" stroke-width="2" fill="none">
+    <line x1="430" y1="180" x2="430" y2="252"/>
+    <line x1="460" y1="180" x2="460" y2="252"/>
+  </g>
+  <rect x="423" y="252" width="44" height="6" fill="#a47148" rx="2"/>
+  <!-- slide: simple ramp -->
+  <polygon points="600,280 660,200 700,200 700,280" fill="#dde9f1"/>
+  <line x1="660" y1="200" x2="600" y2="280" stroke="#a7c4d8" stroke-width="4"/>
+  <rect x="700" y="200" width="6" height="80" fill="#5a4a3a"/>
+</svg>

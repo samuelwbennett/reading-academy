@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 400" role="img" aria-label="An empty country road winding through rolling hills">
+  <defs>
+    <linearGradient id="r-sky" x1="0" x2="0" y1="0" y2="1">
+      <stop offset="0%" stop-color="#dbeefb"/>
+      <stop offset="100%" stop-color="#a7d2ee"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="240" fill="url(#r-sky)"/>
+  <circle cx="640" cy="100" r="46" fill="#fff5c8"/>
+  <!-- clouds -->
+  <g fill="#fff" opacity="0.85">
+    <ellipse cx="180" cy="80" rx="40" ry="14"/>
+    <ellipse cx="220" cy="76" rx="30" ry="12"/>
+    <ellipse cx="500" cy="120" rx="34" ry="12"/>
+  </g>
+  <!-- back hills -->
+  <path d="M0 240 Q200 180 400 220 T800 200 L800 280 L0 280 Z" fill="#9bc88a"/>
+  <!-- mid hills -->
+  <path d="M0 280 Q200 240 400 270 T800 250 L800 330 L0 330 Z" fill="#7eb073"/>
+  <!-- foreground -->
+  <rect y="320" width="800" height="80" fill="#5a8245"/>
+  <!-- road -->
+  <path d="M380 400 Q400 360 410 330 Q420 300 440 270 L460 270 Q450 300 440 330 Q430 360 420 400 Z" fill="#bca38b"/>
+  <line x1="420" y1="395" x2="425" y2="370" stroke="#fff5c8" stroke-width="4"/>
+  <line x1="430" y1="345" x2="436" y2="320" stroke="#fff5c8" stroke-width="3"/>
+  <line x1="441" y1="298" x2="447" y2="282" stroke="#fff5c8" stroke-width="2"/>
+</svg>

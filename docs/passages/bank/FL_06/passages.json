@@ -1,0 +1,1465 @@
+{
+  "$schema": "../../architecture-v1.0.md",
+  "gateId": "FL_06_grade4_fluency",
+  "tier": "FL_06",
+  "authoredBy": "claude:phase-b4-fluency-passages",
+  "authoredAt": "2026-05-19",
+  "version": "1.0.0",
+  "constraints": {
+    "grade_band": "G4",
+    "prereq_phonics": "FL_05_grade3_fluency",
+    "wcpm_target": 125,
+    "passage_accuracy_target": 0.97,
+    "target_word_count": 175,
+    "lexile_band_approx": "700L-850L",
+    "morpheme_inventory_eligible": [
+      "MORPH_P_un",
+      "MORPH_P_re",
+      "MORPH_P_pre",
+      "MORPH_P_dis",
+      "MORPH_P_sub",
+      "MORPH_P_inter",
+      "MORPH_P_trans",
+      "MORPH_S_er_agent",
+      "MORPH_S_ly",
+      "MORPH_S_ful",
+      "MORPH_S_less",
+      "MORPH_S_able",
+      "MORPH_S_ness",
+      "MORPH_S_ment",
+      "MORPH_S_tion",
+      "MORPH_S_ous",
+      "MORPH_R_port",
+      "MORPH_R_struct",
+      "MORPH_R_dict",
+      "MORPH_R_vis",
+      "MORPH_R_graph"
+    ]
+  },
+  "passages": [
+    {
+      "passageId": "P_FL06_001",
+      "gateId": "FL_06_grade4_fluency",
+      "module": "7.2. Grade 4 Cold Read",
+      "topic": "How Volcanoes Form",
+      "genre": "informational",
+      "isCold": true,
+      "difficultyRank": 1,
+      "targetWordCount": 175,
+      "morphemeInventory": [
+        "MORPH_P_under",
+        "MORPH_S_tion",
+        "MORPH_S_er_compare"
+      ],
+      "paragraphs": [
+        {
+          "sentences": [
+            {
+              "text": "Deep underneath the Earth's surface, layers of rock are constantly pressing against each other.",
+              "wordList": [
+                "Deep",
+                "underneath",
+                "the",
+                "Earth's",
+                "surface",
+                "layers",
+                "of",
+                "rock",
+                "are",
+                "constantly",
+                "pressing",
+                "against",
+                "each",
+                "other"
+              ]
+            },
+            {
+              "text": "In a few places, this pressure becomes too great.",
+              "wordList": [
+                "In",
+                "a",
+                "few",
+                "places",
+                "this",
+                "pressure",
+                "becomes",
+                "too",
+                "great"
+              ]
+            },
+            {
+              "text": "The rock melts into a glowing liquid called magma.",
+              "wordList": [
+                "The",
+                "rock",
+                "melts",
+                "into",
+                "a",
+                "glowing",
+                "liquid",
+                "called",
+                "magma"
+              ]
+            },
+            {
+              "text": "The hot magma is much lighter than the solid rock around it.",
+              "wordList": [
+                "The",
+                "hot",
+                "magma",
+                "is",
+                "much",
+                "lighter",
+                "than",
+                "the",
+                "solid",
+                "rock",
+                "around",
+                "it"
+              ]
+            }
+          ]
+        },
+        {
+          "sentences": [
+            {
+              "text": "Because it is lighter, the magma slowly rises.",
+              "wordList": [
+                "Because",
+                "it",
+                "is",
+                "lighter",
+                "the",
+                "magma",
+                "slowly",
+                "rises"
+              ]
+            },
+            {
+              "text": "It pushes its way through cracks and weak spots in the Earth's crust.",
+              "wordList": [
+                "It",
+                "pushes",
+                "its",
+                "way",
+                "through",
+                "cracks",
+                "and",
+                "weak",
+                "spots",
+                "in",
+                "the",
+                "Earth's",
+                "crust"
+              ]
+            },
+            {
+              "text": "Sometimes the magma collects in a huge underground chamber.",
+              "wordList": [
+                "Sometimes",
+                "the",
+                "magma",
+                "collects",
+                "in",
+                "a",
+                "huge",
+                "underground",
+                "chamber"
+              ]
+            },
+            {
+              "text": "Pressure builds inside that chamber for years, sometimes for hundreds of years.",
+              "wordList": [
+                "Pressure",
+                "builds",
+                "inside",
+                "that",
+                "chamber",
+                "for",
+                "years",
+                "sometimes",
+                "for",
+                "hundreds",
+                "of",
+                "years"
+              ]
+            }
+          ]
+        },
+        {
+          "sentences": [
+            {
+              "text": "When the pressure finally becomes too strong, the magma bursts upward through the surface.",
+              "wordList": [
+                "When",
+                "the",
+                "pressure",
+                "finally",
+                "becomes",
+                "too",
+                "strong",
+                "the",
+                "magma",
+                "bursts",
+                "upward",
+                "through",
+                "the",
+                "surface"
+              ]
+            },
+            {
+              "text": "Once it reaches the open air, scientists give it a new name: lava.",
+              "wordList": [
+                "Once",
+                "it",
+                "reaches",
+                "the",
+                "open",
+                "air",
+                "scientists",
+                "give",
+                "it",
+                "a",
+                "new",
+                "name",
+                "lava"
+              ]
+            },
+            {
+              "text": "The lava flows down the sides of the volcano, often glowing bright red and orange.",
+              "wordList": [
+                "The",
+                "lava",
+                "flows",
+                "down",
+                "the",
+                "sides",
+                "of",
+                "the",
+                "volcano",
+                "often",
+                "glowing",
+                "bright",
+                "red",
+                "and",
+                "orange"
+              ]
+            }
+          ]
+        },
+        {
+          "sentences": [
+            {
+              "text": "Over time, the cooled lava hardens into solid rock.",
+              "wordList": [
+                "Over",
+                "time",
+                "the",
+                "cooled",
+                "lava",
+                "hardens",
+                "into",
+                "solid",
+                "rock"
+              ]
+            },
+            {
+              "text": "Layer by layer, the rock builds up around the opening.",
+              "wordList": [
+                "Layer",
+                "by",
+                "layer",
+                "the",
+                "rock",
+                "builds",
+                "up",
+                "around",
+                "the",
+                "opening"
+              ]
+            },
+            {
+              "text": "After many eruptions, the volcano takes its familiar cone shape, sometimes towering thousands of feet above the ground.",
+              "wordList": [
+                "After",
+                "many",
+                "eruptions",
+                "the",
+                "volcano",
+                "takes",
+                "its",
+                "familiar",
+                "cone",
+                "shape",
+                "sometimes",
+                "towering",
+                "thousands",
+                "of",
+                "feet",
+                "above",
+                "the",
+                "ground"
+              ]
+            },
+            {
+              "text": "That is how mountains are born from deep fire.",
+              "wordList": [
+                "That",
+                "is",
+                "how",
+                "mountains",
+                "are",
+                "born",
+                "from",
+                "deep",
+                "fire"
+              ]
+            }
+          ]
+        }
+      ],
+      "wordCount": 174,
+      "avgSentenceLengthWords": 11.6,
+      "gpcInventory": [
+        "FL_04_grade2_fluency"
+      ],
+      "hfwInventory": [
+        "HFW_01a_anchors",
+        "HFW_02_set2"
+      ],
+      "multisyllabicPctIfAny": null,
+      "validationStatus": "auto-tokenized"
+    },
+    {
+      "passageId": "P_FL06_002",
+      "gateId": "FL_06_grade4_fluency",
+      "module": "7.2. Grade 4 Cold Read",
+      "topic": "The Stage Fright Cure",
+      "genre": "narrative",
+      "isCold": true,
+      "difficultyRank": 2,
+      "targetWordCount": 175,
+      "morphemeInventory": [
+        "MORPH_P_un",
+        "MORPH_S_ly",
+        "MORPH_S_ness"
+      ],
+      "paragraphs": [
+        {
+          "sentences": [
+            {
+              "text": "Jasmine had practiced her piano solo for nearly two months.",
+              "wordList": [
+                "Jasmine",
+                "had",
+                "practiced",
+                "her",
+                "piano",
+                "solo",
+                "for",
+                "nearly",
+                "two",
+                "months"
+              ]
+            },
+            {
+              "text": "At home, her fingers floated easily across the keys.",
+              "wordList": [
+                "At",
+                "home",
+                "her",
+                "fingers",
+                "floated",
+                "easily",
+                "across",
+                "the",
+                "keys"
+              ]
+            },
+            {
+              "text": "But on the night of the spring concert, her stomach felt heavy with nerves.",
+              "wordList": [
+                "But",
+                "on",
+                "the",
+                "night",
+                "of",
+                "the",
+                "spring",
+                "concert",
+                "her",
+                "stomach",
+                "felt",
+                "heavy",
+                "with",
+                "nerves"
+              ]
+            },
+            {
+              "text": "She watched the other students perform and felt her heart pound louder with each round of applause.",
+              "wordList": [
+                "She",
+                "watched",
+                "the",
+                "other",
+                "students",
+                "perform",
+                "and",
+                "felt",
+                "her",
+                "heart",
+                "pound",
+                "louder",
+                "with",
+                "each",
+                "round",
+                "of",
+                "applause"
+              ]
+            }
+          ]
+        },
+        {
+          "sentences": [
+            {
+              "text": "When the announcer called her name, Jasmine could barely move.",
+              "wordList": [
+                "When",
+                "the",
+                "announcer",
+                "called",
+                "her",
+                "name",
+                "Jasmine",
+                "could",
+                "barely",
+                "move"
+              ]
+            },
+            {
+              "text": "She walked stiffly to the gleaming black piano.",
+              "wordList": [
+                "She",
+                "walked",
+                "stiffly",
+                "to",
+                "the",
+                "gleaming",
+                "black",
+                "piano"
+              ]
+            },
+            {
+              "text": "Her music teacher, Ms. Park, gave her a quick, reassuring nod from the front row.",
+              "wordList": [
+                "Her",
+                "music",
+                "teacher",
+                "Ms",
+                "Park",
+                "gave",
+                "her",
+                "a",
+                "quick",
+                "reassuring",
+                "nod",
+                "from",
+                "the",
+                "front",
+                "row"
+              ]
+            }
+          ]
+        },
+        {
+          "sentences": [
+            {
+              "text": "Jasmine sat down on the bench, took a deep breath, and remembered what Ms. Park had taught her.",
+              "wordList": [
+                "Jasmine",
+                "sat",
+                "down",
+                "on",
+                "the",
+                "bench",
+                "took",
+                "a",
+                "deep",
+                "breath",
+                "and",
+                "remembered",
+                "what",
+                "Ms",
+                "Park",
+                "had",
+                "taught",
+                "her"
+              ]
+            },
+            {
+              "text": "Slow your breath, listen to the first note, and let the music carry you forward.",
+              "wordList": [
+                "Slow",
+                "your",
+                "breath",
+                "listen",
+                "to",
+                "the",
+                "first",
+                "note",
+                "and",
+                "let",
+                "the",
+                "music",
+                "carry",
+                "you",
+                "forward"
+              ]
+            },
+            {
+              "text": "She placed her hands lightly on the keys.",
+              "wordList": [
+                "She",
+                "placed",
+                "her",
+                "hands",
+                "lightly",
+                "on",
+                "the",
+                "keys"
+              ]
+            }
+          ]
+        },
+        {
+          "sentences": [
+            {
+              "text": "She played one careful note, then another, and then she could not stop.",
+              "wordList": [
+                "She",
+                "played",
+                "one",
+                "careful",
+                "note",
+                "then",
+                "another",
+                "and",
+                "then",
+                "she",
+                "could",
+                "not",
+                "stop"
+              ]
+            },
+            {
+              "text": "The music she had practiced flowed through her fingers.",
+              "wordList": [
+                "The",
+                "music",
+                "she",
+                "had",
+                "practiced",
+                "flowed",
+                "through",
+                "her",
+                "fingers"
+              ]
+            },
+            {
+              "text": "When she finished, the audience clapped warmly.",
+              "wordList": [
+                "When",
+                "she",
+                "finished",
+                "the",
+                "audience",
+                "clapped",
+                "warmly"
+              ]
+            },
+            {
+              "text": "Jasmine took a small bow, felt her stage fright completely fade away, and walked back to her seat smiling all the way.",
+              "wordList": [
+                "Jasmine",
+                "took",
+                "a",
+                "small",
+                "bow",
+                "felt",
+                "her",
+                "stage",
+                "fright",
+                "completely",
+                "fade",
+                "away",
+                "and",
+                "walked",
+                "back",
+                "to",
+                "her",
+                "seat",
+                "smiling",
+                "all",
+                "the",
+                "way"
+              ]
+            }
+          ]
+        }
+      ],
+      "wordCount": 175,
+      "avgSentenceLengthWords": 12.5,
+      "gpcInventory": [
+        "FL_04_grade2_fluency"
+      ],
+      "hfwInventory": [
+        "HFW_01a_anchors",
+        "HFW_02_set2"
+      ],
+      "multisyllabicPctIfAny": null,
+      "validationStatus": "auto-tokenized"
+    },
+    {
+      "passageId": "P_FL06_003",
+      "gateId": "FL_06_grade4_fluency",
+      "module": "7.2. Grade 4 Cold Read",
+      "topic": "Bees and Their Hive Jobs",
+      "genre": "informational",
+      "isCold": true,
+      "difficultyRank": 2,
+      "targetWordCount": 175,
+      "morphemeInventory": [
+        "MORPH_S_er_agent",
+        "MORPH_S_tion",
+        "MORPH_S_ous"
+      ],
+      "paragraphs": [
+        {
+          "sentences": [
+            {
+              "text": "A honeybee hive is one of the most organized places in all of nature.",
+              "wordList": [
+                "A",
+                "honeybee",
+                "hive",
+                "is",
+                "one",
+                "of",
+                "the",
+                "most",
+                "organized",
+                "places",
+                "in",
+                "all",
+                "of",
+                "nature"
+              ]
+            },
+            {
+              "text": "Thousands of bees live and work together, and each bee has a clear job.",
+              "wordList": [
+                "Thousands",
+                "of",
+                "bees",
+                "live",
+                "and",
+                "work",
+                "together",
+                "and",
+                "each",
+                "bee",
+                "has",
+                "a",
+                "clear",
+                "job"
+              ]
+            },
+            {
+              "text": "Their teamwork keeps the whole colony alive.",
+              "wordList": [
+                "Their",
+                "teamwork",
+                "keeps",
+                "the",
+                "whole",
+                "colony",
+                "alive"
+              ]
+            }
+          ]
+        },
+        {
+          "sentences": [
+            {
+              "text": "The queen is the most important bee in the hive.",
+              "wordList": [
+                "The",
+                "queen",
+                "is",
+                "the",
+                "most",
+                "important",
+                "bee",
+                "in",
+                "the",
+                "hive"
+              ]
+            },
+            {
+              "text": "She is much larger than the other bees and lays nearly all of the eggs.",
+              "wordList": [
+                "She",
+                "is",
+                "much",
+                "larger",
+                "than",
+                "the",
+                "other",
+                "bees",
+                "and",
+                "lays",
+                "nearly",
+                "all",
+                "of",
+                "the",
+                "eggs"
+              ]
+            },
+            {
+              "text": "A healthy queen can lay over a thousand eggs in a single day.",
+              "wordList": [
+                "A",
+                "healthy",
+                "queen",
+                "can",
+                "lay",
+                "over",
+                "a",
+                "thousand",
+                "eggs",
+                "in",
+                "a",
+                "single",
+                "day"
+              ]
+            }
+          ]
+        },
+        {
+          "sentences": [
+            {
+              "text": "Worker bees, which are all females, do most of the daily work.",
+              "wordList": [
+                "Worker",
+                "bees",
+                "which",
+                "are",
+                "all",
+                "females",
+                "do",
+                "most",
+                "of",
+                "the",
+                "daily",
+                "work"
+              ]
+            },
+            {
+              "text": "Young workers clean the hive and feed the babies.",
+              "wordList": [
+                "Young",
+                "workers",
+                "clean",
+                "the",
+                "hive",
+                "and",
+                "feed",
+                "the",
+                "babies"
+              ]
+            },
+            {
+              "text": "Older workers fly out to find flowers and bring back pollen and sweet nectar.",
+              "wordList": [
+                "Older",
+                "workers",
+                "fly",
+                "out",
+                "to",
+                "find",
+                "flowers",
+                "and",
+                "bring",
+                "back",
+                "pollen",
+                "and",
+                "sweet",
+                "nectar"
+              ]
+            },
+            {
+              "text": "Some workers guard the entrance from invaders.",
+              "wordList": [
+                "Some",
+                "workers",
+                "guard",
+                "the",
+                "entrance",
+                "from",
+                "invaders"
+              ]
+            }
+          ]
+        },
+        {
+          "sentences": [
+            {
+              "text": "The male bees are called drones, and their main job is to mate with new queens.",
+              "wordList": [
+                "The",
+                "male",
+                "bees",
+                "are",
+                "called",
+                "drones",
+                "and",
+                "their",
+                "main",
+                "job",
+                "is",
+                "to",
+                "mate",
+                "with",
+                "new",
+                "queens"
+              ]
+            },
+            {
+              "text": "Drones do not collect food or build the hive.",
+              "wordList": [
+                "Drones",
+                "do",
+                "not",
+                "collect",
+                "food",
+                "or",
+                "build",
+                "the",
+                "hive"
+              ]
+            },
+            {
+              "text": "Together, the queen, the workers, and the drones form a complex little city built entirely of buzzing teamwork and golden honey, and without every single bee doing its part, the whole hive would fall apart.",
+              "wordList": [
+                "Together",
+                "the",
+                "queen",
+                "the",
+                "workers",
+                "and",
+                "the",
+                "drones",
+                "form",
+                "a",
+                "complex",
+                "little",
+                "city",
+                "built",
+                "entirely",
+                "of",
+                "buzzing",
+                "teamwork",
+                "and",
+                "golden",
+                "honey",
+                "and",
+                "without",
+                "every",
+                "single",
+                "bee",
+                "doing",
+                "its",
+                "part",
+                "the",
+                "whole",
+                "hive",
+                "would",
+                "fall",
+                "apart"
+              ]
+            }
+          ]
+        }
+      ],
+      "wordCount": 175,
+      "avgSentenceLengthWords": 13.5,
+      "gpcInventory": [
+        "FL_04_grade2_fluency"
+      ],
+      "hfwInventory": [
+        "HFW_01a_anchors",
+        "HFW_02_set2"
+      ],
+      "multisyllabicPctIfAny": null,
+      "validationStatus": "auto-tokenized"
+    },
+    {
+      "passageId": "P_FL06_004",
+      "gateId": "FL_06_grade4_fluency",
+      "module": "7.2. Grade 4 Cold Read",
+      "topic": "Maya's Bike Repair",
+      "genre": "narrative",
+      "isCold": true,
+      "difficultyRank": 3,
+      "targetWordCount": 175,
+      "morphemeInventory": [
+        "MORPH_P_re",
+        "MORPH_S_able",
+        "MORPH_S_ment"
+      ],
+      "paragraphs": [
+        {
+          "sentences": [
+            {
+              "text": "Maya found her old red bike leaning against the garage wall, covered in a fine layer of dust.",
+              "wordList": [
+                "Maya",
+                "found",
+                "her",
+                "old",
+                "red",
+                "bike",
+                "leaning",
+                "against",
+                "the",
+                "garage",
+                "wall",
+                "covered",
+                "in",
+                "a",
+                "fine",
+                "layer",
+                "of",
+                "dust"
+              ]
+            },
+            {
+              "text": "The back tire was flat, the chain hung loose, and the bell did not ring anymore.",
+              "wordList": [
+                "The",
+                "back",
+                "tire",
+                "was",
+                "flat",
+                "the",
+                "chain",
+                "hung",
+                "loose",
+                "and",
+                "the",
+                "bell",
+                "did",
+                "not",
+                "ring",
+                "anymore"
+              ]
+            },
+            {
+              "text": "Her dad smiled and said she could try to fix it herself if she wanted.",
+              "wordList": [
+                "Her",
+                "dad",
+                "smiled",
+                "and",
+                "said",
+                "she",
+                "could",
+                "try",
+                "to",
+                "fix",
+                "it",
+                "herself",
+                "if",
+                "she",
+                "wanted"
+              ]
+            }
+          ]
+        },
+        {
+          "sentences": [
+            {
+              "text": "Maya was determined to make the bike usable again.",
+              "wordList": [
+                "Maya",
+                "was",
+                "determined",
+                "to",
+                "make",
+                "the",
+                "bike",
+                "usable",
+                "again"
+              ]
+            },
+            {
+              "text": "She watched two short video lessons on her tablet.",
+              "wordList": [
+                "She",
+                "watched",
+                "two",
+                "short",
+                "video",
+                "lessons",
+                "on",
+                "her",
+                "tablet"
+              ]
+            },
+            {
+              "text": "Then she gathered a small set of tools, a patch kit, and a can of bike oil from a shelf in the garage.",
+              "wordList": [
+                "Then",
+                "she",
+                "gathered",
+                "a",
+                "small",
+                "set",
+                "of",
+                "tools",
+                "a",
+                "patch",
+                "kit",
+                "and",
+                "a",
+                "can",
+                "of",
+                "bike",
+                "oil",
+                "from",
+                "a",
+                "shelf",
+                "in",
+                "the",
+                "garage"
+              ]
+            }
+          ]
+        },
+        {
+          "sentences": [
+            {
+              "text": "First, she pumped fresh air into the flat tire and patched a tiny hole near the rim.",
+              "wordList": [
+                "First",
+                "she",
+                "pumped",
+                "fresh",
+                "air",
+                "into",
+                "the",
+                "flat",
+                "tire",
+                "and",
+                "patched",
+                "a",
+                "tiny",
+                "hole",
+                "near",
+                "the",
+                "rim"
+              ]
+            },
+            {
+              "text": "Next, she carefully placed the loose chain back onto the gears and turned the pedals to test the movement.",
+              "wordList": [
+                "Next",
+                "she",
+                "carefully",
+                "placed",
+                "the",
+                "loose",
+                "chain",
+                "back",
+                "onto",
+                "the",
+                "gears",
+                "and",
+                "turned",
+                "the",
+                "pedals",
+                "to",
+                "test",
+                "the",
+                "movement"
+              ]
+            },
+            {
+              "text": "Finally, she tightened the bell so it rang with a bright, cheerful sound.",
+              "wordList": [
+                "Finally",
+                "she",
+                "tightened",
+                "the",
+                "bell",
+                "so",
+                "it",
+                "rang",
+                "with",
+                "a",
+                "bright",
+                "cheerful",
+                "sound"
+              ]
+            }
+          ]
+        },
+        {
+          "sentences": [
+            {
+              "text": "When Maya rolled the bike out to the driveway, it shone almost like new.",
+              "wordList": [
+                "When",
+                "Maya",
+                "rolled",
+                "the",
+                "bike",
+                "out",
+                "to",
+                "the",
+                "driveway",
+                "it",
+                "shone",
+                "almost",
+                "like",
+                "new"
+              ]
+            },
+            {
+              "text": "She climbed on and pedaled in slow, happy circles around the yard.",
+              "wordList": [
+                "She",
+                "climbed",
+                "on",
+                "and",
+                "pedaled",
+                "in",
+                "slow",
+                "happy",
+                "circles",
+                "around",
+                "the",
+                "yard"
+              ]
+            },
+            {
+              "text": "Her dad gave her a thumbs up from the porch.",
+              "wordList": [
+                "Her",
+                "dad",
+                "gave",
+                "her",
+                "a",
+                "thumbs",
+                "up",
+                "from",
+                "the",
+                "porch"
+              ]
+            }
+          ]
+        }
+      ],
+      "wordCount": 175,
+      "avgSentenceLengthWords": 14.6,
+      "gpcInventory": [
+        "FL_04_grade2_fluency"
+      ],
+      "hfwInventory": [
+        "HFW_01a_anchors",
+        "HFW_02_set2"
+      ],
+      "multisyllabicPctIfAny": null,
+      "validationStatus": "auto-tokenized"
+    },
+    {
+      "passageId": "P_FL06_005",
+      "gateId": "FL_06_grade4_fluency",
+      "module": "7.2. Grade 4 Cold Read",
+      "topic": "The First Olympic Games",
+      "genre": "informational",
+      "isCold": true,
+      "difficultyRank": 3,
+      "targetWordCount": 175,
+      "morphemeInventory": [
+        "MORPH_R_act",
+        "MORPH_R_port",
+        "MORPH_S_tion"
+      ],
+      "paragraphs": [
+        {
+          "sentences": [
+            {
+              "text": "The Olympic Games began in ancient Greece over 2700 years ago.",
+              "wordList": [
+                "The",
+                "Olympic",
+                "Games",
+                "began",
+                "in",
+                "ancient",
+                "Greece",
+                "over",
+                "2700",
+                "years",
+                "ago"
+              ]
+            },
+            {
+              "text": "The very first games took place in a small valley called Olympia in the year 776 BCE.",
+              "wordList": [
+                "The",
+                "very",
+                "first",
+                "games",
+                "took",
+                "place",
+                "in",
+                "a",
+                "small",
+                "valley",
+                "called",
+                "Olympia",
+                "in",
+                "the",
+                "year",
+                "776",
+                "BCE"
+              ]
+            },
+            {
+              "text": "The Greeks held the games every four years to honor Zeus.",
+              "wordList": [
+                "The",
+                "Greeks",
+                "held",
+                "the",
+                "games",
+                "every",
+                "four",
+                "years",
+                "to",
+                "honor",
+                "Zeus"
+              ]
+            }
+          ]
+        },
+        {
+          "sentences": [
+            {
+              "text": "At those first games, only one event was held.",
+              "wordList": [
+                "At",
+                "those",
+                "first",
+                "games",
+                "only",
+                "one",
+                "event",
+                "was",
+                "held"
+              ]
+            },
+            {
+              "text": "Runners raced down a straight, flat track that was about as long as the length of two football fields.",
+              "wordList": [
+                "Runners",
+                "raced",
+                "down",
+                "a",
+                "straight",
+                "flat",
+                "track",
+                "that",
+                "was",
+                "about",
+                "as",
+                "long",
+                "as",
+                "the",
+                "length",
+                "of",
+                "two",
+                "football",
+                "fields"
+              ]
+            },
+            {
+              "text": "The winner received a simple crown of olive leaves, but the honor lasted for the rest of his life.",
+              "wordList": [
+                "The",
+                "winner",
+                "received",
+                "a",
+                "simple",
+                "crown",
+                "of",
+                "olive",
+                "leaves",
+                "but",
+                "the",
+                "honor",
+                "lasted",
+                "for",
+                "the",
+                "rest",
+                "of",
+                "his",
+                "life"
+              ]
+            }
+          ]
+        },
+        {
+          "sentences": [
+            {
+              "text": "As the years passed, the ancient Olympics added more events.",
+              "wordList": [
+                "As",
+                "the",
+                "years",
+                "passed",
+                "the",
+                "ancient",
+                "Olympics",
+                "added",
+                "more",
+                "events"
+              ]
+            },
+            {
+              "text": "Athletes competed in longer races, in wrestling, in boxing, and in chariot racing pulled by fast horses.",
+              "wordList": [
+                "Athletes",
+                "competed",
+                "in",
+                "longer",
+                "races",
+                "in",
+                "wrestling",
+                "in",
+                "boxing",
+                "and",
+                "in",
+                "chariot",
+                "racing",
+                "pulled",
+                "by",
+                "fast",
+                "horses"
+              ]
+            },
+            {
+              "text": "Some events were dangerous, and the rules were very different from those used today.",
+              "wordList": [
+                "Some",
+                "events",
+                "were",
+                "dangerous",
+                "and",
+                "the",
+                "rules",
+                "were",
+                "very",
+                "different",
+                "from",
+                "those",
+                "used",
+                "today"
+              ]
+            }
+          ]
+        },
+        {
+          "sentences": [
+            {
+              "text": "The modern Olympic Games returned after a long pause, in the year 1896.",
+              "wordList": [
+                "The",
+                "modern",
+                "Olympic",
+                "Games",
+                "returned",
+                "after",
+                "a",
+                "long",
+                "pause",
+                "in",
+                "the",
+                "year",
+                "1896"
+              ]
+            },
+            {
+              "text": "Today, thousands of athletes from countries around the world travel to one host city to compete.",
+              "wordList": [
+                "Today",
+                "thousands",
+                "of",
+                "athletes",
+                "from",
+                "countries",
+                "around",
+                "the",
+                "world",
+                "travel",
+                "to",
+                "one",
+                "host",
+                "city",
+                "to",
+                "compete"
+              ]
+            },
+            {
+              "text": "The flame, the medals, and the sense of friendly competition connect us back to those ancient games in Olympia.",
+              "wordList": [
+                "The",
+                "flame",
+                "the",
+                "medals",
+                "and",
+                "the",
+                "sense",
+                "of",
+                "friendly",
+                "competition",
+                "connect",
+                "us",
+                "back",
+                "to",
+                "those",
+                "ancient",
+                "games",
+                "in",
+                "Olympia"
+              ]
+            }
+          ]
+        }
+      ],
+      "wordCount": 175,
+      "avgSentenceLengthWords": 14.6,
+      "gpcInventory": [
+        "FL_04_grade2_fluency"
+      ],
+      "hfwInventory": [
+        "HFW_01a_anchors",
+        "HFW_02_set2"
+      ],
+      "multisyllabicPctIfAny": null,
+      "validationStatus": "auto-tokenized"
+    }
+  ]
+}

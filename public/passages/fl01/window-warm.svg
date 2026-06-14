@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 400" role="img" aria-label="Warm light through a window onto a windowsill">
+  <defs>
+    <linearGradient id="w-wall" x1="0" x2="0" y1="0" y2="1">
+      <stop offset="0%" stop-color="#f6e7d3"/>
+      <stop offset="100%" stop-color="#ead2af"/>
+    </linearGradient>
+    <linearGradient id="w-light" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0%" stop-color="#fff5c8" stop-opacity="0.9"/>
+      <stop offset="100%" stop-color="#fff5c8" stop-opacity="0"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="400" fill="url(#w-wall)"/>
+  <!-- window frame -->
+  <rect x="220" y="60" width="360" height="240" fill="#dde9f1" rx="8"/>
+  <rect x="232" y="72" width="336" height="216" fill="#cee0ed"/>
+  <line x1="400" y1="72" x2="400" y2="288" stroke="#fff" stroke-width="6"/>
+  <line x1="232" y1="180" x2="568" y2="180" stroke="#fff" stroke-width="6"/>
+  <rect x="220" y="60" width="360" height="240" fill="none" stroke="#bba074" stroke-width="6" rx="8"/>
+  <!-- light beam -->
+  <polygon points="232,288 568,288 700,400 100,400" fill="url(#w-light)"/>
+  <!-- sill -->
+  <rect x="200" y="288" width="400" height="14" fill="#bba074"/>
+  <!-- pot of herbs -->
+  <rect x="350" y="240" width="50" height="48" fill="#a47148" rx="4"/>
+  <g fill="#5a8245">
+    <ellipse cx="365" cy="240" rx="10" ry="6"/>
+    <ellipse cx="385" cy="234" rx="11" ry="6"/>
+    <ellipse cx="375" cy="226" rx="9" ry="5"/>
+  </g>
+</svg>

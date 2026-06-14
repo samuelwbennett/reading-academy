@@ -1,0 +1,1428 @@
+{
+  "$schema": "../../architecture-v1.0.md",
+  "gateId": "FL_03_silent_e_fluency",
+  "tier": "FL_03",
+  "authoredBy": "agent:05-passage-content-architecture",
+  "authoredAt": "2026-05-07",
+  "version": "1.2.0",
+  "constraints": {
+    "patterns_allowed": [
+      "CVC",
+      "VC",
+      "initial blends",
+      "final blends",
+      "digraphs (sh, ch, th, ck, ng, nk, wh)",
+      "trigraphs (-tch, -dge)",
+      "silent-e (a_e, i_e, o_e, u_e)",
+      "inflectional -s/-es",
+      "inflectional -ed/-ing"
+    ],
+    "hfw_allowed": [
+      "HFW_01a anchors",
+      "HFW_01b set 1",
+      "HFW_02 set 2"
+    ],
+    "patterns_forbidden": [
+      "vowel teams (long)",
+      "vowel teams (diphthong)",
+      "r-controlled (content words)",
+      "soft c/g",
+      "open multisyllabic"
+    ],
+    "wcpm_target": 60,
+    "passage_accuracy_target": 0.96,
+    "target_word_count": 100
+  },
+  "passages": [
+    {
+      "passageId": "P_FL03_001",
+      "gateId": "FL_03_silent_e_fluency",
+      "module": "3.1. Cold-Read Drills",
+      "topic": "The Cake",
+      "genre": "narrative",
+      "isCold": false,
+      "difficultyRank": 1,
+      "targetWordCount": 100,
+      "wordCount": 105,
+      "avgSentenceLengthWords": 5.8,
+      "multisyllabicPctIfAny": 0,
+      "gpcInventory": [
+        "CVC_short_a",
+        "CVC_short_i",
+        "CVC_short_o",
+        "CVC_short_u",
+        "CVC_short_e",
+        "BL_INIT_s",
+        "BL_INIT_l",
+        "BL_INIT_r",
+        "BL_FIN",
+        "DG_sh",
+        "DG_ch",
+        "DG_th",
+        "DG_ck",
+        "DG_ng_nk",
+        "SE_a_e",
+        "SE_i_e",
+        "SE_o_e",
+        "HFW_01a_anchors",
+        "HFW_01b_set1",
+        "HFW_02_set2",
+        "IE_s_es",
+        "IE_ed_ing"
+      ],
+      "hfwInventory": [
+        "HFW_01a_anchors",
+        "HFW_01b_set1",
+        "HFW_02_set2"
+      ],
+      "validationStatus": "passed",
+      "paragraphs": [
+        {
+          "sentences": [
+            {
+              "text": "Mom and I made a cake.",
+              "wordList": [
+                "Mom",
+                "and",
+                "I",
+                "made",
+                "a",
+                "cake"
+              ]
+            },
+            {
+              "text": "We had a big tin and a long pan.",
+              "wordList": [
+                "We",
+                "had",
+                "a",
+                "big",
+                "tin",
+                "and",
+                "a",
+                "long",
+                "pan"
+              ]
+            },
+            {
+              "text": "We mixed eggs, milk, and a lump of cake mix.",
+              "wordList": [
+                "We",
+                "mixed",
+                "eggs",
+                "milk",
+                "and",
+                "a",
+                "lump",
+                "of",
+                "cake",
+                "mix"
+              ]
+            },
+            {
+              "text": "The mix was thick and white.",
+              "wordList": [
+                "The",
+                "mix",
+                "was",
+                "thick",
+                "and",
+                "white"
+              ]
+            },
+            {
+              "text": "I helped to blend it.",
+              "wordList": [
+                "I",
+                "helped",
+                "to",
+                "blend",
+                "it"
+              ]
+            },
+            {
+              "text": "Mom put the pan in the hot stove.",
+              "wordList": [
+                "Mom",
+                "put",
+                "the",
+                "pan",
+                "in",
+                "the",
+                "hot",
+                "stove"
+              ]
+            },
+            {
+              "text": "I sat and sat.",
+              "wordList": [
+                "I",
+                "sat",
+                "and",
+                "sat"
+              ]
+            },
+            {
+              "text": "The cake smelled like home.",
+              "wordList": [
+                "The",
+                "cake",
+                "smelled",
+                "like",
+                "home"
+              ]
+            },
+            {
+              "text": "When the time was up, mom took the cake from the stove.",
+              "wordList": [
+                "When",
+                "the",
+                "time",
+                "was",
+                "up",
+                "mom",
+                "took",
+                "the",
+                "cake",
+                "from",
+                "the",
+                "stove"
+              ]
+            },
+            {
+              "text": "It was tan on top.",
+              "wordList": [
+                "It",
+                "was",
+                "tan",
+                "on",
+                "top"
+              ]
+            },
+            {
+              "text": "We let it rest.",
+              "wordList": [
+                "We",
+                "let",
+                "it",
+                "rest"
+              ]
+            },
+            {
+              "text": "Then we put soft frosting on top.",
+              "wordList": [
+                "Then",
+                "we",
+                "put",
+                "soft",
+                "frosting",
+                "on",
+                "top"
+              ]
+            },
+            {
+              "text": "I had a bit on my lips.",
+              "wordList": [
+                "I",
+                "had",
+                "a",
+                "bit",
+                "on",
+                "my",
+                "lips"
+              ]
+            },
+            {
+              "text": "I hugged mom and said thanks.",
+              "wordList": [
+                "I",
+                "hugged",
+                "mom",
+                "and",
+                "said",
+                "thanks"
+              ]
+            },
+            {
+              "text": "The cake was the best.",
+              "wordList": [
+                "The",
+                "cake",
+                "was",
+                "the",
+                "best"
+              ]
+            },
+            {
+              "text": "I want to bake one again.",
+              "wordList": [
+                "I",
+                "want",
+                "to",
+                "bake",
+                "one",
+                "again"
+              ]
+            }
+          ]
+        }
+      ],
+      "imageUrl": "/passages/per/P_FL03_001.svg",
+      "imageAlt": "A morning scene over a warm sunlit window over a sill."
+    },
+    {
+      "passageId": "P_FL03_002",
+      "gateId": "FL_03_silent_e_fluency",
+      "module": "3.1. Cold-Read Drills",
+      "topic": "Mike's Bike Ride",
+      "genre": "narrative",
+      "isCold": false,
+      "difficultyRank": 2,
+      "targetWordCount": 100,
+      "wordCount": 100,
+      "avgSentenceLengthWords": 5.9,
+      "multisyllabicPctIfAny": 0,
+      "gpcInventory": [
+        "CVC_short_a",
+        "CVC_short_i",
+        "CVC_short_o",
+        "CVC_short_u",
+        "CVC_short_e",
+        "BL_INIT_s",
+        "BL_INIT_l",
+        "BL_INIT_r",
+        "BL_FIN",
+        "DG_sh",
+        "DG_ch",
+        "DG_th",
+        "DG_ck",
+        "DG_ng_nk",
+        "SE_a_e",
+        "SE_i_e",
+        "HFW_01a_anchors",
+        "HFW_01b_set1",
+        "HFW_02_set2",
+        "IE_s_es",
+        "IE_ed_ing"
+      ],
+      "hfwInventory": [
+        "HFW_01a_anchors",
+        "HFW_01b_set1",
+        "HFW_02_set2"
+      ],
+      "validationStatus": "passed",
+      "paragraphs": [
+        {
+          "sentences": [
+            {
+              "text": "Mike got a slick red bike.",
+              "wordList": [
+                "Mike",
+                "got",
+                "a",
+                "slick",
+                "red",
+                "bike"
+              ]
+            },
+            {
+              "text": "He went to ride it on the lane.",
+              "wordList": [
+                "He",
+                "went",
+                "to",
+                "ride",
+                "it",
+                "on",
+                "the",
+                "lane"
+              ]
+            },
+            {
+              "text": "His best pal Jane rode at his side.",
+              "wordList": [
+                "His",
+                "best",
+                "pal",
+                "Jane",
+                "rode",
+                "at",
+                "his",
+                "side"
+              ]
+            },
+            {
+              "text": "They went past the pond and the big rock.",
+              "wordList": [
+                "They",
+                "went",
+                "past",
+                "the",
+                "pond",
+                "and",
+                "the",
+                "big",
+                "rock"
+              ]
+            },
+            {
+              "text": "The wind was brisk.",
+              "wordList": [
+                "The",
+                "wind",
+                "was",
+                "brisk"
+              ]
+            },
+            {
+              "text": "Mike hopped off to fix the bike.",
+              "wordList": [
+                "Mike",
+                "hopped",
+                "off",
+                "to",
+                "fix",
+                "the",
+                "bike"
+              ]
+            },
+            {
+              "text": "Jane helped him.",
+              "wordList": [
+                "Jane",
+                "helped",
+                "him"
+              ]
+            },
+            {
+              "text": "They got it fixed and rode on.",
+              "wordList": [
+                "They",
+                "got",
+                "it",
+                "fixed",
+                "and",
+                "rode",
+                "on"
+              ]
+            },
+            {
+              "text": "They rode up the tall hill.",
+              "wordList": [
+                "They",
+                "rode",
+                "up",
+                "the",
+                "tall",
+                "hill"
+              ]
+            },
+            {
+              "text": "Mike got up fast.",
+              "wordList": [
+                "Mike",
+                "got",
+                "up",
+                "fast"
+              ]
+            },
+            {
+              "text": "At the top, they ate snacks.",
+              "wordList": [
+                "At",
+                "the",
+                "top",
+                "they",
+                "ate",
+                "snacks"
+              ]
+            },
+            {
+              "text": "Jane gave Mike a slice of plum.",
+              "wordList": [
+                "Jane",
+                "gave",
+                "Mike",
+                "a",
+                "slice",
+                "of",
+                "plum"
+              ]
+            },
+            {
+              "text": "They sat in the shade.",
+              "wordList": [
+                "They",
+                "sat",
+                "in",
+                "the",
+                "shade"
+              ]
+            },
+            {
+              "text": "Mike said this was the best ride.",
+              "wordList": [
+                "Mike",
+                "said",
+                "this",
+                "was",
+                "the",
+                "best",
+                "ride"
+              ]
+            },
+            {
+              "text": "Then they went home with big smiles on their lips.",
+              "wordList": [
+                "Then",
+                "they",
+                "went",
+                "home",
+                "with",
+                "big",
+                "smiles",
+                "on",
+                "their",
+                "lips"
+              ]
+            },
+            {
+              "text": "It was fun.",
+              "wordList": [
+                "It",
+                "was",
+                "fun"
+              ]
+            }
+          ]
+        }
+      ],
+      "imageUrl": "/passages/per/P_FL03_002.svg",
+      "imageAlt": "A midday scene over a country road winding through hills."
+    },
+    {
+      "passageId": "P_FL03_003",
+      "gateId": "FL_03_silent_e_fluency",
+      "module": "3.1. Cold-Read Drills",
+      "topic": "The Lost Note",
+      "genre": "narrative",
+      "isCold": false,
+      "difficultyRank": 3,
+      "targetWordCount": 100,
+      "wordCount": 99,
+      "avgSentenceLengthWords": 5.8,
+      "multisyllabicPctIfAny": 0,
+      "gpcInventory": [
+        "CVC_short_a",
+        "CVC_short_i",
+        "CVC_short_o",
+        "CVC_short_u",
+        "CVC_short_e",
+        "BL_INIT_s",
+        "BL_INIT_l",
+        "BL_INIT_r",
+        "BL_FIN",
+        "DG_sh",
+        "DG_ch",
+        "DG_th",
+        "DG_ck",
+        "DG_ng_nk",
+        "SE_a_e",
+        "SE_i_e",
+        "SE_o_e",
+        "HFW_01a_anchors",
+        "HFW_01b_set1",
+        "HFW_02_set2",
+        "IE_s_es",
+        "IE_ed_ing"
+      ],
+      "hfwInventory": [
+        "HFW_01a_anchors",
+        "HFW_01b_set1",
+        "HFW_02_set2"
+      ],
+      "validationStatus": "passed",
+      "paragraphs": [
+        {
+          "sentences": [
+            {
+              "text": "Pat got home from school.",
+              "wordList": [
+                "Pat",
+                "got",
+                "home",
+                "from",
+                "school"
+              ]
+            },
+            {
+              "text": "She saw a small white note on the rug.",
+              "wordList": [
+                "She",
+                "saw",
+                "a",
+                "small",
+                "white",
+                "note",
+                "on",
+                "the",
+                "rug"
+              ]
+            },
+            {
+              "text": "The note had a name on it.",
+              "wordList": [
+                "The",
+                "note",
+                "had",
+                "a",
+                "name",
+                "on",
+                "it"
+              ]
+            },
+            {
+              "text": "It was for her dad.",
+              "wordList": [
+                "It",
+                "was",
+                "for",
+                "her",
+                "dad"
+              ]
+            },
+            {
+              "text": "The note said: Mr. Pace, come fix my sink.",
+              "wordList": [
+                "The",
+                "note",
+                "said",
+                "Mr",
+                "Pace",
+                "come",
+                "fix",
+                "my",
+                "sink"
+              ]
+            },
+            {
+              "text": "Pat ran to give the note to dad.",
+              "wordList": [
+                "Pat",
+                "ran",
+                "to",
+                "give",
+                "the",
+                "note",
+                "to",
+                "dad"
+              ]
+            },
+            {
+              "text": "Dad smiled and said thanks.",
+              "wordList": [
+                "Dad",
+                "smiled",
+                "and",
+                "said",
+                "thanks"
+              ]
+            },
+            {
+              "text": "He had been hoping for a job.",
+              "wordList": [
+                "He",
+                "had",
+                "been",
+                "hoping",
+                "for",
+                "a",
+                "job"
+              ]
+            },
+            {
+              "text": "Dad got his kit and went to fix the sink.",
+              "wordList": [
+                "Dad",
+                "got",
+                "his",
+                "kit",
+                "and",
+                "went",
+                "to",
+                "fix",
+                "the",
+                "sink"
+              ]
+            },
+            {
+              "text": "He hopped in the truck.",
+              "wordList": [
+                "He",
+                "hopped",
+                "in",
+                "the",
+                "truck"
+              ]
+            },
+            {
+              "text": "Pat hopped in too.",
+              "wordList": [
+                "Pat",
+                "hopped",
+                "in",
+                "too"
+              ]
+            },
+            {
+              "text": "They got to the home and dad fixed the sink.",
+              "wordList": [
+                "They",
+                "got",
+                "to",
+                "the",
+                "home",
+                "and",
+                "dad",
+                "fixed",
+                "the",
+                "sink"
+              ]
+            },
+            {
+              "text": "The wife was glad.",
+              "wordList": [
+                "The",
+                "wife",
+                "was",
+                "glad"
+              ]
+            },
+            {
+              "text": "She gave Pat a slice of cake.",
+              "wordList": [
+                "She",
+                "gave",
+                "Pat",
+                "a",
+                "slice",
+                "of",
+                "cake"
+              ]
+            },
+            {
+              "text": "Pat liked the cake.",
+              "wordList": [
+                "Pat",
+                "liked",
+                "the",
+                "cake"
+              ]
+            }
+          ]
+        }
+      ],
+      "imageUrl": "/passages/per/P_FL03_003.svg",
+      "imageAlt": "A night scene over a forest path between trees."
+    },
+    {
+      "passageId": "P_FL03_004_cold",
+      "gateId": "FL_03_silent_e_fluency",
+      "module": "3.1. Cold-Read Drills",
+      "topic": "Jane and the Kite",
+      "genre": "narrative",
+      "isCold": true,
+      "difficultyRank": 4,
+      "targetWordCount": 100,
+      "wordCount": 100,
+      "avgSentenceLengthWords": 5.6,
+      "multisyllabicPctIfAny": 0,
+      "gpcInventory": [
+        "CVC_short_a",
+        "CVC_short_i",
+        "CVC_short_o",
+        "CVC_short_u",
+        "CVC_short_e",
+        "BL_INIT_s",
+        "BL_INIT_l",
+        "BL_INIT_r",
+        "BL_FIN",
+        "DG_sh",
+        "DG_ch",
+        "DG_th",
+        "DG_ck",
+        "DG_ng_nk",
+        "SE_a_e",
+        "SE_i_e",
+        "HFW_01a_anchors",
+        "HFW_01b_set1",
+        "HFW_02_set2",
+        "IE_s_es",
+        "IE_ed_ing"
+      ],
+      "hfwInventory": [
+        "HFW_01a_anchors",
+        "HFW_01b_set1",
+        "HFW_02_set2"
+      ],
+      "validationStatus": "passed",
+      "paragraphs": [
+        {
+          "sentences": [
+            {
+              "text": "Jane had a red kite.",
+              "wordList": [
+                "Jane",
+                "had",
+                "a",
+                "red",
+                "kite"
+              ]
+            },
+            {
+              "text": "She ran to lift it up.",
+              "wordList": [
+                "She",
+                "ran",
+                "to",
+                "lift",
+                "it",
+                "up"
+              ]
+            },
+            {
+              "text": "The wind was strong and brisk.",
+              "wordList": [
+                "The",
+                "wind",
+                "was",
+                "strong",
+                "and",
+                "brisk"
+              ]
+            },
+            {
+              "text": "She had a long string in her hand.",
+              "wordList": [
+                "She",
+                "had",
+                "a",
+                "long",
+                "string",
+                "in",
+                "her",
+                "hand"
+              ]
+            },
+            {
+              "text": "Jane went fast and let the kite go up.",
+              "wordList": [
+                "Jane",
+                "went",
+                "fast",
+                "and",
+                "let",
+                "the",
+                "kite",
+                "go",
+                "up"
+              ]
+            },
+            {
+              "text": "The kite went up and up.",
+              "wordList": [
+                "The",
+                "kite",
+                "went",
+                "up",
+                "and",
+                "up"
+              ]
+            },
+            {
+              "text": "It went past the tops of the pines.",
+              "wordList": [
+                "It",
+                "went",
+                "past",
+                "the",
+                "tops",
+                "of",
+                "the",
+                "pines"
+              ]
+            },
+            {
+              "text": "Then the wind stopped.",
+              "wordList": [
+                "Then",
+                "the",
+                "wind",
+                "stopped"
+              ]
+            },
+            {
+              "text": "The kite fell to the grass.",
+              "wordList": [
+                "The",
+                "kite",
+                "fell",
+                "to",
+                "the",
+                "grass"
+              ]
+            },
+            {
+              "text": "Jane got it back up by tugging the string.",
+              "wordList": [
+                "Jane",
+                "got",
+                "it",
+                "back",
+                "up",
+                "by",
+                "tugging",
+                "the",
+                "string"
+              ]
+            },
+            {
+              "text": "She smiled.",
+              "wordList": [
+                "She",
+                "smiled"
+              ]
+            },
+            {
+              "text": "A pup ran past her.",
+              "wordList": [
+                "A",
+                "pup",
+                "ran",
+                "past",
+                "her"
+              ]
+            },
+            {
+              "text": "The pup chased the kite.",
+              "wordList": [
+                "The",
+                "pup",
+                "chased",
+                "the",
+                "kite"
+              ]
+            },
+            {
+              "text": "Jane pulled it back up.",
+              "wordList": [
+                "Jane",
+                "pulled",
+                "it",
+                "back",
+                "up"
+              ]
+            },
+            {
+              "text": "The pup hopped and jumped.",
+              "wordList": [
+                "The",
+                "pup",
+                "hopped",
+                "and",
+                "jumped"
+              ]
+            },
+            {
+              "text": "Jane and the pup went home glad.",
+              "wordList": [
+                "Jane",
+                "and",
+                "the",
+                "pup",
+                "went",
+                "home",
+                "glad"
+              ]
+            },
+            {
+              "text": "It was such fun.",
+              "wordList": [
+                "It",
+                "was",
+                "such",
+                "fun"
+              ]
+            }
+          ]
+        }
+      ],
+      "imageUrl": "/passages/per/P_FL03_004_cold.svg",
+      "imageAlt": "A morning scene over a forest path between trees."
+    },
+    {
+      "passageId": "P_FL03_005_cold",
+      "gateId": "FL_03_silent_e_fluency",
+      "module": "3.1. Cold-Read Drills",
+      "topic": "The Big Game",
+      "genre": "narrative",
+      "isCold": true,
+      "difficultyRank": 5,
+      "targetWordCount": 100,
+      "wordCount": 99,
+      "avgSentenceLengthWords": 5.8,
+      "multisyllabicPctIfAny": 0,
+      "gpcInventory": [
+        "CVC_short_a",
+        "CVC_short_i",
+        "CVC_short_o",
+        "CVC_short_u",
+        "CVC_short_e",
+        "BL_INIT_s",
+        "BL_INIT_l",
+        "BL_INIT_r",
+        "BL_FIN",
+        "DG_sh",
+        "DG_ch",
+        "DG_th",
+        "DG_ck",
+        "DG_ng_nk",
+        "SE_a_e",
+        "SE_i_e",
+        "HFW_01a_anchors",
+        "HFW_01b_set1",
+        "HFW_02_set2",
+        "IE_s_es"
+      ],
+      "hfwInventory": [
+        "HFW_01a_anchors",
+        "HFW_01b_set1",
+        "HFW_02_set2"
+      ],
+      "validationStatus": "passed",
+      "paragraphs": [
+        {
+          "sentences": [
+            {
+              "text": "Tim and his pals had a big game.",
+              "wordList": [
+                "Tim",
+                "and",
+                "his",
+                "pals",
+                "had",
+                "a",
+                "big",
+                "game"
+              ]
+            },
+            {
+              "text": "They went to the lot at the back of the school.",
+              "wordList": [
+                "They",
+                "went",
+                "to",
+                "the",
+                "lot",
+                "at",
+                "the",
+                "back",
+                "of",
+                "the",
+                "school"
+              ]
+            },
+            {
+              "text": "Tim was on the red side.",
+              "wordList": [
+                "Tim",
+                "was",
+                "on",
+                "the",
+                "red",
+                "side"
+              ]
+            },
+            {
+              "text": "His best pal Jake was on the white side.",
+              "wordList": [
+                "His",
+                "best",
+                "pal",
+                "Jake",
+                "was",
+                "on",
+                "the",
+                "white",
+                "side"
+              ]
+            },
+            {
+              "text": "The game was tag.",
+              "wordList": [
+                "The",
+                "game",
+                "was",
+                "tag"
+              ]
+            },
+            {
+              "text": "They had to chase and tag the rest.",
+              "wordList": [
+                "They",
+                "had",
+                "to",
+                "chase",
+                "and",
+                "tag",
+                "the",
+                "rest"
+              ]
+            },
+            {
+              "text": "Tim ran fast.",
+              "wordList": [
+                "Tim",
+                "ran",
+                "fast"
+              ]
+            },
+            {
+              "text": "Jake ran fast too.",
+              "wordList": [
+                "Jake",
+                "ran",
+                "fast",
+                "too"
+              ]
+            },
+            {
+              "text": "They had a long chase.",
+              "wordList": [
+                "They",
+                "had",
+                "a",
+                "long",
+                "chase"
+              ]
+            },
+            {
+              "text": "Tim got Jake!",
+              "wordList": [
+                "Tim",
+                "got",
+                "Jake"
+              ]
+            },
+            {
+              "text": "Then Jake got Tim back.",
+              "wordList": [
+                "Then",
+                "Jake",
+                "got",
+                "Tim",
+                "back"
+              ]
+            },
+            {
+              "text": "They sat to rest.",
+              "wordList": [
+                "They",
+                "sat",
+                "to",
+                "rest"
+              ]
+            },
+            {
+              "text": "The sun was hot.",
+              "wordList": [
+                "The",
+                "sun",
+                "was",
+                "hot"
+              ]
+            },
+            {
+              "text": "They had a snack of ham and grapes.",
+              "wordList": [
+                "They",
+                "had",
+                "a",
+                "snack",
+                "of",
+                "ham",
+                "and",
+                "grapes"
+              ]
+            },
+            {
+              "text": "The next game came.",
+              "wordList": [
+                "The",
+                "next",
+                "game",
+                "came"
+              ]
+            },
+            {
+              "text": "Tim got the win.",
+              "wordList": [
+                "Tim",
+                "got",
+                "the",
+                "win"
+              ]
+            },
+            {
+              "text": "Jake said: Fun game.",
+              "wordList": [
+                "Jake",
+                "said",
+                "Fun",
+                "game"
+              ]
+            },
+            {
+              "text": "They went home with smiles.",
+              "wordList": [
+                "They",
+                "went",
+                "home",
+                "with",
+                "smiles"
+              ]
+            }
+          ]
+        }
+      ],
+      "imageUrl": "/passages/per/P_FL03_005_cold.svg",
+      "imageAlt": "A midday scene over a country road winding through hills."
+    },
+    {
+      "passageId": "P_FL03_006_cold",
+      "gateId": "FL_03_silent_e_fluency",
+      "module": "3.1. Cold-Read Drills",
+      "topic": "Time to Bake",
+      "genre": "narrative",
+      "isCold": true,
+      "difficultyRank": 6,
+      "targetWordCount": 100,
+      "wordCount": 100,
+      "avgSentenceLengthWords": 5.9,
+      "multisyllabicPctIfAny": 0,
+      "gpcInventory": [
+        "CVC_short_a",
+        "CVC_short_i",
+        "CVC_short_o",
+        "CVC_short_u",
+        "CVC_short_e",
+        "BL_INIT_s",
+        "BL_INIT_l",
+        "BL_INIT_r",
+        "BL_FIN",
+        "DG_sh",
+        "DG_ch",
+        "DG_th",
+        "DG_ck",
+        "DG_ng_nk",
+        "SE_a_e",
+        "SE_i_e",
+        "SE_o_e",
+        "HFW_01a_anchors",
+        "HFW_01b_set1",
+        "HFW_02_set2",
+        "IE_s_es",
+        "IE_ed_ing"
+      ],
+      "hfwInventory": [
+        "HFW_01a_anchors",
+        "HFW_01b_set1",
+        "HFW_02_set2"
+      ],
+      "validationStatus": "passed",
+      "paragraphs": [
+        {
+          "sentences": [
+            {
+              "text": "Dad and I had time to bake a cake.",
+              "wordList": [
+                "Dad",
+                "and",
+                "I",
+                "had",
+                "time",
+                "to",
+                "bake",
+                "a",
+                "cake"
+              ]
+            },
+            {
+              "text": "We had ripe red plums in a pan.",
+              "wordList": [
+                "We",
+                "had",
+                "ripe",
+                "red",
+                "plums",
+                "in",
+                "a",
+                "pan"
+              ]
+            },
+            {
+              "text": "Dad mixed up the cake mix.",
+              "wordList": [
+                "Dad",
+                "mixed",
+                "up",
+                "the",
+                "cake",
+                "mix"
+              ]
+            },
+            {
+              "text": "Then I helped to slice the plums.",
+              "wordList": [
+                "Then",
+                "I",
+                "helped",
+                "to",
+                "slice",
+                "the",
+                "plums"
+              ]
+            },
+            {
+              "text": "Dad added the plums to the mix.",
+              "wordList": [
+                "Dad",
+                "added",
+                "the",
+                "plums",
+                "to",
+                "the",
+                "mix"
+              ]
+            },
+            {
+              "text": "He put the mix in a dish.",
+              "wordList": [
+                "He",
+                "put",
+                "the",
+                "mix",
+                "in",
+                "a",
+                "dish"
+              ]
+            },
+            {
+              "text": "He set the dish in the stove.",
+              "wordList": [
+                "He",
+                "set",
+                "the",
+                "dish",
+                "in",
+                "the",
+                "stove"
+              ]
+            },
+            {
+              "text": "We sat for a long time.",
+              "wordList": [
+                "We",
+                "sat",
+                "for",
+                "a",
+                "long",
+                "time"
+              ]
+            },
+            {
+              "text": "The cake smelled like home.",
+              "wordList": [
+                "The",
+                "cake",
+                "smelled",
+                "like",
+                "home"
+              ]
+            },
+            {
+              "text": "When it was set, dad took it from the stove.",
+              "wordList": [
+                "When",
+                "it",
+                "was",
+                "set",
+                "dad",
+                "took",
+                "it",
+                "from",
+                "the",
+                "stove"
+              ]
+            },
+            {
+              "text": "The crust was tan and crisp.",
+              "wordList": [
+                "The",
+                "crust",
+                "was",
+                "tan",
+                "and",
+                "crisp"
+              ]
+            },
+            {
+              "text": "We let the cake rest.",
+              "wordList": [
+                "We",
+                "let",
+                "the",
+                "cake",
+                "rest"
+              ]
+            },
+            {
+              "text": "Then we ate slices and licked our lips.",
+              "wordList": [
+                "Then",
+                "we",
+                "ate",
+                "slices",
+                "and",
+                "licked",
+                "our",
+                "lips"
+              ]
+            },
+            {
+              "text": "The cake was the best!",
+              "wordList": [
+                "The",
+                "cake",
+                "was",
+                "the",
+                "best"
+              ]
+            },
+            {
+              "text": "What a fine cake!",
+              "wordList": [
+                "What",
+                "a",
+                "fine",
+                "cake"
+              ]
+            }
+          ]
+        }
+      ],
+      "imageUrl": "/passages/per/P_FL03_006_cold.svg",
+      "imageAlt": "A morning scene over a warm sunlit window over a sill."
+    }
+  ]
+}

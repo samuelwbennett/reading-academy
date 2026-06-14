@@ -31,7 +31,8 @@
     "xpPerItem": 1,
     "xpOnMastery": 15,
     "trickle_down": true,
-    "notes": "Audio in / audio out. No letters on screen."
+    "notes": "Audio in / audio out. No letters on screen.",
+    "requires_teacher_scoring": true
   },
   {
     "id": "PA_02_final_isolation",
@@ -66,7 +67,8 @@
     ],
     "xpPerItem": 1,
     "xpOnMastery": 15,
-    "trickle_down": true
+    "trickle_down": true,
+    "requires_teacher_scoring": true
   },
   {
     "id": "PA_03_medial_isolation",
@@ -102,7 +104,8 @@
     ],
     "xpPerItem": 1,
     "xpOnMastery": 15,
-    "trickle_down": true
+    "trickle_down": true,
+    "requires_teacher_scoring": true
   },
   {
     "id": "PA_04_blend_2_3",
@@ -207,7 +210,8 @@
     "xpPerItem": 1,
     "xpOnMastery": 20,
     "trickle_down": true,
-    "notes": "Per-phoneme scoring requires Azure Pronunciation Assessment. Current MVP swaps to PA_04 blend until ASR lands."
+    "notes": "Per-phoneme scoring requires Azure Pronunciation Assessment. Current MVP swaps to PA_04 blend until ASR lands.",
+    "requires_teacher_scoring": true
   },
   {
     "id": "PA_07_segment_4_5",
@@ -241,7 +245,8 @@
     ],
     "xpPerItem": 1,
     "xpOnMastery": 20,
-    "trickle_down": true
+    "trickle_down": true,
+    "requires_teacher_scoring": true
   },
   {
     "id": "PA_08_deletion_initial",
@@ -381,7 +386,8 @@
     ],
     "xpPerItem": 1,
     "xpOnMastery": 15,
-    "trickle_down": true
+    "trickle_down": true,
+    "requires_teacher_scoring": true
   },
   {
     "id": "LS_02_consonants_set2",
@@ -420,7 +426,8 @@
     ],
     "xpPerItem": 1,
     "xpOnMastery": 18,
-    "trickle_down": true
+    "trickle_down": true,
+    "requires_teacher_scoring": true
   },
   {
     "id": "LS_03_short_vowels_ai",
@@ -459,7 +466,8 @@
     ],
     "xpPerItem": 1,
     "xpOnMastery": 12,
-    "trickle_down": true
+    "trickle_down": true,
+    "requires_teacher_scoring": true
   },
   {
     "id": "LS_04_short_vowels_oue",
@@ -498,7 +506,8 @@
     ],
     "xpPerItem": 1,
     "xpOnMastery": 15,
-    "trickle_down": true
+    "trickle_down": true,
+    "requires_teacher_scoring": true
   },
   {
     "id": "CVC_short_a",
@@ -2138,5 +2147,2594 @@
     "xpOnMastery": 80,
     "trickle_down": true,
     "notes": "Terminal fluency gate for K–2 phase. Closes the course. trickle_down enabled per Research Review v1.0."
+  },
+  {
+    "id": "COMP_01_vocab_in_context",
+    "course": "Comprehension",
+    "unit": "4. Comprehension",
+    "module": "4.1. Vocabulary in Context",
+    "topic": "4.1.1. Tier-2 Words in Sentences",
+    "strand": "Comprehension",
+    "skill": "Infer the meaning of a tier-2 academic word from the sentence around it.",
+    "examples": [
+      "The dog was reluctant to go in the water — he didn't want to get wet."
+    ],
+    "prereqs": [],
+    "mastery": {
+      "read_accuracy": 0.85,
+      "rolling_window": 8,
+      "min_items": 8
+    },
+    "assessment": "vocab_in_context",
+    "items_per_session": 6,
+    "review_interval_days": [
+      1,
+      3,
+      7,
+      21
+    ],
+    "xpPerItem": 2,
+    "xpOnMastery": 30,
+    "trickle_down": true,
+    "notes": "Phase A1. Tap-to-pick MC; no ASR."
+  },
+  {
+    "id": "COMP_02_literal_recall",
+    "course": "Comprehension",
+    "unit": "4. Comprehension",
+    "module": "4.2. Literal Comprehension",
+    "topic": "4.2.1. Lifted-from-Text Recall",
+    "strand": "Comprehension",
+    "skill": "Answer a literal-recall question by locating the answer in a short passage.",
+    "examples": [
+      "Maya rode her bike to the park. She brought her red kite. → What did Maya bring?"
+    ],
+    "prereqs": [
+      "COMP_01_vocab_in_context"
+    ],
+    "mastery": {
+      "read_accuracy": 0.85,
+      "rolling_window": 8,
+      "min_items": 8
+    },
+    "assessment": "literal_recall",
+    "items_per_session": 5,
+    "review_interval_days": [
+      1,
+      3,
+      7,
+      21
+    ],
+    "xpPerItem": 3,
+    "xpOnMastery": 40,
+    "trickle_down": true,
+    "notes": "Phase A2. Answer is lifted directly from the passage."
+  },
+  {
+    "id": "COMP_03_inference",
+    "course": "Comprehension",
+    "unit": "4. Comprehension",
+    "module": "4.3. Inference",
+    "topic": "4.3.1. Bridging Inferences",
+    "strand": "Comprehension",
+    "skill": "Answer an inference question — the answer is implied, not stated directly.",
+    "examples": [
+      "Sam put on his coat and grabbed an umbrella. → What is the weather like?"
+    ],
+    "prereqs": [
+      "COMP_02_literal_recall"
+    ],
+    "mastery": {
+      "read_accuracy": 0.8,
+      "rolling_window": 8,
+      "min_items": 8
+    },
+    "assessment": "inference",
+    "items_per_session": 5,
+    "review_interval_days": [
+      1,
+      3,
+      7,
+      21
+    ],
+    "xpPerItem": 4,
+    "xpOnMastery": 50,
+    "trickle_down": true,
+    "notes": "Phase A3. Answer requires bridging from text + prior knowledge."
+  },
+  {
+    "id": "COMP_04_bg_knowledge",
+    "course": "Comprehension",
+    "unit": "4. Comprehension",
+    "module": "4.4. Background Knowledge",
+    "topic": "4.4.1. Domain Probes",
+    "strand": "Comprehension",
+    "skill": "Apply a short content reading to answer a knowledge question.",
+    "examples": [
+      "Bees make honey from flower nectar. → Where does honey come from?"
+    ],
+    "prereqs": [
+      "COMP_02_literal_recall"
+    ],
+    "mastery": {
+      "read_accuracy": 0.8,
+      "rolling_window": 6,
+      "min_items": 6
+    },
+    "assessment": "bg_knowledge",
+    "items_per_session": 4,
+    "review_interval_days": [
+      1,
+      3,
+      7,
+      21
+    ],
+    "xpPerItem": 4,
+    "xpOnMastery": 50,
+    "trickle_down": true,
+    "notes": "Phase A4. Short content reading + recall. Builds knowledge alongside reading."
+  },
+  {
+    "id": "COMP_05_main_idea",
+    "course": "Comprehension",
+    "unit": "4. Comprehension",
+    "module": "4.5. Main Idea",
+    "topic": "4.5.1. Main Idea of a Passage",
+    "strand": "Comprehension",
+    "skill": "Identify the main idea — what the whole passage is mostly about.",
+    "examples": [
+      "Bees buzz from flower to flower collecting nectar. They take it back to the hive. There they turn it into honey. — Main idea: How bees make honey."
+    ],
+    "prereqs": [
+      "COMP_02_literal_recall"
+    ],
+    "mastery": {
+      "read_accuracy": 0.8,
+      "rolling_window": 8,
+      "min_items": 8
+    },
+    "assessment": "inference",
+    "items_per_session": 5,
+    "review_interval_days": [
+      1,
+      3,
+      7,
+      21
+    ],
+    "xpPerItem": 4,
+    "xpOnMastery": 50,
+    "trickle_down": true,
+    "notes": "Phase B2. Gist-level synthesis of a short passage."
+  },
+  {
+    "id": "COMP_06_theme",
+    "course": "Comprehension",
+    "unit": "4. Comprehension",
+    "module": "4.6. Theme",
+    "topic": "4.6.1. Theme of a Story",
+    "strand": "Comprehension",
+    "skill": "Identify the theme (life lesson or message) of a short story.",
+    "examples": [
+      "The rabbit ran ahead and napped, sure he'd win. The slow tortoise kept going and crossed the line first. — Theme: Steady effort beats hurry."
+    ],
+    "prereqs": [
+      "COMP_05_main_idea"
+    ],
+    "mastery": {
+      "read_accuracy": 0.8,
+      "rolling_window": 8,
+      "min_items": 8
+    },
+    "assessment": "inference",
+    "items_per_session": 5,
+    "review_interval_days": [
+      1,
+      3,
+      7,
+      21
+    ],
+    "xpPerItem": 5,
+    "xpOnMastery": 60,
+    "trickle_down": true,
+    "notes": "Phase B2. Theme is broader than main idea — a takeaway, not just a topic."
+  },
+  {
+    "id": "COMP_07_summarization",
+    "course": "Comprehension",
+    "unit": "4. Comprehension",
+    "module": "4.7. Summarization",
+    "topic": "4.7.1. One-Sentence Summary",
+    "strand": "Comprehension",
+    "skill": "Choose the best one-sentence summary of a short passage.",
+    "examples": [
+      "[passage about a school field trip] → Summary: The class visited the zoo and learned about animals."
+    ],
+    "prereqs": [
+      "COMP_05_main_idea"
+    ],
+    "mastery": {
+      "read_accuracy": 0.8,
+      "rolling_window": 8,
+      "min_items": 8
+    },
+    "assessment": "inference",
+    "items_per_session": 5,
+    "review_interval_days": [
+      1,
+      3,
+      7,
+      21
+    ],
+    "xpPerItem": 5,
+    "xpOnMastery": 60,
+    "trickle_down": true,
+    "notes": "Phase B2. Distinguish best summary from too-detailed and too-narrow distractors."
+  },
+  {
+    "id": "COMP_08_cause_effect",
+    "course": "Comprehension",
+    "unit": "4. Comprehension",
+    "module": "4.8. Text Structure",
+    "topic": "4.8.1. Cause and Effect",
+    "strand": "Comprehension",
+    "skill": "Identify cause-effect relationships in a passage.",
+    "examples": [
+      "It rained all night, so the field was muddy in the morning. — Cause: rain. Effect: muddy field."
+    ],
+    "prereqs": [
+      "COMP_03_inference"
+    ],
+    "mastery": {
+      "read_accuracy": 0.8,
+      "rolling_window": 8,
+      "min_items": 8
+    },
+    "assessment": "inference",
+    "items_per_session": 5,
+    "review_interval_days": [
+      1,
+      3,
+      7,
+      21
+    ],
+    "xpPerItem": 4,
+    "xpOnMastery": 50,
+    "trickle_down": true,
+    "notes": "Phase B2. Signal words: because, so, therefore, since."
+  },
+  {
+    "id": "COMP_09_compare_contrast",
+    "course": "Comprehension",
+    "unit": "4. Comprehension",
+    "module": "4.8. Text Structure",
+    "topic": "4.8.2. Compare and Contrast",
+    "strand": "Comprehension",
+    "skill": "Identify how two things in a passage are similar and different.",
+    "examples": [
+      "Frogs and toads both have four legs, but frogs have smooth skin and toads have bumpy skin."
+    ],
+    "prereqs": [
+      "COMP_03_inference"
+    ],
+    "mastery": {
+      "read_accuracy": 0.8,
+      "rolling_window": 8,
+      "min_items": 8
+    },
+    "assessment": "inference",
+    "items_per_session": 5,
+    "review_interval_days": [
+      1,
+      3,
+      7,
+      21
+    ],
+    "xpPerItem": 4,
+    "xpOnMastery": 50,
+    "trickle_down": true,
+    "notes": "Phase B2. Signal words: both, like, unlike, but, however."
+  },
+  {
+    "id": "COMP_10_sequence",
+    "course": "Comprehension",
+    "unit": "4. Comprehension",
+    "module": "4.8. Text Structure",
+    "topic": "4.8.3. Sequence of Events",
+    "strand": "Comprehension",
+    "skill": "Identify the order in which events happen in a passage.",
+    "examples": [
+      "First Ana mixed the flour and sugar. Then she added eggs. Finally she put the batter in the oven."
+    ],
+    "prereqs": [
+      "COMP_02_literal_recall"
+    ],
+    "mastery": {
+      "read_accuracy": 0.85,
+      "rolling_window": 8,
+      "min_items": 8
+    },
+    "assessment": "literal_recall",
+    "items_per_session": 5,
+    "review_interval_days": [
+      1,
+      3,
+      7,
+      21
+    ],
+    "xpPerItem": 3,
+    "xpOnMastery": 40,
+    "trickle_down": true,
+    "notes": "Phase B2. Signal words: first, next, then, after, finally."
+  },
+  {
+    "id": "COMP_11_problem_solution",
+    "course": "Comprehension",
+    "unit": "4. Comprehension",
+    "module": "4.8. Text Structure",
+    "topic": "4.8.4. Problem and Solution",
+    "strand": "Comprehension",
+    "skill": "Identify the problem in a passage and the solution the characters try.",
+    "examples": [
+      "The ducks could not cross the busy road. A kind officer stopped traffic so the ducks could waddle across safely."
+    ],
+    "prereqs": [
+      "COMP_05_main_idea"
+    ],
+    "mastery": {
+      "read_accuracy": 0.8,
+      "rolling_window": 8,
+      "min_items": 8
+    },
+    "assessment": "inference",
+    "items_per_session": 5,
+    "review_interval_days": [
+      1,
+      3,
+      7,
+      21
+    ],
+    "xpPerItem": 4,
+    "xpOnMastery": 50,
+    "trickle_down": true,
+    "notes": "Phase B2. Common narrative structure across G3-5."
+  },
+  {
+    "id": "COMP_12_author_purpose",
+    "course": "Comprehension",
+    "unit": "4. Comprehension",
+    "module": "4.9. Author's Craft",
+    "topic": "4.9.1. Author's Purpose",
+    "strand": "Comprehension",
+    "skill": "Identify whether the author's purpose is to inform, entertain, or persuade.",
+    "examples": [
+      "'Recycling helps save trees and energy. You should recycle every day!' — Purpose: to persuade."
+    ],
+    "prereqs": [
+      "COMP_06_theme"
+    ],
+    "mastery": {
+      "read_accuracy": 0.8,
+      "rolling_window": 8,
+      "min_items": 8
+    },
+    "assessment": "inference",
+    "items_per_session": 5,
+    "review_interval_days": [
+      1,
+      3,
+      7,
+      21
+    ],
+    "xpPerItem": 5,
+    "xpOnMastery": 60,
+    "trickle_down": true,
+    "notes": "Phase B2. PIE: Persuade / Inform / Entertain."
+  },
+  {
+    "id": "COMP_13_character_motivation",
+    "course": "Comprehension",
+    "unit": "4. Comprehension",
+    "module": "4.10. Story Elements",
+    "topic": "4.10.1. Character Motivation",
+    "strand": "Comprehension",
+    "skill": "Infer why a character does what they do in a story.",
+    "examples": [
+      "Lin checked the clock and ran out the door without breakfast. → Motivation: she was late for school."
+    ],
+    "prereqs": [
+      "COMP_03_inference"
+    ],
+    "mastery": {
+      "read_accuracy": 0.8,
+      "rolling_window": 8,
+      "min_items": 8
+    },
+    "assessment": "inference",
+    "items_per_session": 5,
+    "review_interval_days": [
+      1,
+      3,
+      7,
+      21
+    ],
+    "xpPerItem": 4,
+    "xpOnMastery": 50,
+    "trickle_down": true,
+    "notes": "Phase B2. Reading character behavior + emotions."
+  },
+  {
+    "id": "COMP_14_evidence_reasoning",
+    "course": "Comprehension",
+    "unit": "4. Comprehension",
+    "module": "4.11. Evidence",
+    "topic": "4.11.1. Cite the Line",
+    "strand": "Comprehension",
+    "skill": "Identify the specific sentence in a passage that best supports a given claim.",
+    "examples": [
+      "Claim: Otters are good swimmers. Best support: 'Otters can swim faster than most fish in the river.'"
+    ],
+    "prereqs": [
+      "COMP_03_inference"
+    ],
+    "mastery": {
+      "read_accuracy": 0.85,
+      "rolling_window": 8,
+      "min_items": 8
+    },
+    "assessment": "literal_recall",
+    "items_per_session": 5,
+    "review_interval_days": [
+      1,
+      3,
+      7,
+      21
+    ],
+    "xpPerItem": 4,
+    "xpOnMastery": 50,
+    "trickle_down": true,
+    "notes": "Phase B2. Text-evidence skill central to G3-5 standards."
+  },
+  {
+    "id": "COMP_15_figurative_language",
+    "course": "Comprehension",
+    "unit": "4. Comprehension",
+    "module": "4.12. Figurative Language",
+    "topic": "4.12.1. Similes, Metaphors, Idioms",
+    "strand": "Comprehension",
+    "skill": "Identify the meaning of similes, metaphors, and common idioms in context.",
+    "examples": [
+      "'It's raining cats and dogs.' → It is raining very hard."
+    ],
+    "prereqs": [
+      "COMP_01_vocab_in_context"
+    ],
+    "mastery": {
+      "read_accuracy": 0.8,
+      "rolling_window": 8,
+      "min_items": 8
+    },
+    "assessment": "vocab_in_context",
+    "items_per_session": 5,
+    "review_interval_days": [
+      1,
+      3,
+      7,
+      21
+    ],
+    "xpPerItem": 4,
+    "xpOnMastery": 50,
+    "trickle_down": true,
+    "notes": "Phase B2. Non-literal language; key for G3+ comprehension."
+  },
+  {
+    "id": "COMP_16_cross_text",
+    "course": "Comprehension",
+    "unit": "4. Comprehension",
+    "module": "4.13. Cross-Text",
+    "topic": "4.13.1. Synthesis Across Two Texts",
+    "strand": "Comprehension",
+    "skill": "Combine information from two short passages to answer a question.",
+    "examples": [
+      "Passage A: penguins live in cold places. Passage B: penguins eat fish. → Where do animals that eat fish in cold places live?"
+    ],
+    "prereqs": [
+      "COMP_05_main_idea",
+      "COMP_07_summarization"
+    ],
+    "mastery": {
+      "read_accuracy": 0.75,
+      "rolling_window": 6,
+      "min_items": 6
+    },
+    "assessment": "inference",
+    "items_per_session": 4,
+    "review_interval_days": [
+      1,
+      3,
+      7,
+      21
+    ],
+    "xpPerItem": 6,
+    "xpOnMastery": 70,
+    "trickle_down": true,
+    "notes": "Phase B2. Hardest comprehension node — requires holding two sources in mind."
+  },
+  {
+    "id": "KARC_01_water_cycle",
+    "course": "Knowledge Arcs",
+    "unit": "6. Knowledge Arcs",
+    "module": "6.1. Science: Water Cycle",
+    "topic": "6.1.1. How Water Moves Through Earth",
+    "strand": "Knowledge Arcs",
+    "skill": "Build cumulative knowledge about the water cycle: evaporation, condensation, precipitation, collection.",
+    "examples": [
+      "Connected passages on the sun, evaporation, clouds, rain, rivers, oceans — concepts compound across the arc."
+    ],
+    "prereqs": [
+      "COMP_04_bg_knowledge"
+    ],
+    "mastery": {
+      "read_accuracy": 0.75,
+      "rolling_window": 7,
+      "min_items": 7
+    },
+    "assessment": "bg_knowledge",
+    "items_per_session": 4,
+    "review_interval_days": [
+      1,
+      3,
+      7,
+      21
+    ],
+    "xpPerItem": 5,
+    "xpOnMastery": 70,
+    "trickle_down": true,
+    "notes": "Phase B3 arc 1. Each passage introduces vocab (evaporate, condense, precipitation, vapor) that later passages reuse. Final item synthesizes across the arc."
+  },
+  {
+    "id": "KARC_02_solar_system",
+    "course": "Knowledge Arcs",
+    "unit": "6. Knowledge Arcs",
+    "module": "6.2. Science: Solar System",
+    "topic": "6.2.1. Sun, Planets, and Space",
+    "strand": "Knowledge Arcs",
+    "skill": "Build cumulative knowledge about the solar system: sun, planets, orbits, gravity, asteroids.",
+    "examples": [
+      "Connected passages on the sun, planet order, gravity, day/night, moons — concepts compound."
+    ],
+    "prereqs": [
+      "KARC_01_water_cycle"
+    ],
+    "mastery": {
+      "read_accuracy": 0.75,
+      "rolling_window": 7,
+      "min_items": 7
+    },
+    "assessment": "bg_knowledge",
+    "items_per_session": 4,
+    "review_interval_days": [
+      1,
+      3,
+      7,
+      21
+    ],
+    "xpPerItem": 5,
+    "xpOnMastery": 70,
+    "trickle_down": true,
+    "notes": "Phase B3 arc 2. Vocab: orbit, gravity, rotation, planet, asteroid, moon."
+  },
+  {
+    "id": "KARC_03_body_germs",
+    "course": "Knowledge Arcs",
+    "unit": "6. Knowledge Arcs",
+    "module": "6.3. Biology: How the Body Fights Germs",
+    "topic": "6.3.1. Immune System Basics",
+    "strand": "Knowledge Arcs",
+    "skill": "Build cumulative knowledge about how the body defends against germs.",
+    "examples": [
+      "Connected passages on germs, skin, white blood cells, vaccines, fever — concepts compound."
+    ],
+    "prereqs": [
+      "KARC_02_solar_system"
+    ],
+    "mastery": {
+      "read_accuracy": 0.75,
+      "rolling_window": 7,
+      "min_items": 7
+    },
+    "assessment": "bg_knowledge",
+    "items_per_session": 4,
+    "review_interval_days": [
+      1,
+      3,
+      7,
+      21
+    ],
+    "xpPerItem": 5,
+    "xpOnMastery": 70,
+    "trickle_down": true,
+    "notes": "Phase B3 arc 3. Vocab: germ, virus, bacteria, immune, vaccine, antibody."
+  },
+  {
+    "id": "KARC_04_ancient_egypt",
+    "course": "Knowledge Arcs",
+    "unit": "6. Knowledge Arcs",
+    "module": "6.4. History: Ancient Egypt",
+    "topic": "6.4.1. Civilization Along the Nile",
+    "strand": "Knowledge Arcs",
+    "skill": "Build cumulative knowledge about Ancient Egypt — the Nile, pharaohs, pyramids, hieroglyphs.",
+    "examples": [
+      "Connected passages on the Nile, farming, pharaohs, pyramids, gods, hieroglyphs — concepts compound."
+    ],
+    "prereqs": [
+      "KARC_03_body_germs"
+    ],
+    "mastery": {
+      "read_accuracy": 0.75,
+      "rolling_window": 7,
+      "min_items": 7
+    },
+    "assessment": "bg_knowledge",
+    "items_per_session": 4,
+    "review_interval_days": [
+      1,
+      3,
+      7,
+      21
+    ],
+    "xpPerItem": 6,
+    "xpOnMastery": 80,
+    "trickle_down": true,
+    "notes": "Phase B3 arc 4. Vocab: Nile, pharaoh, pyramid, hieroglyph, flood, civilization. The agent's anchor example."
+  },
+  {
+    "id": "FL_05_grade3_fluency",
+    "course": "Fluency",
+    "unit": "7. Advanced Fluency",
+    "module": "7.1. Grade 3 Cold Read",
+    "topic": "7.1.1. End-of-G3 Benchmark",
+    "strand": "Fluency",
+    "skill": "Read a cold connected passage at end-of-G3 benchmark fluency.",
+    "examples": [
+      "150-word cold passage spanning G3 vocabulary and morphology."
+    ],
+    "prereqs": [
+      "FL_04_grade2_fluency"
+    ],
+    "mastery": {
+      "wcpm_min": 110,
+      "passage_accuracy": 0.97,
+      "passage_word_count": 150,
+      "rolling_window": 3,
+      "min_items": 3
+    },
+    "assessment": "cold_passage",
+    "items_per_session": 1,
+    "review_interval_days": [
+      3,
+      7,
+      21,
+      60
+    ],
+    "xpPerItem": 12,
+    "xpOnMastery": 120,
+    "trickle_down": true,
+    "notes": "Phase B4. Per agent: G3 fluency benchmark is 110 WCPM at ≥97% accuracy on a 150-word cold passage. Closes G3 phonics+fluency."
+  },
+  {
+    "id": "FL_06_grade4_fluency",
+    "course": "Fluency",
+    "unit": "7. Advanced Fluency",
+    "module": "7.2. Grade 4 Cold Read",
+    "topic": "7.2.1. End-of-G4 Benchmark",
+    "strand": "Fluency",
+    "skill": "Read a cold connected passage at end-of-G4 benchmark fluency.",
+    "examples": [
+      "175-word cold passage spanning G4 vocabulary, morphology, and multisyllabic patterns."
+    ],
+    "prereqs": [
+      "FL_05_grade3_fluency"
+    ],
+    "mastery": {
+      "wcpm_min": 125,
+      "passage_accuracy": 0.97,
+      "passage_word_count": 175,
+      "rolling_window": 3,
+      "min_items": 3
+    },
+    "assessment": "cold_passage",
+    "items_per_session": 1,
+    "review_interval_days": [
+      3,
+      7,
+      21,
+      60
+    ],
+    "xpPerItem": 14,
+    "xpOnMastery": 140,
+    "trickle_down": true,
+    "notes": "Phase B4. G4 fluency benchmark per agent: 125 WCPM at ≥97% accuracy."
+  },
+  {
+    "id": "FL_07_grade5_fluency",
+    "course": "Fluency",
+    "unit": "7. Advanced Fluency",
+    "module": "7.3. Grade 5 Cold Read",
+    "topic": "7.3.1. End-of-G5 Benchmark",
+    "strand": "Fluency",
+    "skill": "Read a cold connected passage at end-of-G5 benchmark fluency.",
+    "examples": [
+      "200-word cold passage spanning G5 vocabulary, morphology, and content-area text."
+    ],
+    "prereqs": [
+      "FL_06_grade4_fluency"
+    ],
+    "mastery": {
+      "wcpm_min": 140,
+      "passage_accuracy": 0.97,
+      "passage_word_count": 200,
+      "rolling_window": 3,
+      "min_items": 3
+    },
+    "assessment": "cold_passage",
+    "items_per_session": 1,
+    "review_interval_days": [
+      3,
+      7,
+      21,
+      60
+    ],
+    "xpPerItem": 16,
+    "xpOnMastery": 160,
+    "trickle_down": true,
+    "notes": "Phase B4. Terminal G5 fluency gate per agent: 140 WCPM at ≥97% accuracy. Closes the K-5 fluency arc."
+  },
+  {
+    "id": "MORPH_P_un",
+    "course": "Morphology",
+    "unit": "5. Morphology",
+    "module": "5.1. Common Prefixes",
+    "topic": "5.1.1. un- (not, opposite of)",
+    "strand": "Morphology",
+    "skill": "Decode and define words using the prefix un-.",
+    "examples": [
+      "untie",
+      "undo",
+      "unhappy",
+      "unkind",
+      "unsafe"
+    ],
+    "prereqs": [
+      "FL_02_blend_digraph_fluency"
+    ],
+    "mastery": {
+      "read_accuracy": 0.85,
+      "rolling_window": 8,
+      "min_items": 8
+    },
+    "assessment": "morpheme_meaning",
+    "items_per_session": 6,
+    "review_interval_days": [
+      1,
+      3,
+      7,
+      21
+    ],
+    "xpPerItem": 3,
+    "xpOnMastery": 40,
+    "trickle_down": true,
+    "notes": "Phase B1. Most common English prefix. Negation/reversal."
+  },
+  {
+    "id": "MORPH_P_re",
+    "course": "Morphology",
+    "unit": "5. Morphology",
+    "module": "5.1. Common Prefixes",
+    "topic": "5.1.2. re- (again, back)",
+    "strand": "Morphology",
+    "skill": "Decode and define words using the prefix re-.",
+    "examples": [
+      "redo",
+      "retry",
+      "rewrite",
+      "replay",
+      "remake"
+    ],
+    "prereqs": [
+      "MORPH_P_un"
+    ],
+    "mastery": {
+      "read_accuracy": 0.85,
+      "rolling_window": 8,
+      "min_items": 8
+    },
+    "assessment": "morpheme_meaning",
+    "items_per_session": 6,
+    "review_interval_days": [
+      1,
+      3,
+      7,
+      21
+    ],
+    "xpPerItem": 3,
+    "xpOnMastery": 40,
+    "trickle_down": true
+  },
+  {
+    "id": "MORPH_P_pre",
+    "course": "Morphology",
+    "unit": "5. Morphology",
+    "module": "5.1. Common Prefixes",
+    "topic": "5.1.3. pre- (before)",
+    "strand": "Morphology",
+    "skill": "Decode and define words using the prefix pre-.",
+    "examples": [
+      "preview",
+      "preheat",
+      "predict",
+      "preschool",
+      "pretest"
+    ],
+    "prereqs": [
+      "MORPH_P_re"
+    ],
+    "mastery": {
+      "read_accuracy": 0.85,
+      "rolling_window": 8,
+      "min_items": 8
+    },
+    "assessment": "morpheme_meaning",
+    "items_per_session": 6,
+    "review_interval_days": [
+      1,
+      3,
+      7,
+      21
+    ],
+    "xpPerItem": 3,
+    "xpOnMastery": 40,
+    "trickle_down": true
+  },
+  {
+    "id": "MORPH_P_dis",
+    "course": "Morphology",
+    "unit": "5. Morphology",
+    "module": "5.1. Common Prefixes",
+    "topic": "5.1.4. dis- (not, opposite)",
+    "strand": "Morphology",
+    "skill": "Decode and define words using the prefix dis-.",
+    "examples": [
+      "dislike",
+      "disagree",
+      "dishonest",
+      "disconnect",
+      "dissolve"
+    ],
+    "prereqs": [
+      "MORPH_P_un"
+    ],
+    "mastery": {
+      "read_accuracy": 0.85,
+      "rolling_window": 8,
+      "min_items": 8
+    },
+    "assessment": "morpheme_meaning",
+    "items_per_session": 6,
+    "review_interval_days": [
+      1,
+      3,
+      7,
+      21
+    ],
+    "xpPerItem": 3,
+    "xpOnMastery": 40,
+    "trickle_down": true
+  },
+  {
+    "id": "MORPH_P_mis",
+    "course": "Morphology",
+    "unit": "5. Morphology",
+    "module": "5.1. Common Prefixes",
+    "topic": "5.1.5. mis- (wrongly)",
+    "strand": "Morphology",
+    "skill": "Decode and define words using the prefix mis-.",
+    "examples": [
+      "misread",
+      "misspell",
+      "mislead",
+      "mistake",
+      "misuse"
+    ],
+    "prereqs": [
+      "MORPH_P_dis"
+    ],
+    "mastery": {
+      "read_accuracy": 0.85,
+      "rolling_window": 8,
+      "min_items": 8
+    },
+    "assessment": "morpheme_meaning",
+    "items_per_session": 6,
+    "review_interval_days": [
+      1,
+      3,
+      7,
+      21
+    ],
+    "xpPerItem": 3,
+    "xpOnMastery": 40,
+    "trickle_down": true
+  },
+  {
+    "id": "MORPH_P_non",
+    "course": "Morphology",
+    "unit": "5. Morphology",
+    "module": "5.1. Common Prefixes",
+    "topic": "5.1.6. non- (not)",
+    "strand": "Morphology",
+    "skill": "Decode and define words using the prefix non-.",
+    "examples": [
+      "nonstop",
+      "nonsense",
+      "nonfiction",
+      "nonprofit",
+      "nonliving"
+    ],
+    "prereqs": [
+      "MORPH_P_mis"
+    ],
+    "mastery": {
+      "read_accuracy": 0.85,
+      "rolling_window": 8,
+      "min_items": 8
+    },
+    "assessment": "morpheme_meaning",
+    "items_per_session": 6,
+    "review_interval_days": [
+      1,
+      3,
+      7,
+      21
+    ],
+    "xpPerItem": 3,
+    "xpOnMastery": 40,
+    "trickle_down": true
+  },
+  {
+    "id": "MORPH_P_in_im",
+    "course": "Morphology",
+    "unit": "5. Morphology",
+    "module": "5.1. Common Prefixes",
+    "topic": "5.1.7. in-/im- (not)",
+    "strand": "Morphology",
+    "skill": "Decode and define words using the prefixes in- and im- (negation).",
+    "examples": [
+      "invisible",
+      "impossible",
+      "incomplete",
+      "impatient",
+      "indirect"
+    ],
+    "prereqs": [
+      "MORPH_P_non"
+    ],
+    "mastery": {
+      "read_accuracy": 0.85,
+      "rolling_window": 8,
+      "min_items": 8
+    },
+    "assessment": "morpheme_meaning",
+    "items_per_session": 6,
+    "review_interval_days": [
+      1,
+      3,
+      7,
+      21
+    ],
+    "xpPerItem": 3,
+    "xpOnMastery": 40,
+    "trickle_down": true,
+    "notes": "im- before m/p/b; in- elsewhere."
+  },
+  {
+    "id": "MORPH_P_sub",
+    "course": "Morphology",
+    "unit": "5. Morphology",
+    "module": "5.1. Common Prefixes",
+    "topic": "5.1.8. sub- (under, below)",
+    "strand": "Morphology",
+    "skill": "Decode and define words using the prefix sub-.",
+    "examples": [
+      "submarine",
+      "submerge",
+      "subway",
+      "subset",
+      "subtitle"
+    ],
+    "prereqs": [
+      "MORPH_P_pre"
+    ],
+    "mastery": {
+      "read_accuracy": 0.85,
+      "rolling_window": 8,
+      "min_items": 8
+    },
+    "assessment": "morpheme_meaning",
+    "items_per_session": 6,
+    "review_interval_days": [
+      1,
+      3,
+      7,
+      21
+    ],
+    "xpPerItem": 3,
+    "xpOnMastery": 40,
+    "trickle_down": true
+  },
+  {
+    "id": "MORPH_P_super",
+    "course": "Morphology",
+    "unit": "5. Morphology",
+    "module": "5.1. Common Prefixes",
+    "topic": "5.1.9. super- (above, beyond)",
+    "strand": "Morphology",
+    "skill": "Decode and define words using the prefix super-.",
+    "examples": [
+      "superhero",
+      "supervise",
+      "supermarket",
+      "supersize",
+      "superstar"
+    ],
+    "prereqs": [
+      "MORPH_P_sub"
+    ],
+    "mastery": {
+      "read_accuracy": 0.85,
+      "rolling_window": 8,
+      "min_items": 8
+    },
+    "assessment": "morpheme_meaning",
+    "items_per_session": 6,
+    "review_interval_days": [
+      1,
+      3,
+      7,
+      21
+    ],
+    "xpPerItem": 3,
+    "xpOnMastery": 40,
+    "trickle_down": true
+  },
+  {
+    "id": "MORPH_P_inter",
+    "course": "Morphology",
+    "unit": "5. Morphology",
+    "module": "5.1. Common Prefixes",
+    "topic": "5.1.10. inter- (between, among)",
+    "strand": "Morphology",
+    "skill": "Decode and define words using the prefix inter-.",
+    "examples": [
+      "international",
+      "interact",
+      "internet",
+      "interview",
+      "intersect"
+    ],
+    "prereqs": [
+      "MORPH_P_super"
+    ],
+    "mastery": {
+      "read_accuracy": 0.85,
+      "rolling_window": 8,
+      "min_items": 8
+    },
+    "assessment": "morpheme_meaning",
+    "items_per_session": 6,
+    "review_interval_days": [
+      1,
+      3,
+      7,
+      21
+    ],
+    "xpPerItem": 3,
+    "xpOnMastery": 40,
+    "trickle_down": true
+  },
+  {
+    "id": "MORPH_P_trans",
+    "course": "Morphology",
+    "unit": "5. Morphology",
+    "module": "5.1. Common Prefixes",
+    "topic": "5.1.11. trans- (across, through)",
+    "strand": "Morphology",
+    "skill": "Decode and define words using the prefix trans-.",
+    "examples": [
+      "transport",
+      "translate",
+      "transfer",
+      "transform",
+      "transmit"
+    ],
+    "prereqs": [
+      "MORPH_P_inter"
+    ],
+    "mastery": {
+      "read_accuracy": 0.85,
+      "rolling_window": 8,
+      "min_items": 8
+    },
+    "assessment": "morpheme_meaning",
+    "items_per_session": 6,
+    "review_interval_days": [
+      1,
+      3,
+      7,
+      21
+    ],
+    "xpPerItem": 3,
+    "xpOnMastery": 40,
+    "trickle_down": true
+  },
+  {
+    "id": "MORPH_P_tele",
+    "course": "Morphology",
+    "unit": "5. Morphology",
+    "module": "5.1. Common Prefixes",
+    "topic": "5.1.12. tele- (far, distant)",
+    "strand": "Morphology",
+    "skill": "Decode and define words using the prefix tele-.",
+    "examples": [
+      "telephone",
+      "telegraph",
+      "telescope",
+      "television",
+      "telepathy"
+    ],
+    "prereqs": [
+      "MORPH_P_trans"
+    ],
+    "mastery": {
+      "read_accuracy": 0.85,
+      "rolling_window": 8,
+      "min_items": 8
+    },
+    "assessment": "morpheme_meaning",
+    "items_per_session": 6,
+    "review_interval_days": [
+      1,
+      3,
+      7,
+      21
+    ],
+    "xpPerItem": 3,
+    "xpOnMastery": 40,
+    "trickle_down": true,
+    "notes": "Anchor example from agent: 'After tele- is taught, student decomposes telegraph, telepathy, televise.'"
+  },
+  {
+    "id": "MORPH_P_anti",
+    "course": "Morphology",
+    "unit": "5. Morphology",
+    "module": "5.1. Common Prefixes",
+    "topic": "5.1.13. anti- (against)",
+    "strand": "Morphology",
+    "skill": "Decode and define words using the prefix anti-.",
+    "examples": [
+      "antibody",
+      "antidote",
+      "antifreeze",
+      "antibiotic",
+      "antisocial"
+    ],
+    "prereqs": [
+      "MORPH_P_tele"
+    ],
+    "mastery": {
+      "read_accuracy": 0.85,
+      "rolling_window": 8,
+      "min_items": 8
+    },
+    "assessment": "morpheme_meaning",
+    "items_per_session": 6,
+    "review_interval_days": [
+      1,
+      3,
+      7,
+      21
+    ],
+    "xpPerItem": 3,
+    "xpOnMastery": 40,
+    "trickle_down": true
+  },
+  {
+    "id": "MORPH_P_mid",
+    "course": "Morphology",
+    "unit": "5. Morphology",
+    "module": "5.1. Common Prefixes",
+    "topic": "5.1.14. mid- (middle)",
+    "strand": "Morphology",
+    "skill": "Decode and define words using the prefix mid-.",
+    "examples": [
+      "midday",
+      "midnight",
+      "midway",
+      "midfield",
+      "midwest"
+    ],
+    "prereqs": [
+      "MORPH_P_anti"
+    ],
+    "mastery": {
+      "read_accuracy": 0.85,
+      "rolling_window": 8,
+      "min_items": 8
+    },
+    "assessment": "morpheme_meaning",
+    "items_per_session": 6,
+    "review_interval_days": [
+      1,
+      3,
+      7,
+      21
+    ],
+    "xpPerItem": 3,
+    "xpOnMastery": 40,
+    "trickle_down": true
+  },
+  {
+    "id": "MORPH_P_over",
+    "course": "Morphology",
+    "unit": "5. Morphology",
+    "module": "5.1. Common Prefixes",
+    "topic": "5.1.15. over- (above, too much)",
+    "strand": "Morphology",
+    "skill": "Decode and define words using the prefix over-.",
+    "examples": [
+      "overcoat",
+      "overdo",
+      "overflow",
+      "oversee",
+      "overcome"
+    ],
+    "prereqs": [
+      "MORPH_P_mid"
+    ],
+    "mastery": {
+      "read_accuracy": 0.85,
+      "rolling_window": 8,
+      "min_items": 8
+    },
+    "assessment": "morpheme_meaning",
+    "items_per_session": 6,
+    "review_interval_days": [
+      1,
+      3,
+      7,
+      21
+    ],
+    "xpPerItem": 3,
+    "xpOnMastery": 40,
+    "trickle_down": true
+  },
+  {
+    "id": "MORPH_P_under",
+    "course": "Morphology",
+    "unit": "5. Morphology",
+    "module": "5.1. Common Prefixes",
+    "topic": "5.1.16. under- (below)",
+    "strand": "Morphology",
+    "skill": "Decode and define words using the prefix under-.",
+    "examples": [
+      "underground",
+      "underline",
+      "undercut",
+      "underwater",
+      "undergo"
+    ],
+    "prereqs": [
+      "MORPH_P_over"
+    ],
+    "mastery": {
+      "read_accuracy": 0.85,
+      "rolling_window": 8,
+      "min_items": 8
+    },
+    "assessment": "morpheme_meaning",
+    "items_per_session": 6,
+    "review_interval_days": [
+      1,
+      3,
+      7,
+      21
+    ],
+    "xpPerItem": 3,
+    "xpOnMastery": 40,
+    "trickle_down": true
+  },
+  {
+    "id": "MORPH_P_fore",
+    "course": "Morphology",
+    "unit": "5. Morphology",
+    "module": "5.1. Common Prefixes",
+    "topic": "5.1.17. fore- (before, in front)",
+    "strand": "Morphology",
+    "skill": "Decode and define words using the prefix fore-.",
+    "examples": [
+      "forecast",
+      "forehead",
+      "foresee",
+      "forearm",
+      "foreword"
+    ],
+    "prereqs": [
+      "MORPH_P_under"
+    ],
+    "mastery": {
+      "read_accuracy": 0.85,
+      "rolling_window": 8,
+      "min_items": 8
+    },
+    "assessment": "morpheme_meaning",
+    "items_per_session": 6,
+    "review_interval_days": [
+      1,
+      3,
+      7,
+      21
+    ],
+    "xpPerItem": 3,
+    "xpOnMastery": 40,
+    "trickle_down": true
+  },
+  {
+    "id": "MORPH_P_ex",
+    "course": "Morphology",
+    "unit": "5. Morphology",
+    "module": "5.1. Common Prefixes",
+    "topic": "5.1.18. ex- (out, from)",
+    "strand": "Morphology",
+    "skill": "Decode and define words using the prefix ex-.",
+    "examples": [
+      "exit",
+      "exhale",
+      "export",
+      "expand",
+      "explode"
+    ],
+    "prereqs": [
+      "MORPH_P_fore"
+    ],
+    "mastery": {
+      "read_accuracy": 0.85,
+      "rolling_window": 8,
+      "min_items": 8
+    },
+    "assessment": "morpheme_meaning",
+    "items_per_session": 6,
+    "review_interval_days": [
+      1,
+      3,
+      7,
+      21
+    ],
+    "xpPerItem": 3,
+    "xpOnMastery": 40,
+    "trickle_down": true
+  },
+  {
+    "id": "MORPH_S_er_agent",
+    "course": "Morphology",
+    "unit": "5. Morphology",
+    "module": "5.2. Common Suffixes",
+    "topic": "5.2.1. -er (one who does)",
+    "strand": "Morphology",
+    "skill": "Decode and define words using the agent suffix -er.",
+    "examples": [
+      "teacher",
+      "painter",
+      "runner",
+      "worker",
+      "dancer"
+    ],
+    "prereqs": [
+      "FL_02_blend_digraph_fluency"
+    ],
+    "mastery": {
+      "read_accuracy": 0.85,
+      "rolling_window": 8,
+      "min_items": 8
+    },
+    "assessment": "morpheme_meaning",
+    "items_per_session": 6,
+    "review_interval_days": [
+      1,
+      3,
+      7,
+      21
+    ],
+    "xpPerItem": 3,
+    "xpOnMastery": 40,
+    "trickle_down": true,
+    "notes": "Agent (person who does X). Compare with comparative -er and noun -er."
+  },
+  {
+    "id": "MORPH_S_er_compare",
+    "course": "Morphology",
+    "unit": "5. Morphology",
+    "module": "5.2. Common Suffixes",
+    "topic": "5.2.2. -er (more, comparative)",
+    "strand": "Morphology",
+    "skill": "Decode and define comparative adjectives ending in -er.",
+    "examples": [
+      "bigger",
+      "faster",
+      "taller",
+      "smarter",
+      "smaller"
+    ],
+    "prereqs": [
+      "MORPH_S_er_agent"
+    ],
+    "mastery": {
+      "read_accuracy": 0.85,
+      "rolling_window": 8,
+      "min_items": 8
+    },
+    "assessment": "morpheme_meaning",
+    "items_per_session": 6,
+    "review_interval_days": [
+      1,
+      3,
+      7,
+      21
+    ],
+    "xpPerItem": 3,
+    "xpOnMastery": 40,
+    "trickle_down": true
+  },
+  {
+    "id": "MORPH_S_est",
+    "course": "Morphology",
+    "unit": "5. Morphology",
+    "module": "5.2. Common Suffixes",
+    "topic": "5.2.3. -est (most, superlative)",
+    "strand": "Morphology",
+    "skill": "Decode and define superlative adjectives ending in -est.",
+    "examples": [
+      "biggest",
+      "fastest",
+      "tallest",
+      "smartest",
+      "smallest"
+    ],
+    "prereqs": [
+      "MORPH_S_er_compare"
+    ],
+    "mastery": {
+      "read_accuracy": 0.85,
+      "rolling_window": 8,
+      "min_items": 8
+    },
+    "assessment": "morpheme_meaning",
+    "items_per_session": 6,
+    "review_interval_days": [
+      1,
+      3,
+      7,
+      21
+    ],
+    "xpPerItem": 3,
+    "xpOnMastery": 40,
+    "trickle_down": true
+  },
+  {
+    "id": "MORPH_S_ly",
+    "course": "Morphology",
+    "unit": "5. Morphology",
+    "module": "5.2. Common Suffixes",
+    "topic": "5.2.4. -ly (in a manner)",
+    "strand": "Morphology",
+    "skill": "Decode and define adverbs ending in -ly.",
+    "examples": [
+      "quickly",
+      "slowly",
+      "happily",
+      "sadly",
+      "quietly"
+    ],
+    "prereqs": [
+      "MORPH_S_est"
+    ],
+    "mastery": {
+      "read_accuracy": 0.85,
+      "rolling_window": 8,
+      "min_items": 8
+    },
+    "assessment": "morpheme_meaning",
+    "items_per_session": 6,
+    "review_interval_days": [
+      1,
+      3,
+      7,
+      21
+    ],
+    "xpPerItem": 3,
+    "xpOnMastery": 40,
+    "trickle_down": true
+  },
+  {
+    "id": "MORPH_S_ful",
+    "course": "Morphology",
+    "unit": "5. Morphology",
+    "module": "5.2. Common Suffixes",
+    "topic": "5.2.5. -ful (full of)",
+    "strand": "Morphology",
+    "skill": "Decode and define adjectives ending in -ful.",
+    "examples": [
+      "helpful",
+      "careful",
+      "hopeful",
+      "beautiful",
+      "wonderful"
+    ],
+    "prereqs": [
+      "MORPH_S_ly"
+    ],
+    "mastery": {
+      "read_accuracy": 0.85,
+      "rolling_window": 8,
+      "min_items": 8
+    },
+    "assessment": "morpheme_meaning",
+    "items_per_session": 6,
+    "review_interval_days": [
+      1,
+      3,
+      7,
+      21
+    ],
+    "xpPerItem": 3,
+    "xpOnMastery": 40,
+    "trickle_down": true
+  },
+  {
+    "id": "MORPH_S_less",
+    "course": "Morphology",
+    "unit": "5. Morphology",
+    "module": "5.2. Common Suffixes",
+    "topic": "5.2.6. -less (without)",
+    "strand": "Morphology",
+    "skill": "Decode and define adjectives ending in -less.",
+    "examples": [
+      "helpless",
+      "careless",
+      "hopeless",
+      "fearless",
+      "useless"
+    ],
+    "prereqs": [
+      "MORPH_S_ful"
+    ],
+    "mastery": {
+      "read_accuracy": 0.85,
+      "rolling_window": 8,
+      "min_items": 8
+    },
+    "assessment": "morpheme_meaning",
+    "items_per_session": 6,
+    "review_interval_days": [
+      1,
+      3,
+      7,
+      21
+    ],
+    "xpPerItem": 3,
+    "xpOnMastery": 40,
+    "trickle_down": true
+  },
+  {
+    "id": "MORPH_S_able",
+    "course": "Morphology",
+    "unit": "5. Morphology",
+    "module": "5.2. Common Suffixes",
+    "topic": "5.2.7. -able (able to be)",
+    "strand": "Morphology",
+    "skill": "Decode and define adjectives ending in -able.",
+    "examples": [
+      "readable",
+      "breakable",
+      "lovable",
+      "usable",
+      "washable"
+    ],
+    "prereqs": [
+      "MORPH_S_less"
+    ],
+    "mastery": {
+      "read_accuracy": 0.85,
+      "rolling_window": 8,
+      "min_items": 8
+    },
+    "assessment": "morpheme_meaning",
+    "items_per_session": 6,
+    "review_interval_days": [
+      1,
+      3,
+      7,
+      21
+    ],
+    "xpPerItem": 3,
+    "xpOnMastery": 40,
+    "trickle_down": true
+  },
+  {
+    "id": "MORPH_S_ness",
+    "course": "Morphology",
+    "unit": "5. Morphology",
+    "module": "5.2. Common Suffixes",
+    "topic": "5.2.8. -ness (state, quality of)",
+    "strand": "Morphology",
+    "skill": "Decode and define nouns ending in -ness.",
+    "examples": [
+      "kindness",
+      "darkness",
+      "happiness",
+      "sadness",
+      "weakness"
+    ],
+    "prereqs": [
+      "MORPH_S_able"
+    ],
+    "mastery": {
+      "read_accuracy": 0.85,
+      "rolling_window": 8,
+      "min_items": 8
+    },
+    "assessment": "morpheme_meaning",
+    "items_per_session": 6,
+    "review_interval_days": [
+      1,
+      3,
+      7,
+      21
+    ],
+    "xpPerItem": 3,
+    "xpOnMastery": 40,
+    "trickle_down": true
+  },
+  {
+    "id": "MORPH_S_ment",
+    "course": "Morphology",
+    "unit": "5. Morphology",
+    "module": "5.2. Common Suffixes",
+    "topic": "5.2.9. -ment (action, result of)",
+    "strand": "Morphology",
+    "skill": "Decode and define nouns ending in -ment.",
+    "examples": [
+      "movement",
+      "payment",
+      "agreement",
+      "treatment",
+      "equipment"
+    ],
+    "prereqs": [
+      "MORPH_S_ness"
+    ],
+    "mastery": {
+      "read_accuracy": 0.85,
+      "rolling_window": 8,
+      "min_items": 8
+    },
+    "assessment": "morpheme_meaning",
+    "items_per_session": 6,
+    "review_interval_days": [
+      1,
+      3,
+      7,
+      21
+    ],
+    "xpPerItem": 3,
+    "xpOnMastery": 40,
+    "trickle_down": true
+  },
+  {
+    "id": "MORPH_S_tion",
+    "course": "Morphology",
+    "unit": "5. Morphology",
+    "module": "5.2. Common Suffixes",
+    "topic": "5.2.10. -tion (act, state of)",
+    "strand": "Morphology",
+    "skill": "Decode and define nouns ending in -tion.",
+    "examples": [
+      "action",
+      "motion",
+      "station",
+      "nation",
+      "fraction"
+    ],
+    "prereqs": [
+      "MORPH_S_ment"
+    ],
+    "mastery": {
+      "read_accuracy": 0.85,
+      "rolling_window": 8,
+      "min_items": 8
+    },
+    "assessment": "morpheme_meaning",
+    "items_per_session": 6,
+    "review_interval_days": [
+      1,
+      3,
+      7,
+      21
+    ],
+    "xpPerItem": 3,
+    "xpOnMastery": 40,
+    "trickle_down": true
+  },
+  {
+    "id": "MORPH_S_ous",
+    "course": "Morphology",
+    "unit": "5. Morphology",
+    "module": "5.2. Common Suffixes",
+    "topic": "5.2.11. -ous (full of, having)",
+    "strand": "Morphology",
+    "skill": "Decode and define adjectives ending in -ous.",
+    "examples": [
+      "famous",
+      "dangerous",
+      "nervous",
+      "jealous",
+      "curious"
+    ],
+    "prereqs": [
+      "MORPH_S_tion"
+    ],
+    "mastery": {
+      "read_accuracy": 0.85,
+      "rolling_window": 8,
+      "min_items": 8
+    },
+    "assessment": "morpheme_meaning",
+    "items_per_session": 6,
+    "review_interval_days": [
+      1,
+      3,
+      7,
+      21
+    ],
+    "xpPerItem": 3,
+    "xpOnMastery": 40,
+    "trickle_down": true
+  },
+  {
+    "id": "MORPH_S_ive",
+    "course": "Morphology",
+    "unit": "5. Morphology",
+    "module": "5.2. Common Suffixes",
+    "topic": "5.2.12. -ive (tending to, having)",
+    "strand": "Morphology",
+    "skill": "Decode and define adjectives ending in -ive.",
+    "examples": [
+      "active",
+      "creative",
+      "native",
+      "festive",
+      "positive"
+    ],
+    "prereqs": [
+      "MORPH_S_ous"
+    ],
+    "mastery": {
+      "read_accuracy": 0.85,
+      "rolling_window": 8,
+      "min_items": 8
+    },
+    "assessment": "morpheme_meaning",
+    "items_per_session": 6,
+    "review_interval_days": [
+      1,
+      3,
+      7,
+      21
+    ],
+    "xpPerItem": 3,
+    "xpOnMastery": 40,
+    "trickle_down": true
+  },
+  {
+    "id": "MORPH_R_port",
+    "course": "Morphology",
+    "unit": "5. Morphology",
+    "module": "5.3. Greek & Latin Roots",
+    "topic": "5.3.1. port (carry)",
+    "strand": "Morphology",
+    "skill": "Decode and define words using the root port.",
+    "examples": [
+      "transport",
+      "import",
+      "export",
+      "portable",
+      "support"
+    ],
+    "prereqs": [
+      "MORPH_P_trans"
+    ],
+    "mastery": {
+      "read_accuracy": 0.8,
+      "rolling_window": 8,
+      "min_items": 8
+    },
+    "assessment": "morpheme_meaning",
+    "items_per_session": 6,
+    "review_interval_days": [
+      1,
+      3,
+      7,
+      21
+    ],
+    "xpPerItem": 4,
+    "xpOnMastery": 50,
+    "trickle_down": true
+  },
+  {
+    "id": "MORPH_R_struct",
+    "course": "Morphology",
+    "unit": "5. Morphology",
+    "module": "5.3. Greek & Latin Roots",
+    "topic": "5.3.2. struct (build)",
+    "strand": "Morphology",
+    "skill": "Decode and define words using the root struct.",
+    "examples": [
+      "construct",
+      "destruct",
+      "structure",
+      "instruct",
+      "obstruct"
+    ],
+    "prereqs": [
+      "MORPH_R_port"
+    ],
+    "mastery": {
+      "read_accuracy": 0.8,
+      "rolling_window": 8,
+      "min_items": 8
+    },
+    "assessment": "morpheme_meaning",
+    "items_per_session": 6,
+    "review_interval_days": [
+      1,
+      3,
+      7,
+      21
+    ],
+    "xpPerItem": 4,
+    "xpOnMastery": 50,
+    "trickle_down": true
+  },
+  {
+    "id": "MORPH_R_dict",
+    "course": "Morphology",
+    "unit": "5. Morphology",
+    "module": "5.3. Greek & Latin Roots",
+    "topic": "5.3.3. dict (say, speak)",
+    "strand": "Morphology",
+    "skill": "Decode and define words using the root dict.",
+    "examples": [
+      "predict",
+      "dictate",
+      "contradict",
+      "dictation",
+      "verdict"
+    ],
+    "prereqs": [
+      "MORPH_R_struct"
+    ],
+    "mastery": {
+      "read_accuracy": 0.8,
+      "rolling_window": 8,
+      "min_items": 8
+    },
+    "assessment": "morpheme_meaning",
+    "items_per_session": 6,
+    "review_interval_days": [
+      1,
+      3,
+      7,
+      21
+    ],
+    "xpPerItem": 4,
+    "xpOnMastery": 50,
+    "trickle_down": true
+  },
+  {
+    "id": "MORPH_R_ject",
+    "course": "Morphology",
+    "unit": "5. Morphology",
+    "module": "5.3. Greek & Latin Roots",
+    "topic": "5.3.4. ject (throw)",
+    "strand": "Morphology",
+    "skill": "Decode and define words using the root ject.",
+    "examples": [
+      "eject",
+      "inject",
+      "project",
+      "reject",
+      "object"
+    ],
+    "prereqs": [
+      "MORPH_R_dict"
+    ],
+    "mastery": {
+      "read_accuracy": 0.8,
+      "rolling_window": 8,
+      "min_items": 8
+    },
+    "assessment": "morpheme_meaning",
+    "items_per_session": 6,
+    "review_interval_days": [
+      1,
+      3,
+      7,
+      21
+    ],
+    "xpPerItem": 4,
+    "xpOnMastery": 50,
+    "trickle_down": true
+  },
+  {
+    "id": "MORPH_R_scrib",
+    "course": "Morphology",
+    "unit": "5. Morphology",
+    "module": "5.3. Greek & Latin Roots",
+    "topic": "5.3.5. scrib/script (write)",
+    "strand": "Morphology",
+    "skill": "Decode and define words using the root scrib/script.",
+    "examples": [
+      "describe",
+      "prescribe",
+      "transcribe",
+      "manuscript",
+      "script"
+    ],
+    "prereqs": [
+      "MORPH_R_ject"
+    ],
+    "mastery": {
+      "read_accuracy": 0.8,
+      "rolling_window": 8,
+      "min_items": 8
+    },
+    "assessment": "morpheme_meaning",
+    "items_per_session": 6,
+    "review_interval_days": [
+      1,
+      3,
+      7,
+      21
+    ],
+    "xpPerItem": 4,
+    "xpOnMastery": 50,
+    "trickle_down": true
+  },
+  {
+    "id": "MORPH_R_vis",
+    "course": "Morphology",
+    "unit": "5. Morphology",
+    "module": "5.3. Greek & Latin Roots",
+    "topic": "5.3.6. vis/vid (see)",
+    "strand": "Morphology",
+    "skill": "Decode and define words using the root vis/vid.",
+    "examples": [
+      "vision",
+      "visible",
+      "video",
+      "evidence",
+      "supervise"
+    ],
+    "prereqs": [
+      "MORPH_R_scrib"
+    ],
+    "mastery": {
+      "read_accuracy": 0.8,
+      "rolling_window": 8,
+      "min_items": 8
+    },
+    "assessment": "morpheme_meaning",
+    "items_per_session": 6,
+    "review_interval_days": [
+      1,
+      3,
+      7,
+      21
+    ],
+    "xpPerItem": 4,
+    "xpOnMastery": 50,
+    "trickle_down": true
+  },
+  {
+    "id": "MORPH_R_aud",
+    "course": "Morphology",
+    "unit": "5. Morphology",
+    "module": "5.3. Greek & Latin Roots",
+    "topic": "5.3.7. aud (hear)",
+    "strand": "Morphology",
+    "skill": "Decode and define words using the root aud.",
+    "examples": [
+      "audio",
+      "audience",
+      "auditory",
+      "audible",
+      "audit"
+    ],
+    "prereqs": [
+      "MORPH_R_vis"
+    ],
+    "mastery": {
+      "read_accuracy": 0.8,
+      "rolling_window": 8,
+      "min_items": 8
+    },
+    "assessment": "morpheme_meaning",
+    "items_per_session": 6,
+    "review_interval_days": [
+      1,
+      3,
+      7,
+      21
+    ],
+    "xpPerItem": 4,
+    "xpOnMastery": 50,
+    "trickle_down": true
+  },
+  {
+    "id": "MORPH_R_graph",
+    "course": "Morphology",
+    "unit": "5. Morphology",
+    "module": "5.3. Greek & Latin Roots",
+    "topic": "5.3.8. graph (write, draw)",
+    "strand": "Morphology",
+    "skill": "Decode and define words using the root graph.",
+    "examples": [
+      "autograph",
+      "biography",
+      "paragraph",
+      "photograph",
+      "telegraph"
+    ],
+    "prereqs": [
+      "MORPH_R_aud"
+    ],
+    "mastery": {
+      "read_accuracy": 0.8,
+      "rolling_window": 8,
+      "min_items": 8
+    },
+    "assessment": "morpheme_meaning",
+    "items_per_session": 6,
+    "review_interval_days": [
+      1,
+      3,
+      7,
+      21
+    ],
+    "xpPerItem": 4,
+    "xpOnMastery": 50,
+    "trickle_down": true
+  },
+  {
+    "id": "MORPH_R_phon",
+    "course": "Morphology",
+    "unit": "5. Morphology",
+    "module": "5.3. Greek & Latin Roots",
+    "topic": "5.3.9. phon (sound)",
+    "strand": "Morphology",
+    "skill": "Decode and define words using the root phon.",
+    "examples": [
+      "phone",
+      "microphone",
+      "telephone",
+      "symphony",
+      "phonics"
+    ],
+    "prereqs": [
+      "MORPH_R_graph"
+    ],
+    "mastery": {
+      "read_accuracy": 0.8,
+      "rolling_window": 8,
+      "min_items": 8
+    },
+    "assessment": "morpheme_meaning",
+    "items_per_session": 6,
+    "review_interval_days": [
+      1,
+      3,
+      7,
+      21
+    ],
+    "xpPerItem": 4,
+    "xpOnMastery": 50,
+    "trickle_down": true
+  },
+  {
+    "id": "MORPH_R_geo",
+    "course": "Morphology",
+    "unit": "5. Morphology",
+    "module": "5.3. Greek & Latin Roots",
+    "topic": "5.3.10. geo (earth)",
+    "strand": "Morphology",
+    "skill": "Decode and define words using the root geo.",
+    "examples": [
+      "geography",
+      "geology",
+      "geometry",
+      "geothermal",
+      "geode"
+    ],
+    "prereqs": [
+      "MORPH_R_phon"
+    ],
+    "mastery": {
+      "read_accuracy": 0.8,
+      "rolling_window": 8,
+      "min_items": 8
+    },
+    "assessment": "morpheme_meaning",
+    "items_per_session": 6,
+    "review_interval_days": [
+      1,
+      3,
+      7,
+      21
+    ],
+    "xpPerItem": 4,
+    "xpOnMastery": 50,
+    "trickle_down": true
+  },
+  {
+    "id": "MORPH_R_bio",
+    "course": "Morphology",
+    "unit": "5. Morphology",
+    "module": "5.3. Greek & Latin Roots",
+    "topic": "5.3.11. bio (life)",
+    "strand": "Morphology",
+    "skill": "Decode and define words using the root bio.",
+    "examples": [
+      "biology",
+      "biography",
+      "biome",
+      "antibiotic",
+      "microbiology"
+    ],
+    "prereqs": [
+      "MORPH_R_geo"
+    ],
+    "mastery": {
+      "read_accuracy": 0.8,
+      "rolling_window": 8,
+      "min_items": 8
+    },
+    "assessment": "morpheme_meaning",
+    "items_per_session": 6,
+    "review_interval_days": [
+      1,
+      3,
+      7,
+      21
+    ],
+    "xpPerItem": 4,
+    "xpOnMastery": 50,
+    "trickle_down": true
+  },
+  {
+    "id": "MORPH_R_hydro",
+    "course": "Morphology",
+    "unit": "5. Morphology",
+    "module": "5.3. Greek & Latin Roots",
+    "topic": "5.3.12. hydro (water)",
+    "strand": "Morphology",
+    "skill": "Decode and define words using the root hydro.",
+    "examples": [
+      "hydrogen",
+      "hydrant",
+      "dehydrate",
+      "hydraulic",
+      "hydrate"
+    ],
+    "prereqs": [
+      "MORPH_R_bio"
+    ],
+    "mastery": {
+      "read_accuracy": 0.8,
+      "rolling_window": 8,
+      "min_items": 8
+    },
+    "assessment": "morpheme_meaning",
+    "items_per_session": 6,
+    "review_interval_days": [
+      1,
+      3,
+      7,
+      21
+    ],
+    "xpPerItem": 4,
+    "xpOnMastery": 50,
+    "trickle_down": true
+  },
+  {
+    "id": "MORPH_R_therm",
+    "course": "Morphology",
+    "unit": "5. Morphology",
+    "module": "5.3. Greek & Latin Roots",
+    "topic": "5.3.13. therm (heat)",
+    "strand": "Morphology",
+    "skill": "Decode and define words using the root therm.",
+    "examples": [
+      "thermometer",
+      "thermal",
+      "thermostat",
+      "geothermal",
+      "hypothermia"
+    ],
+    "prereqs": [
+      "MORPH_R_hydro"
+    ],
+    "mastery": {
+      "read_accuracy": 0.8,
+      "rolling_window": 8,
+      "min_items": 8
+    },
+    "assessment": "morpheme_meaning",
+    "items_per_session": 6,
+    "review_interval_days": [
+      1,
+      3,
+      7,
+      21
+    ],
+    "xpPerItem": 4,
+    "xpOnMastery": 50,
+    "trickle_down": true
+  },
+  {
+    "id": "MORPH_R_meter",
+    "course": "Morphology",
+    "unit": "5. Morphology",
+    "module": "5.3. Greek & Latin Roots",
+    "topic": "5.3.14. meter (measure)",
+    "strand": "Morphology",
+    "skill": "Decode and define words using the root meter.",
+    "examples": [
+      "thermometer",
+      "speedometer",
+      "perimeter",
+      "diameter",
+      "kilometer"
+    ],
+    "prereqs": [
+      "MORPH_R_therm"
+    ],
+    "mastery": {
+      "read_accuracy": 0.8,
+      "rolling_window": 8,
+      "min_items": 8
+    },
+    "assessment": "morpheme_meaning",
+    "items_per_session": 6,
+    "review_interval_days": [
+      1,
+      3,
+      7,
+      21
+    ],
+    "xpPerItem": 4,
+    "xpOnMastery": 50,
+    "trickle_down": true
+  },
+  {
+    "id": "MORPH_R_astro",
+    "course": "Morphology",
+    "unit": "5. Morphology",
+    "module": "5.3. Greek & Latin Roots",
+    "topic": "5.3.15. astro (star)",
+    "strand": "Morphology",
+    "skill": "Decode and define words using the root astro.",
+    "examples": [
+      "astronaut",
+      "astronomy",
+      "astrology",
+      "asteroid",
+      "astrophysics"
+    ],
+    "prereqs": [
+      "MORPH_R_meter"
+    ],
+    "mastery": {
+      "read_accuracy": 0.8,
+      "rolling_window": 8,
+      "min_items": 8
+    },
+    "assessment": "morpheme_meaning",
+    "items_per_session": 6,
+    "review_interval_days": [
+      1,
+      3,
+      7,
+      21
+    ],
+    "xpPerItem": 4,
+    "xpOnMastery": 50,
+    "trickle_down": true
+  },
+  {
+    "id": "MORPH_R_act",
+    "course": "Morphology",
+    "unit": "5. Morphology",
+    "module": "5.3. Greek & Latin Roots",
+    "topic": "5.3.16. act (do)",
+    "strand": "Morphology",
+    "skill": "Decode and define words using the root act.",
+    "examples": [
+      "action",
+      "react",
+      "transact",
+      "interact",
+      "enact"
+    ],
+    "prereqs": [
+      "MORPH_R_astro"
+    ],
+    "mastery": {
+      "read_accuracy": 0.8,
+      "rolling_window": 8,
+      "min_items": 8
+    },
+    "assessment": "morpheme_meaning",
+    "items_per_session": 6,
+    "review_interval_days": [
+      1,
+      3,
+      7,
+      21
+    ],
+    "xpPerItem": 4,
+    "xpOnMastery": 50,
+    "trickle_down": true
+  },
+  {
+    "id": "MORPH_SEG_01",
+    "course": "Morphology",
+    "unit": "5. Morphology",
+    "module": "5.4. Breaking Words Apart",
+    "topic": "5.4.1. Two Parts: Prefix + Base",
+    "strand": "Morphology",
+    "skill": "Break a word into a prefix and a base word.",
+    "examples": [
+      "unfold",
+      "replay",
+      "preheat",
+      "rebuild"
+    ],
+    "prereqs": [
+      "MORPH_P_ex",
+      "MORPH_S_ive",
+      "MORPH_R_act"
+    ],
+    "mastery": {
+      "read_accuracy": 0.8,
+      "rolling_window": 8,
+      "min_items": 8
+    },
+    "assessment": "morpheme_split",
+    "items_per_session": 6,
+    "review_interval_days": [
+      1,
+      3,
+      7,
+      21
+    ],
+    "xpPerItem": 5,
+    "xpOnMastery": 60,
+    "trickle_down": true
+  },
+  {
+    "id": "MORPH_SEG_02",
+    "course": "Morphology",
+    "unit": "5. Morphology",
+    "module": "5.4. Breaking Words Apart",
+    "topic": "5.4.2. Two Parts: Base + Suffix",
+    "strand": "Morphology",
+    "skill": "Break a word into a base word and a suffix.",
+    "examples": [
+      "teacher",
+      "helpful",
+      "kindness",
+      "painter"
+    ],
+    "prereqs": [
+      "MORPH_SEG_01"
+    ],
+    "mastery": {
+      "read_accuracy": 0.8,
+      "rolling_window": 8,
+      "min_items": 8
+    },
+    "assessment": "morpheme_split",
+    "items_per_session": 6,
+    "review_interval_days": [
+      1,
+      3,
+      7,
+      21
+    ],
+    "xpPerItem": 5,
+    "xpOnMastery": 60,
+    "trickle_down": true
+  },
+  {
+    "id": "MORPH_SEG_03",
+    "course": "Morphology",
+    "unit": "5. Morphology",
+    "module": "5.4. Breaking Words Apart",
+    "topic": "5.4.3. Three Parts: Prefix + Base + Suffix",
+    "strand": "Morphology",
+    "skill": "Break a longer word into a prefix, a base, and a suffix.",
+    "examples": [
+      "unhelpful",
+      "reloaded",
+      "refreshing",
+      "unblocked"
+    ],
+    "prereqs": [
+      "MORPH_SEG_02"
+    ],
+    "mastery": {
+      "read_accuracy": 0.8,
+      "rolling_window": 8,
+      "min_items": 8
+    },
+    "assessment": "morpheme_split",
+    "items_per_session": 6,
+    "review_interval_days": [
+      1,
+      3,
+      7,
+      21
+    ],
+    "xpPerItem": 5,
+    "xpOnMastery": 60,
+    "trickle_down": true
+  },
+  {
+    "id": "MORPH_SEG_04",
+    "course": "Morphology",
+    "unit": "5. Morphology",
+    "module": "5.4. Breaking Words Apart",
+    "topic": "5.4.4. Word Detective: Greek & Latin Roots",
+    "strand": "Morphology",
+    "skill": "Break an unfamiliar word into its parts using known roots and affixes.",
+    "examples": [
+      "transport",
+      "inspector",
+      "prediction",
+      "construction"
+    ],
+    "prereqs": [
+      "MORPH_SEG_03"
+    ],
+    "mastery": {
+      "read_accuracy": 0.8,
+      "rolling_window": 8,
+      "min_items": 8
+    },
+    "assessment": "morpheme_split",
+    "items_per_session": 6,
+    "review_interval_days": [
+      1,
+      3,
+      7,
+      21
+    ],
+    "xpPerItem": 5,
+    "xpOnMastery": 60,
+    "trickle_down": true
+  },
+  {
+    "id": "KARC_05_food_chains",
+    "course": "Knowledge Arcs",
+    "unit": "6. Knowledge Arcs",
+    "module": "6.5. Science: Food Chains",
+    "topic": "6.5.1. How Energy Moves Through an Ecosystem",
+    "strand": "Knowledge Arcs",
+    "skill": "Build cumulative knowledge about food chains: producers, consumers, predators, decomposers.",
+    "examples": [
+      "Connected passages on the sun, plants, herbivores, predators, decomposers — concepts compound."
+    ],
+    "prereqs": [
+      "KARC_04_ancient_egypt"
+    ],
+    "mastery": {
+      "read_accuracy": 0.75,
+      "rolling_window": 7,
+      "min_items": 7
+    },
+    "assessment": "bg_knowledge",
+    "items_per_session": 4,
+    "review_interval_days": [
+      1,
+      3,
+      7,
+      21
+    ],
+    "xpPerItem": 6,
+    "xpOnMastery": 80,
+    "trickle_down": true,
+    "notes": "Phase C arc 5. Vocab: producer, consumer, herbivore, carnivore, predator, prey, decomposer."
+  },
+  {
+    "id": "KARC_06_simple_machines",
+    "course": "Knowledge Arcs",
+    "unit": "6. Knowledge Arcs",
+    "module": "6.6. Science: Simple Machines",
+    "topic": "6.6.1. Tools That Make Work Easier",
+    "strand": "Knowledge Arcs",
+    "skill": "Build cumulative knowledge about simple machines: lever, ramp, wheel and axle, pulley.",
+    "examples": [
+      "Connected passages on work, levers, inclined planes, wheels, pulleys — concepts compound."
+    ],
+    "prereqs": [
+      "KARC_05_food_chains"
+    ],
+    "mastery": {
+      "read_accuracy": 0.75,
+      "rolling_window": 7,
+      "min_items": 7
+    },
+    "assessment": "bg_knowledge",
+    "items_per_session": 4,
+    "review_interval_days": [
+      1,
+      3,
+      7,
+      21
+    ],
+    "xpPerItem": 6,
+    "xpOnMastery": 80,
+    "trickle_down": true,
+    "notes": "Phase C arc 6. Vocab: simple machine, work, force, lever, fulcrum, inclined plane, pulley."
+  },
+  {
+    "id": "KARC_07_american_revolution",
+    "course": "Knowledge Arcs",
+    "unit": "6. Knowledge Arcs",
+    "module": "6.7. History: The American Revolution",
+    "topic": "6.7.1. How the United States Began",
+    "strand": "Knowledge Arcs",
+    "skill": "Build cumulative knowledge about the American Revolution: colonies, taxes, independence.",
+    "examples": [
+      "Connected passages on the colonies, taxes, the Declaration of Independence, the war — concepts compound."
+    ],
+    "prereqs": [
+      "KARC_06_simple_machines"
+    ],
+    "mastery": {
+      "read_accuracy": 0.75,
+      "rolling_window": 7,
+      "min_items": 7
+    },
+    "assessment": "bg_knowledge",
+    "items_per_session": 4,
+    "review_interval_days": [
+      1,
+      3,
+      7,
+      21
+    ],
+    "xpPerItem": 6,
+    "xpOnMastery": 80,
+    "trickle_down": true,
+    "notes": "Phase C arc 7. Vocab: colony, colonist, tax, representation, independence, declaration."
   }
 ]

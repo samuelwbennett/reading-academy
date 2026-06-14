@@ -1,9 +1,10 @@
 import React from "react";
+import { Link } from "react-router-dom";
+import { ROUTES } from "../../../config/routes.js";
 
-// Today's session card. Shows the active node and four placeholder action
-// buttons. The buttons are intentionally disabled at M1-A — they become
-// real entry points to Diagnostic / Drill / Reading Facts / Passage Reader
-// in later milestones.
+// Today's session card. Shows the active node and four action buttons.
+// Diagnostic activates in M1-B; the others stay disabled until their
+// milestones land (M1-C drill, M1-D Reading Facts, M1-E passage).
 
 const STATUS_LABEL = {
   mastered: "Mastered",
@@ -13,27 +14,27 @@ const STATUS_LABEL = {
   locked: "Locked",
 };
 
-const ACTIONS = [
-  { key: "diagnostic", label: "Start Diagnostic", milestone: "M1-B" },
-  { key: "drill",       label: "Start Drill",       milestone: "M1-C" },
-  { key: "fluency",     label: "Reading Facts",     milestone: "M1-D" },
-  { key: "passage",     label: "Passage",           milestone: "M1-E" },
-];
-
-export default function TodaySession({ activeNode, activeNodeStatus, prereqProgress }) {
+export default function TodaySession({
+  activeNode,
+  activeNodeStatus,
+  prereqProgress,
+  diagnosticComplete,
+}) {
   if (!activeNode) {
     return (
       <section className="ra-card">
         <div className="ra-eyebrow">Today's session</div>
         <h2 className="ra-card-title">All caught up</h2>
         <p className="ra-card-sub">
-          Every available node is mastered. New material will appear as the graph grows.
+          Every available node is mastered. New material will appear as the
+          graph grows.
         </p>
       </section>
     );
   }
 
   const statusLabel = STATUS_LABEL[activeNodeStatus] || activeNodeStatus || "Unknown";
+  const diagnosticBadge = diagnosticComplete ? "Re-take placement" : "Start placement";
 
   return (
     <section className="ra-card">
@@ -59,18 +60,38 @@ export default function TodaySession({ activeNode, activeNodeStatus, prereqProgr
       </div>
 
       <div className="ra-actions">
-        {ACTIONS.map((a) => (
-          <button
-            key={a.key}
-            className="ra-btn"
-            disabled
-            title={`${a.label} mounts in ${a.milestone}`}
-          >
-            {a.label}
-          </button>
-        ))}
+        <Link
+          to={`${ROUTES.READING}/diagnostic`}
+          className="ra-btn"
+          role="button"
+        >
+          {diagnosticBadge}
+        </Link>
+        <Link
+          to={`${ROUTES.READING}/drill`}
+          className="ra-btn"
+          role="button"
+        >
+          Start Drill
+        </Link>
+        <Link
+          to={`${ROUTES.READING}/fluency`}
+          className="ra-btn ra-btn-primary"
+          role="button"
+        >
+          Reading Facts
+        </Link>
+        <Link
+          to={`${ROUTES.READING}/passage`}
+          className="ra-btn"
+          role="button"
+        >
+          Passage
+        </Link>
       </div>
-      <p className="ra-actions-note">Buttons mount in upcoming milestones (M1-B through M1-E).</p>
+      <p className="ra-actions-note">
+        Diagnostic, Drill, Reading Facts, and Passage are all live.
+      </p>
     </section>
   );
 }

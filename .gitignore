@@ -7,3 +7,6 @@ dist
 .env
 .env.local
 .env.*.local
+dist-*/
+vite.config.js.timestamp-*.mjs
+supabase/.temp/

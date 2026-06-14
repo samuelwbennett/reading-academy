@@ -1,0 +1,1372 @@
+{
+  "$schema": "../../architecture-v1.0.md",
+  "gateId": "FL_05_grade3_fluency",
+  "tier": "FL_05",
+  "authoredBy": "claude:phase-b4-fluency-passages",
+  "authoredAt": "2026-05-19",
+  "version": "1.0.0",
+  "constraints": {
+    "grade_band": "G3",
+    "prereq_phonics": "FL_04_grade2_fluency",
+    "wcpm_target": 110,
+    "passage_accuracy_target": 0.97,
+    "target_word_count": 150,
+    "lexile_band_approx": "500L-700L",
+    "morpheme_inventory_eligible": [
+      "MORPH_P_un",
+      "MORPH_P_re",
+      "MORPH_P_pre",
+      "MORPH_P_dis",
+      "MORPH_S_er_agent",
+      "MORPH_S_ly",
+      "MORPH_S_ful",
+      "MORPH_S_less",
+      "MORPH_S_ness",
+      "MORPH_S_ment",
+      "MORPH_S_tion"
+    ]
+  },
+  "passages": [
+    {
+      "passageId": "P_FL05_001",
+      "gateId": "FL_05_grade3_fluency",
+      "module": "7.1. Grade 3 Cold Read",
+      "topic": "The Hidden Pond",
+      "genre": "narrative",
+      "isCold": true,
+      "difficultyRank": 1,
+      "targetWordCount": 150,
+      "morphemeInventory": [
+        "MORPH_S_ly",
+        "MORPH_S_ness"
+      ],
+      "paragraphs": [
+        {
+          "sentences": [
+            {
+              "text": "Last summer my older brother and I walked through the woods behind our house.",
+              "wordList": [
+                "Last",
+                "summer",
+                "my",
+                "older",
+                "brother",
+                "and",
+                "I",
+                "walked",
+                "through",
+                "the",
+                "woods",
+                "behind",
+                "our",
+                "house"
+              ]
+            },
+            {
+              "text": "We had been there many times before.",
+              "wordList": [
+                "We",
+                "had",
+                "been",
+                "there",
+                "many",
+                "times",
+                "before"
+              ]
+            },
+            {
+              "text": "But on that hot summer afternoon, we found something we had never seen before.",
+              "wordList": [
+                "But",
+                "on",
+                "that",
+                "hot",
+                "summer",
+                "afternoon",
+                "we",
+                "found",
+                "something",
+                "we",
+                "had",
+                "never",
+                "seen",
+                "before"
+              ]
+            }
+          ]
+        },
+        {
+          "sentences": [
+            {
+              "text": "Behind a thick line of bushes, the ground sloped downhill.",
+              "wordList": [
+                "Behind",
+                "a",
+                "thick",
+                "line",
+                "of",
+                "bushes",
+                "the",
+                "ground",
+                "sloped",
+                "downhill"
+              ]
+            },
+            {
+              "text": "At the bottom sat a small, quiet pond.",
+              "wordList": [
+                "At",
+                "the",
+                "bottom",
+                "sat",
+                "a",
+                "small",
+                "quiet",
+                "pond"
+              ]
+            },
+            {
+              "text": "Sunlight made the water shine like a mirror.",
+              "wordList": [
+                "Sunlight",
+                "made",
+                "the",
+                "water",
+                "shine",
+                "like",
+                "a",
+                "mirror"
+              ]
+            },
+            {
+              "text": "A frog jumped from a flat rock with a soft splash.",
+              "wordList": [
+                "A",
+                "frog",
+                "jumped",
+                "from",
+                "a",
+                "flat",
+                "rock",
+                "with",
+                "a",
+                "soft",
+                "splash"
+              ]
+            }
+          ]
+        },
+        {
+          "sentences": [
+            {
+              "text": "The water was so clear that we crouched right at the edge.",
+              "wordList": [
+                "The",
+                "water",
+                "was",
+                "so",
+                "clear",
+                "that",
+                "we",
+                "crouched",
+                "right",
+                "at",
+                "the",
+                "edge"
+              ]
+            },
+            {
+              "text": "Tiny minnows darted under a fallen log.",
+              "wordList": [
+                "Tiny",
+                "minnows",
+                "darted",
+                "under",
+                "a",
+                "fallen",
+                "log"
+              ]
+            },
+            {
+              "text": "A turtle rested on a stone in the sun.",
+              "wordList": [
+                "A",
+                "turtle",
+                "rested",
+                "on",
+                "a",
+                "stone",
+                "in",
+                "the",
+                "sun"
+              ]
+            },
+            {
+              "text": "It blinked one slow eye and slipped into the pond without a sound.",
+              "wordList": [
+                "It",
+                "blinked",
+                "one",
+                "slow",
+                "eye",
+                "and",
+                "slipped",
+                "into",
+                "the",
+                "pond",
+                "without",
+                "a",
+                "sound"
+              ]
+            }
+          ]
+        },
+        {
+          "sentences": [
+            {
+              "text": "A dragonfly skimmed across the top of the water.",
+              "wordList": [
+                "A",
+                "dragonfly",
+                "skimmed",
+                "across",
+                "the",
+                "top",
+                "of",
+                "the",
+                "water"
+              ]
+            },
+            {
+              "text": "My brother grinned and said, Let us call it our pond.",
+              "wordList": [
+                "My",
+                "brother",
+                "grinned",
+                "and",
+                "said",
+                "Let",
+                "us",
+                "call",
+                "it",
+                "our",
+                "pond"
+              ]
+            },
+            {
+              "text": "I agreed right away.",
+              "wordList": [
+                "I",
+                "agreed",
+                "right",
+                "away"
+              ]
+            },
+            {
+              "text": "From that day on, the hidden pond was our very own secret spot.",
+              "wordList": [
+                "From",
+                "that",
+                "day",
+                "on",
+                "the",
+                "hidden",
+                "pond",
+                "was",
+                "our",
+                "very",
+                "own",
+                "secret",
+                "spot"
+              ]
+            }
+          ]
+        }
+      ],
+      "wordCount": 150,
+      "avgSentenceLengthWords": 10,
+      "gpcInventory": [
+        "FL_04_grade2_fluency"
+      ],
+      "hfwInventory": [
+        "HFW_01a_anchors",
+        "HFW_02_set2"
+      ],
+      "multisyllabicPctIfAny": null,
+      "validationStatus": "auto-tokenized"
+    },
+    {
+      "passageId": "P_FL05_002",
+      "gateId": "FL_05_grade3_fluency",
+      "module": "7.1. Grade 3 Cold Read",
+      "topic": "How Spiders Spin Their Webs",
+      "genre": "informational",
+      "isCold": true,
+      "difficultyRank": 2,
+      "targetWordCount": 150,
+      "morphemeInventory": [
+        "MORPH_S_er_agent",
+        "MORPH_R_struct"
+      ],
+      "paragraphs": [
+        {
+          "sentences": [
+            {
+              "text": "Spiders are amazing builders.",
+              "wordList": [
+                "Spiders",
+                "are",
+                "amazing",
+                "builders"
+              ]
+            },
+            {
+              "text": "They make webs from a sticky thread called silk.",
+              "wordList": [
+                "They",
+                "make",
+                "webs",
+                "from",
+                "a",
+                "sticky",
+                "thread",
+                "called",
+                "silk"
+              ]
+            },
+            {
+              "text": "The silk starts as a liquid inside the spider's body.",
+              "wordList": [
+                "The",
+                "silk",
+                "starts",
+                "as",
+                "a",
+                "liquid",
+                "inside",
+                "the",
+                "spider's",
+                "body"
+              ]
+            },
+            {
+              "text": "Special parts called spinnerets pull the silk out and spin it into a thin line.",
+              "wordList": [
+                "Special",
+                "parts",
+                "called",
+                "spinnerets",
+                "pull",
+                "the",
+                "silk",
+                "out",
+                "and",
+                "spin",
+                "it",
+                "into",
+                "a",
+                "thin",
+                "line"
+              ]
+            }
+          ]
+        },
+        {
+          "sentences": [
+            {
+              "text": "When a spider wants to build a web, it picks a good spot between two leaves or branches.",
+              "wordList": [
+                "When",
+                "a",
+                "spider",
+                "wants",
+                "to",
+                "build",
+                "a",
+                "web",
+                "it",
+                "picks",
+                "a",
+                "good",
+                "spot",
+                "between",
+                "two",
+                "leaves",
+                "or",
+                "branches"
+              ]
+            },
+            {
+              "text": "It begins by floating a single thread on a small breeze.",
+              "wordList": [
+                "It",
+                "begins",
+                "by",
+                "floating",
+                "a",
+                "single",
+                "thread",
+                "on",
+                "a",
+                "small",
+                "breeze"
+              ]
+            },
+            {
+              "text": "When that thread sticks, the spider uses it as a bridge.",
+              "wordList": [
+                "When",
+                "that",
+                "thread",
+                "sticks",
+                "the",
+                "spider",
+                "uses",
+                "it",
+                "as",
+                "a",
+                "bridge"
+              ]
+            }
+          ]
+        },
+        {
+          "sentences": [
+            {
+              "text": "Next, the spider walks back and forth on the bridge, adding more threads.",
+              "wordList": [
+                "Next",
+                "the",
+                "spider",
+                "walks",
+                "back",
+                "and",
+                "forth",
+                "on",
+                "the",
+                "bridge",
+                "adding",
+                "more",
+                "threads"
+              ]
+            },
+            {
+              "text": "Some of the threads form a frame, like the spokes of a wheel.",
+              "wordList": [
+                "Some",
+                "of",
+                "the",
+                "threads",
+                "form",
+                "a",
+                "frame",
+                "like",
+                "the",
+                "spokes",
+                "of",
+                "a",
+                "wheel"
+              ]
+            },
+            {
+              "text": "Then the spider spirals around the frame, adding sticky thread as it goes.",
+              "wordList": [
+                "Then",
+                "the",
+                "spider",
+                "spirals",
+                "around",
+                "the",
+                "frame",
+                "adding",
+                "sticky",
+                "thread",
+                "as",
+                "it",
+                "goes"
+              ]
+            }
+          ]
+        },
+        {
+          "sentences": [
+            {
+              "text": "Once the web is finished, the spider waits in the middle or hides nearby.",
+              "wordList": [
+                "Once",
+                "the",
+                "web",
+                "is",
+                "finished",
+                "the",
+                "spider",
+                "waits",
+                "in",
+                "the",
+                "middle",
+                "or",
+                "hides",
+                "nearby"
+              ]
+            },
+            {
+              "text": "When a bug bumps the sticky web, the spider feels the shake and rushes out to catch its dinner.",
+              "wordList": [
+                "When",
+                "a",
+                "bug",
+                "bumps",
+                "the",
+                "sticky",
+                "web",
+                "the",
+                "spider",
+                "feels",
+                "the",
+                "shake",
+                "and",
+                "rushes",
+                "out",
+                "to",
+                "catch",
+                "its",
+                "dinner"
+              ]
+            }
+          ]
+        }
+      ],
+      "wordCount": 150,
+      "avgSentenceLengthWords": 12.5,
+      "gpcInventory": [
+        "FL_04_grade2_fluency"
+      ],
+      "hfwInventory": [
+        "HFW_01a_anchors",
+        "HFW_02_set2"
+      ],
+      "multisyllabicPctIfAny": null,
+      "validationStatus": "auto-tokenized"
+    },
+    {
+      "passageId": "P_FL05_003",
+      "gateId": "FL_05_grade3_fluency",
+      "module": "7.1. Grade 3 Cold Read",
+      "topic": "Lost in the Library",
+      "genre": "narrative",
+      "isCold": true,
+      "difficultyRank": 2,
+      "targetWordCount": 150,
+      "morphemeInventory": [
+        "MORPH_P_re",
+        "MORPH_S_er_agent"
+      ],
+      "paragraphs": [
+        {
+          "sentences": [
+            {
+              "text": "Carla loved going to the library on Saturdays.",
+              "wordList": [
+                "Carla",
+                "loved",
+                "going",
+                "to",
+                "the",
+                "library",
+                "on",
+                "Saturdays"
+              ]
+            },
+            {
+              "text": "The big main library downtown had three full floors of books.",
+              "wordList": [
+                "The",
+                "big",
+                "main",
+                "library",
+                "downtown",
+                "had",
+                "three",
+                "full",
+                "floors",
+                "of",
+                "books"
+              ]
+            },
+            {
+              "text": "She explored a new section every visit.",
+              "wordList": [
+                "She",
+                "explored",
+                "a",
+                "new",
+                "section",
+                "every",
+                "visit"
+              ]
+            },
+            {
+              "text": "This Saturday she planned to find a book about ancient maps.",
+              "wordList": [
+                "This",
+                "Saturday",
+                "she",
+                "planned",
+                "to",
+                "find",
+                "a",
+                "book",
+                "about",
+                "ancient",
+                "maps"
+              ]
+            }
+          ]
+        },
+        {
+          "sentences": [
+            {
+              "text": "She walked past the front desk, climbed the marble stairs, and turned down a long quiet hall.",
+              "wordList": [
+                "She",
+                "walked",
+                "past",
+                "the",
+                "front",
+                "desk",
+                "climbed",
+                "the",
+                "marble",
+                "stairs",
+                "and",
+                "turned",
+                "down",
+                "a",
+                "long",
+                "quiet",
+                "hall"
+              ]
+            },
+            {
+              "text": "Tall shelves stood on both sides like a forest of paper.",
+              "wordList": [
+                "Tall",
+                "shelves",
+                "stood",
+                "on",
+                "both",
+                "sides",
+                "like",
+                "a",
+                "forest",
+                "of",
+                "paper"
+              ]
+            },
+            {
+              "text": "She walked deeper between them, reading the labels: Maps, History, Geography.",
+              "wordList": [
+                "She",
+                "walked",
+                "deeper",
+                "between",
+                "them",
+                "reading",
+                "the",
+                "labels",
+                "Maps",
+                "History",
+                "Geography"
+              ]
+            }
+          ]
+        },
+        {
+          "sentences": [
+            {
+              "text": "After she pulled a thick blue book from a low shelf, Carla looked up and froze.",
+              "wordList": [
+                "After",
+                "she",
+                "pulled",
+                "a",
+                "thick",
+                "blue",
+                "book",
+                "from",
+                "a",
+                "low",
+                "shelf",
+                "Carla",
+                "looked",
+                "up",
+                "and",
+                "froze"
+              ]
+            },
+            {
+              "text": "She did not know which way she had come.",
+              "wordList": [
+                "She",
+                "did",
+                "not",
+                "know",
+                "which",
+                "way",
+                "she",
+                "had",
+                "come"
+              ]
+            },
+            {
+              "text": "Every aisle looked the same.",
+              "wordList": [
+                "Every",
+                "aisle",
+                "looked",
+                "the",
+                "same"
+              ]
+            },
+            {
+              "text": "The shelves seemed taller now.",
+              "wordList": [
+                "The",
+                "shelves",
+                "seemed",
+                "taller",
+                "now"
+              ]
+            },
+            {
+              "text": "Her heart began to thump fast.",
+              "wordList": [
+                "Her",
+                "heart",
+                "began",
+                "to",
+                "thump",
+                "fast"
+              ]
+            }
+          ]
+        },
+        {
+          "sentences": [
+            {
+              "text": "Then she heard a soft sound.",
+              "wordList": [
+                "Then",
+                "she",
+                "heard",
+                "a",
+                "soft",
+                "sound"
+              ]
+            },
+            {
+              "text": "A librarian rolled around the corner with a small cart.",
+              "wordList": [
+                "A",
+                "librarian",
+                "rolled",
+                "around",
+                "the",
+                "corner",
+                "with",
+                "a",
+                "small",
+                "cart"
+              ]
+            },
+            {
+              "text": "Are you looking for the way out, she asked kindly.",
+              "wordList": [
+                "Are",
+                "you",
+                "looking",
+                "for",
+                "the",
+                "way",
+                "out",
+                "she",
+                "asked",
+                "kindly"
+              ]
+            },
+            {
+              "text": "Carla laughed and held up her book.",
+              "wordList": [
+                "Carla",
+                "laughed",
+                "and",
+                "held",
+                "up",
+                "her",
+                "book"
+              ]
+            }
+          ]
+        }
+      ],
+      "wordCount": 150,
+      "avgSentenceLengthWords": 9.4,
+      "gpcInventory": [
+        "FL_04_grade2_fluency"
+      ],
+      "hfwInventory": [
+        "HFW_01a_anchors",
+        "HFW_02_set2"
+      ],
+      "multisyllabicPctIfAny": null,
+      "validationStatus": "auto-tokenized"
+    },
+    {
+      "passageId": "P_FL05_004",
+      "gateId": "FL_05_grade3_fluency",
+      "module": "7.1. Grade 3 Cold Read",
+      "topic": "How Crayons Were Invented",
+      "genre": "informational",
+      "isCold": true,
+      "difficultyRank": 3,
+      "targetWordCount": 150,
+      "morphemeInventory": [
+        "MORPH_S_less",
+        "MORPH_S_ful",
+        "MORPH_S_tion"
+      ],
+      "paragraphs": [
+        {
+          "sentences": [
+            {
+              "text": "Long ago, students used pieces of chalk or hard wax sticks to draw.",
+              "wordList": [
+                "Long",
+                "ago",
+                "students",
+                "used",
+                "pieces",
+                "of",
+                "chalk",
+                "or",
+                "hard",
+                "wax",
+                "sticks",
+                "to",
+                "draw"
+              ]
+            },
+            {
+              "text": "The wax sticks were messy and broke easily.",
+              "wordList": [
+                "The",
+                "wax",
+                "sticks",
+                "were",
+                "messy",
+                "and",
+                "broke",
+                "easily"
+              ]
+            },
+            {
+              "text": "They were also not safe for kids, because some held bits of metal or oils that could hurt little fingers.",
+              "wordList": [
+                "They",
+                "were",
+                "also",
+                "not",
+                "safe",
+                "for",
+                "kids",
+                "because",
+                "some",
+                "held",
+                "bits",
+                "of",
+                "metal",
+                "or",
+                "oils",
+                "that",
+                "could",
+                "hurt",
+                "little",
+                "fingers"
+              ]
+            }
+          ]
+        },
+        {
+          "sentences": [
+            {
+              "text": "In the year 1903, two American cousins named Edwin Binney and Harold Smith worked at a small company.",
+              "wordList": [
+                "In",
+                "the",
+                "year",
+                "1903",
+                "two",
+                "American",
+                "cousins",
+                "named",
+                "Edwin",
+                "Binney",
+                "and",
+                "Harold",
+                "Smith",
+                "worked",
+                "at",
+                "a",
+                "small",
+                "company"
+              ]
+            },
+            {
+              "text": "Their company made paint and other supplies for factories.",
+              "wordList": [
+                "Their",
+                "company",
+                "made",
+                "paint",
+                "and",
+                "other",
+                "supplies",
+                "for",
+                "factories"
+              ]
+            },
+            {
+              "text": "They began to think about how to make a colored stick that was safe, smooth, and cheap.",
+              "wordList": [
+                "They",
+                "began",
+                "to",
+                "think",
+                "about",
+                "how",
+                "to",
+                "make",
+                "a",
+                "colored",
+                "stick",
+                "that",
+                "was",
+                "safe",
+                "smooth",
+                "and",
+                "cheap"
+              ]
+            }
+          ]
+        },
+        {
+          "sentences": [
+            {
+              "text": "Edwin's wife, Alice, helped them with the new product.",
+              "wordList": [
+                "Edwin's",
+                "wife",
+                "Alice",
+                "helped",
+                "them",
+                "with",
+                "the",
+                "new",
+                "product"
+              ]
+            },
+            {
+              "text": "She mixed two French words to give it a name.",
+              "wordList": [
+                "She",
+                "mixed",
+                "two",
+                "French",
+                "words",
+                "to",
+                "give",
+                "it",
+                "a",
+                "name"
+              ]
+            },
+            {
+              "text": "She used craie, which means chalk, and ola, which means oily.",
+              "wordList": [
+                "She",
+                "used",
+                "craie",
+                "which",
+                "means",
+                "chalk",
+                "and",
+                "ola",
+                "which",
+                "means",
+                "oily"
+              ]
+            },
+            {
+              "text": "Together, the new word became crayon.",
+              "wordList": [
+                "Together",
+                "the",
+                "new",
+                "word",
+                "became",
+                "crayon"
+              ]
+            }
+          ]
+        },
+        {
+          "sentences": [
+            {
+              "text": "The first box of Crayola crayons cost only five cents.",
+              "wordList": [
+                "The",
+                "first",
+                "box",
+                "of",
+                "Crayola",
+                "crayons",
+                "cost",
+                "only",
+                "five",
+                "cents"
+              ]
+            },
+            {
+              "text": "It had eight bright colors.",
+              "wordList": [
+                "It",
+                "had",
+                "eight",
+                "bright",
+                "colors"
+              ]
+            },
+            {
+              "text": "Kids loved them right away.",
+              "wordList": [
+                "Kids",
+                "loved",
+                "them",
+                "right",
+                "away"
+              ]
+            },
+            {
+              "text": "Today, billions of crayons are made every single year.",
+              "wordList": [
+                "Today",
+                "billions",
+                "of",
+                "crayons",
+                "are",
+                "made",
+                "every",
+                "single",
+                "year"
+              ]
+            }
+          ]
+        }
+      ],
+      "wordCount": 150,
+      "avgSentenceLengthWords": 10.7,
+      "gpcInventory": [
+        "FL_04_grade2_fluency"
+      ],
+      "hfwInventory": [
+        "HFW_01a_anchors",
+        "HFW_02_set2"
+      ],
+      "multisyllabicPctIfAny": null,
+      "validationStatus": "auto-tokenized"
+    },
+    {
+      "passageId": "P_FL05_005",
+      "gateId": "FL_05_grade3_fluency",
+      "module": "7.1. Grade 3 Cold Read",
+      "topic": "Race Day at the Park",
+      "genre": "narrative",
+      "isCold": true,
+      "difficultyRank": 3,
+      "targetWordCount": 150,
+      "morphemeInventory": [
+        "MORPH_S_ly",
+        "MORPH_S_er_compare"
+      ],
+      "paragraphs": [
+        {
+          "sentences": [
+            {
+              "text": "The sun was bright on race day.",
+              "wordList": [
+                "The",
+                "sun",
+                "was",
+                "bright",
+                "on",
+                "race",
+                "day"
+              ]
+            },
+            {
+              "text": "Yellow banners flapped in the breeze.",
+              "wordList": [
+                "Yellow",
+                "banners",
+                "flapped",
+                "in",
+                "the",
+                "breeze"
+              ]
+            },
+            {
+              "text": "A long ribbon stretched across the finish line at the far end of the park.",
+              "wordList": [
+                "A",
+                "long",
+                "ribbon",
+                "stretched",
+                "across",
+                "the",
+                "finish",
+                "line",
+                "at",
+                "the",
+                "far",
+                "end",
+                "of",
+                "the",
+                "park"
+              ]
+            },
+            {
+              "text": "Maya stood at the starting line, her red sneakers tied tight.",
+              "wordList": [
+                "Maya",
+                "stood",
+                "at",
+                "the",
+                "starting",
+                "line",
+                "her",
+                "red",
+                "sneakers",
+                "tied",
+                "tight"
+              ]
+            }
+          ]
+        },
+        {
+          "sentences": [
+            {
+              "text": "Around her, other kids stretched their legs or jogged in place.",
+              "wordList": [
+                "Around",
+                "her",
+                "other",
+                "kids",
+                "stretched",
+                "their",
+                "legs",
+                "or",
+                "jogged",
+                "in",
+                "place"
+              ]
+            },
+            {
+              "text": "Maya's stomach felt jumpy.",
+              "wordList": [
+                "Maya's",
+                "stomach",
+                "felt",
+                "jumpy"
+              ]
+            },
+            {
+              "text": "This was her first race, and she had practiced hard for weeks.",
+              "wordList": [
+                "This",
+                "was",
+                "her",
+                "first",
+                "race",
+                "and",
+                "she",
+                "had",
+                "practiced",
+                "hard",
+                "for",
+                "weeks"
+              ]
+            },
+            {
+              "text": "She took a deep breath and reminded herself to start slow.",
+              "wordList": [
+                "She",
+                "took",
+                "a",
+                "deep",
+                "breath",
+                "and",
+                "reminded",
+                "herself",
+                "to",
+                "start",
+                "slow"
+              ]
+            }
+          ]
+        },
+        {
+          "sentences": [
+            {
+              "text": "The horn blared.",
+              "wordList": [
+                "The",
+                "horn",
+                "blared"
+              ]
+            },
+            {
+              "text": "Maya pushed off the line and ran with the pack.",
+              "wordList": [
+                "Maya",
+                "pushed",
+                "off",
+                "the",
+                "line",
+                "and",
+                "ran",
+                "with",
+                "the",
+                "pack"
+              ]
+            },
+            {
+              "text": "Her feet pounded the path.",
+              "wordList": [
+                "Her",
+                "feet",
+                "pounded",
+                "the",
+                "path"
+              ]
+            },
+            {
+              "text": "Trees flashed past on both sides.",
+              "wordList": [
+                "Trees",
+                "flashed",
+                "past",
+                "on",
+                "both",
+                "sides"
+              ]
+            },
+            {
+              "text": "She kept her steady pace as other kids sprinted ahead, then slowed.",
+              "wordList": [
+                "She",
+                "kept",
+                "her",
+                "steady",
+                "pace",
+                "as",
+                "other",
+                "kids",
+                "sprinted",
+                "ahead",
+                "then",
+                "slowed"
+              ]
+            }
+          ]
+        },
+        {
+          "sentences": [
+            {
+              "text": "Maya passed three runners.",
+              "wordList": [
+                "Maya",
+                "passed",
+                "three",
+                "runners"
+              ]
+            },
+            {
+              "text": "Near the end she saw the ribbon.",
+              "wordList": [
+                "Near",
+                "the",
+                "end",
+                "she",
+                "saw",
+                "the",
+                "ribbon"
+              ]
+            },
+            {
+              "text": "She gave one last push and crossed the line in fourth place.",
+              "wordList": [
+                "She",
+                "gave",
+                "one",
+                "last",
+                "push",
+                "and",
+                "crossed",
+                "the",
+                "line",
+                "in",
+                "fourth",
+                "place"
+              ]
+            },
+            {
+              "text": "Her dad cheered.",
+              "wordList": [
+                "Her",
+                "dad",
+                "cheered"
+              ]
+            },
+            {
+              "text": "Maya grinned wide because fourth was better than she had hoped.",
+              "wordList": [
+                "Maya",
+                "grinned",
+                "wide",
+                "because",
+                "fourth",
+                "was",
+                "better",
+                "than",
+                "she",
+                "had",
+                "hoped"
+              ]
+            }
+          ]
+        }
+      ],
+      "wordCount": 150,
+      "avgSentenceLengthWords": 8.3,
+      "gpcInventory": [
+        "FL_04_grade2_fluency"
+      ],
+      "hfwInventory": [
+        "HFW_01a_anchors",
+        "HFW_02_set2"
+      ],
+      "multisyllabicPctIfAny": null,
+      "validationStatus": "auto-tokenized"
+    }
+  ]
+}

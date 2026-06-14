@@ -18,7 +18,7 @@
 // ============================================================
 
 import { createClient } from "@supabase/supabase-js";
-import skillNodes from "../src/data/skill_nodes.json" with { type: "json" };
+import skillNodes from "../../src/data/skill_nodes.json" with { type: "json" };
 
 const APP_SLUG = "reading_academy";
 const DAILY_TARGET = 30; // mirrors XP_DAILY_TARGET in masteryEngine.js
@@ -37,30 +37,48 @@ function startOfDayMs(daysAgo = 0) {
   return Date.UTC(y, m - 1, d, 6, 0, 0) - daysAgo * DAY_MS;
 }
 
-// XP earned by this student inside `windowMs..now`. Mirrors
-// getDailyXp from masteryEngine.js but operates over an arbitrary
-// window so we can compute today and 7-day in one pass.
+// Merge legacy `state.nodes` with the M3 `state.modelV2.nodes`,
+// preferring modelV2 entries when both exist. M10-D bridge so the
+// launcher gets accurate data regardless of which vintage of state
+// the student has.
+function mergedNodes(state) {
+  const legacy = state?.nodes || {};
+  const m3 = state?.modelV2?.nodes || {};
+  const out = { ...legacy };
+  for (const k of Object.keys(m3)) out[k] = m3[k];
+  return out;
+}
+
+// XP earned by this student inside `windowMs..now`. Reads either
+// legacy attempts[] or M3 history[] arrays; same per-attempt shape.
 function xpEarnedSince(state, sinceMs) {
   let xp = 0;
+  const all = mergedNodes(state);
   for (const def of skillNodes) {
-    const ns = state?.nodes?.[def.id];
+    const ns = all[def.id];
     if (!ns) continue;
     const xpPerItem = def.xpPerItem ?? 1;
     const xpOnMastery = def.xpOnMastery ?? 0;
-    for (const a of ns.attempts || []) {
+    const attempts = Array.isArray(ns.attempts)
+      ? ns.attempts
+      : Array.isArray(ns.history)
+      ? ns.history
+      : [];
+    for (const a of attempts) {
       if ((a.ts ?? 0) >= sinceMs && a.correct) xp += xpPerItem;
     }
-    if (ns.masteredAt && ns.masteredAt >= sinceMs) xp += xpOnMastery;
+    const masteredAt = ns.lastMasteredAt ?? ns.masteredAt;
+    if (masteredAt && masteredAt >= sinceMs) xp += xpOnMastery;
   }
   return xp;
 }
 
 // "Up next" pointer — the node that the SPA's selectActiveNode would
-// pick. We resolve it cheaply here (priority: practicing > active >
-// unlocked-in-graph-order).
+// pick. Priority: practicing > active > unlocked-in-graph-order.
 function selectActiveNodeId(state) {
+  const all = mergedNodes(state);
   const order = skillNodes.map((n) => n.id);
-  const find = (status) => order.find((id) => state?.nodes?.[id]?.status === status);
+  const find = (status) => order.find((id) => all[id]?.status === status);
   return find("practicing") || find("active") || find("unlocked") || null;
 }
 

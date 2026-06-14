@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 400" role="img" aria-label="Sunrise over a calm meadow">
+  <defs>
+    <linearGradient id="sky" x1="0" x2="0" y1="0" y2="1">
+      <stop offset="0%" stop-color="#fde6c4"/>
+      <stop offset="55%" stop-color="#f8c98a"/>
+      <stop offset="100%" stop-color="#f3aa6e"/>
+    </linearGradient>
+    <radialGradient id="sun" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#fffaef"/>
+      <stop offset="60%" stop-color="#fff1c0"/>
+      <stop offset="100%" stop-color="#fff1c0" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="800" height="400" fill="url(#sky)"/>
+  <circle cx="400" cy="240" r="170" fill="url(#sun)"/>
+  <circle cx="400" cy="240" r="58" fill="#fff7d8"/>
+  <path d="M0 300 Q200 250 400 280 T800 270 L800 400 L0 400 Z" fill="#7fa56b" opacity="0.85"/>
+  <path d="M0 340 Q220 295 460 320 T800 310 L800 400 L0 400 Z" fill="#5e8a55"/>
+  <g opacity="0.55" fill="#3f6c47">
+    <ellipse cx="80" cy="370" rx="14" ry="6"/>
+    <ellipse cx="170" cy="380" rx="18" ry="6"/>
+    <ellipse cx="280" cy="365" rx="12" ry="5"/>
+    <ellipse cx="540" cy="375" rx="20" ry="6"/>
+    <ellipse cx="660" cy="368" rx="14" ry="5"/>
+    <ellipse cx="730" cy="380" rx="16" ry="6"/>
+  </g>
+</svg>

@@ -93,6 +93,50 @@ export function cascadeUnlock(state) {
   return state;
 }
 
+// ---------- M16-K3: autonomous-mode prerequisite unlocking ----------
+//
+// Autonomous students can never master a teacher-led prereq on their own
+// (PA_01 isolation, LS_01 letter-sound, etc.). Without special handling,
+// every CVC node and most downstream phonics nodes stay locked behind
+// teacher-checks the autonomous student has no way to satisfy.
+//
+// Solution: for autonomous-mode unlocking, treat teacher-led prereqs as
+// SOFT — they don't block downstream progression. A teacher-led prereq
+// is satisfied if the node is mastered OR if it's teacher-led (the
+// student is presumed to have it; teachers can still verify in-person
+// via teacher mode and the observation queue).
+//
+// Hard-mode unlock (the original cascadeUnlock above) is still used by
+// the teacher-administered diagnostic and any teacher-mode workflow,
+// where teacher-led mastery IS gathered through observation.
+function isPrereqSatisfiedAutonomous(prereqId, state, byId) {
+  const ns = state.nodes[prereqId];
+  if (ns?.status === "mastered") return true;
+  const def = byId.get(prereqId);
+  // M16-K3: teacher-led prereqs auto-satisfy in autonomous mode. The
+  // student is treated as having the underlying skill so downstream
+  // auto-scorable work isn't artificially blocked. The actual mastery
+  // is then proven (or refuted) by the auto-scorable work itself —
+  // a student who can read CVC words demonstrably has the prereqs.
+  if (def?.requires_teacher_scoring) return true;
+  return false;
+}
+
+export function cascadeUnlockAutonomous(state, nodeDefs) {
+  const nodes = nodeDefs || globalThis.__skillNodes || [];
+  const byId = new Map(nodes.map((n) => [n.id, n]));
+  for (const def of nodes) {
+    const ns = state.nodes[def.id];
+    if (!ns) continue;
+    if (ns.status !== "locked") continue;
+    const ok = (def.prereqs || []).every((p) =>
+      isPrereqSatisfiedAutonomous(p, state, byId),
+    );
+    if (ok) ns.status = "unlocked";
+  }
+  return state;
+}
+
 // ---------- selecting today's task ----------
 
 export function selectActiveNode(state, nodeDefs) {
@@ -105,6 +149,22 @@ export function selectActiveNode(state, nodeDefs) {
   const active = order.find((id) => state.nodes[id]?.status === "active");
   if (active) return active;
   const unlocked = order.find((id) => state.nodes[id]?.status === "unlocked");
+  return unlocked || null;
+}
+
+// M16-K2 / M16-K3: autonomous-mode active-node selection. Skips any
+// teacher-led node so an autonomous student is never offered a task
+// they can't complete on their own. Same priority chain otherwise.
+export function selectActiveNodeAutonomous(state, nodeDefs) {
+  const order = nodeDefs.filter((n) => !n.requires_teacher_scoring);
+  const ids = order.map((n) => n.id);
+  const practicing = ids.find(
+    (id) => state.nodes[id]?.status === "practicing",
+  );
+  if (practicing) return practicing;
+  const active = ids.find((id) => state.nodes[id]?.status === "active");
+  if (active) return active;
+  const unlocked = ids.find((id) => state.nodes[id]?.status === "unlocked");
   return unlocked || null;
 }
 

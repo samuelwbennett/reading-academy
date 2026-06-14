@@ -22,7 +22,9 @@ import skillNodes from "../../../data/skill_nodes.json";
 import initialState from "../../../data/student_state.json";
 import {
   cascadeUnlock,
+  cascadeUnlockAutonomous,
   selectActiveNode,
+  selectActiveNodeAutonomous,
 } from "../../../lib/masteryEngine.js";
 import { backfillNodeState } from "../../../lib/graphValidator.js";
 
@@ -81,8 +83,12 @@ export function loadState() {
   //    locked entry. Existing entries are preserved untouched.
   state = backfillNodeState(state, skillNodes);
 
-  // 5. Cascade unlock: promote nodes whose prereqs are all mastered.
-  state = cascadeUnlock(state);
+  // 5. Cascade unlock — M16-K3: autonomous variant treats teacher-led
+  //    prereqs as soft so the autonomous student can progress through
+  //    the auto-scorable spine of the graph. Teacher-mode workflows
+  //    (Diagnostic ?teacher=1, Roster) can still call the strict
+  //    cascadeUnlock from masteryEngine when they need it.
+  state = cascadeUnlockAutonomous(state, skillNodes);
 
   return state;
 }
@@ -98,15 +104,41 @@ export function saveState(state) {
 }
 
 // Returns the ID of the node the student should engage with next, or null if
-// nothing is available. Wraps masteryEngine.selectActiveNode (priority:
-// practicing > active > first unlocked-in-graph-order).
+// nothing is available.
 //
-// The build-plan spec calls for a fourth fallback: "next available locked
-// node whose prereqs are complete." cascadeUnlock already promotes any such
-// node from locked → unlocked before this runs, so the third priority above
-// covers that case automatically. No extra logic needed here.
-export function getActiveNodeId(state) {
-  return selectActiveNode(state, skillNodes);
+// M16-K2 / M16-K3: autonomous mode is the default. The autonomous variant
+// skips teacher-led nodes so the student is never offered a task they can't
+// complete on their own. Teacher mode (?teacher=1 or signed-in teacher/
+// admin) can opt back into the strict variant by passing { autonomous:
+// false } so they can drill / observe teacher-led nodes directly.
+export function getActiveNodeId(state, opts = {}) {
+  const autonomous = opts.autonomous !== false;
+  return autonomous
+    ? selectActiveNodeAutonomous(state, skillNodes)
+    : selectActiveNode(state, skillNodes);
+}
+
+// M16-K4: observation-queue helper. Whenever the autonomous student
+// would have landed on a teacher-led node, we record an entry here so
+// teachers can see what the student bypassed and verify in person.
+// Stored under state.pendingTeacherObservations[nodeId] = { ts, reason }.
+// Pure function — caller must saveState to persist.
+export function markPendingTeacherObservation(state, nodeId, reason = "auto_skipped") {
+  if (!state || !nodeId) return state;
+  const next = { ...state };
+  next.pendingTeacherObservations = {
+    ...(state.pendingTeacherObservations || {}),
+    [nodeId]: {
+      ts: Date.now(),
+      reason,
+    },
+  };
+  return next;
+}
+
+export function listPendingTeacherObservations(state) {
+  const map = state?.pendingTeacherObservations || {};
+  return Object.entries(map).map(([nodeId, meta]) => ({ nodeId, ...meta }));
 }
 
 // Counts grouped per the M1-A spec: mastered, in progress (active+practicing),

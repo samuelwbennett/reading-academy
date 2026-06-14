@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 400" role="img" aria-label="A simple garden with flowers under a soft sky">
+  <defs>
+    <linearGradient id="g-sky" x1="0" x2="0" y1="0" y2="1">
+      <stop offset="0%" stop-color="#dbeefb"/>
+      <stop offset="100%" stop-color="#b9dff3"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="400" fill="url(#g-sky)"/>
+  <circle cx="660" cy="100" r="48" fill="#fff5c8"/>
+  <path d="M0 280 Q200 240 400 260 T800 250 L800 400 L0 400 Z" fill="#9bc88a"/>
+  <path d="M0 320 Q200 295 400 305 T800 300 L800 400 L0 400 Z" fill="#7eb073"/>
+  <g>
+    <line x1="120" y1="395" x2="120" y2="320" stroke="#5a8245" stroke-width="3"/>
+    <circle cx="120" cy="312" r="14" fill="#f4a3b6"/>
+    <circle cx="120" cy="312" r="5" fill="#fef0c7"/>
+  </g>
+  <g>
+    <line x1="240" y1="395" x2="240" y2="305" stroke="#5a8245" stroke-width="3"/>
+    <circle cx="240" cy="295" r="16" fill="#f7c97a"/>
+    <circle cx="240" cy="295" r="5" fill="#fef0c7"/>
+  </g>
+  <g>
+    <line x1="370" y1="395" x2="370" y2="335" stroke="#5a8245" stroke-width="3"/>
+    <circle cx="370" cy="328" r="12" fill="#cfa1d8"/>
+    <circle cx="370" cy="328" r="4" fill="#fef0c7"/>
+  </g>
+  <g>
+    <line x1="540" y1="395" x2="540" y2="318" stroke="#5a8245" stroke-width="3"/>
+    <circle cx="540" cy="308" r="15" fill="#f4a3b6"/>
+    <circle cx="540" cy="308" r="5" fill="#fef0c7"/>
+  </g>
+  <g>
+    <line x1="680" y1="395" x2="680" y2="335" stroke="#5a8245" stroke-width="3"/>
+    <circle cx="680" cy="328" r="12" fill="#f7c97a"/>
+    <circle cx="680" cy="328" r="4" fill="#fef0c7"/>
+  </g>
+</svg>

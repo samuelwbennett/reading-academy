@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 400" role="img" aria-label="A calm beach with gentle waves at sunset">
+  <defs>
+    <linearGradient id="b-sky" x1="0" x2="0" y1="0" y2="1">
+      <stop offset="0%" stop-color="#fde6c4"/>
+      <stop offset="100%" stop-color="#fbb482"/>
+    </linearGradient>
+    <linearGradient id="b-sea" x1="0" x2="0" y1="0" y2="1">
+      <stop offset="0%" stop-color="#7fb3c4"/>
+      <stop offset="100%" stop-color="#5a8a9d"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="220" fill="url(#b-sky)"/>
+  <circle cx="400" cy="200" r="42" fill="#fff3cf"/>
+  <ellipse cx="400" cy="220" rx="42" ry="6" fill="#fff3cf" opacity="0.7"/>
+  <rect y="220" width="800" height="100" fill="url(#b-sea)"/>
+  <!-- waves -->
+  <path d="M0 240 Q100 230 200 240 T400 240 T600 240 T800 240 L800 250 L0 250 Z" fill="#a7c4d8" opacity="0.7"/>
+  <path d="M0 270 Q100 260 200 270 T400 270 T600 270 T800 270 L800 280 L0 280 Z" fill="#cfe2ee" opacity="0.6"/>
+  <!-- sand -->
+  <rect y="320" width="800" height="80" fill="#f0d9a8"/>
+  <rect y="318" width="800" height="6" fill="#fcefcf"/>
+  <!-- tiny shells -->
+  <g fill="#cfa078">
+    <ellipse cx="120" cy="370" rx="6" ry="3"/>
+    <ellipse cx="240" cy="380" rx="5" ry="3"/>
+    <ellipse cx="540" cy="370" rx="6" ry="3"/>
+    <ellipse cx="680" cy="378" rx="5" ry="3"/>
+  </g>
+</svg>

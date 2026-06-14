@@ -165,3 +165,49 @@ export function backfillNodeState(state, nodes) {
 export function filterTestableNodes(nodes, items) {
   return nodes.filter((n) => Array.isArray(items[n.id]) && items[n.id].length > 0);
 }
+
+// M16-I1 / M16-J1: filter for AUTONOMOUS placement (no teacher in the
+// loop). Excludes:
+//
+//   1. Any node flagged requires_teacher_scoring — these are the
+//      single-phoneme answers (PA_01 isolation, PA_06 segmentation,
+//      LS_* letter-sound) that ASR can't reliably score.
+//
+//   2. Any phoneme_* assessment — even ones whose ANSWER is a whole
+//      word and ASR-scorable (phoneme_blend, phoneme_delete_*,
+//      phoneme_substitute), the STIMULUS for these tasks is a phoneme
+//      sound. Browser SpeechSynthesis (the only TTS we ship) speaks
+//      single letters as their NAMES ("h" → "aitch", "o" → "oh") so
+//      the student hears "aitch-oh-pee" instead of /h//o//p/. The
+//      delete/substitute tasks have similar issues with embedded /s/
+//      etc. in their instructions. Until we wire Azure Neural TTS
+//      with proper SSML phoneme tags, these tasks are pedagogically
+//      broken in autonomous mode and must be teacher-administered.
+//
+// What remains: read_aloud (CVC, blends, digraphs, silent-e, vowel
+// teams, r-controlled, multisyllabic, HFW, inflectional) — the
+// student sees a written word and reads it aloud. The mic captures
+// the read, Azure scores it. This is the canonical autonomous flow.
+//
+// Teacher mode (?teacher=1 or signed-in teacher/admin) keeps using
+// filterTestableNodes so they can still administer the full battery
+// in person.
+const PHONEME_ASSESSMENT_TYPES = new Set([
+  "phoneme_isolate_initial",
+  "phoneme_isolate_final",
+  "phoneme_isolate_medial",
+  "phoneme_blend",
+  "phoneme_segment",
+  "phoneme_delete_initial",
+  "phoneme_delete_final",
+  "phoneme_substitute",
+  "letter_sound",
+]);
+
+export function filterAutonomousTestableNodes(nodes, items) {
+  return filterTestableNodes(nodes, items).filter((n) => {
+    if (n.requires_teacher_scoring) return false;
+    if (PHONEME_ASSESSMENT_TYPES.has(n.assessment)) return false;
+    return true;
+  });
+}
